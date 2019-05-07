@@ -22,7 +22,7 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-   resp.render('./pages/CreateTask.ejs');
+   resp.render('./pages/ViewGroups.ejs');
     console.log("Testing testing");
 });
 
