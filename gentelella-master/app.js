@@ -27,9 +27,32 @@ server.get('/', function(req, resp){
 });
 
 
+server.get('/Viewusers', function(req, resp){
+   resp.render('./pages/Viewusers.ejs');
+    console.log("Testing testing");
+});
+
+server.get('/Createusers', function(req, resp){
+   resp.render('./pages/CreateUser.ejs');
+    console.log("Testing testing");
+});
 
 
+server.get('/Viewtasks', function(req, resp){
+   resp.render('./pages/Viewtasks.ejs');
+    console.log("Testing testing");
+});
 
+server.get('/CreateTask', function(req, resp){
+   resp.render('./pages/CreateTask.ejs');
+    console.log("Testing testing");
+});
+
+
+server.get('/CreateTaskGroup', function(req, resp){
+   resp.render('./pages/CreateTaskGroup.ejs');
+    console.log("Testing testing");
+});
 
 server.use('/',routes);
 const port = process.env.PORT | 9090;
