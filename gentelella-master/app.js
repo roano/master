@@ -54,6 +54,16 @@ server.get('/CreateTaskGroup', function(req, resp){
     console.log("Testing testing");
 });
 
+server.get('/AssignTask', function(req, resp){
+   resp.render('./pages/AssignTask.ejs');
+    console.log("Testing testing");
+});
+
+server.get('/ViewGroups', function(req, resp){
+   resp.render('./pages/ViewGroups.ejs');
+    console.log("Testing testing");
+});
+
 server.use('/',routes);
 const port = process.env.PORT | 9090;
 server.listen(port);
