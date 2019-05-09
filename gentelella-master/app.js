@@ -22,7 +22,7 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-   resp.render('./pages/ViewGroups.ejs');
+   resp.render('./pages/home.ejs');
     console.log("Testing testing");
 });
 
@@ -61,6 +61,11 @@ server.get('/AssignTask', function(req, resp){
 
 server.get('/ViewGroups', function(req, resp){
    resp.render('./pages/ViewGroups.ejs');
+    console.log("Testing testing");
+});
+
+server.get('/home', function(req, resp){
+   resp.render('./pages/home.ejs');
     console.log("Testing testing");
 });
 
