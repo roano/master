@@ -64,6 +64,11 @@ server.get('/ViewGroups', function(req, resp){
     console.log("Testing testing");
 });
 
+server.get('/CreateGroup', function(req, resp){
+   resp.render('./pages/CreateGroup.ejs');
+    console.log("Testing testing");
+});
+
 server.get('/home', function(req, resp){
    resp.render('./pages/home.ejs');
     console.log("Testing testing");
