@@ -14,19 +14,20 @@ server.use(session({secret: 'ssshhhhh'}));
 // ----
 
 var connection = mysql.createConnection({
-    host: '127.0.0.1:3306',
+    host: 'localhost',
     user: 'root',
     password: '1234',
     database: 'capstone'
-})
+});
+
 
 connection.connect(function(error){
     if(!!error){
-        console.log('Error could not connect');
+        console.log(error);
     }else{
         console.log('Connected successfully');
     }
-})
+});
 
 server.use(express.static( "public" ));
 
