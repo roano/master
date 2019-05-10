@@ -20,10 +20,9 @@ var connection = mysql.createConnection({
     database: 'capstone'
 });
 
-
 connection.connect(function(error){
     if(!!error){
-        console.log(error);
+        console.log('Error could not connect');
     }else{
         console.log('Connected successfully');
     }
