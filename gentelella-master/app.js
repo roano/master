@@ -39,50 +39,7 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-   resp.render('./pages/AssignTask-Personnel - Copy.ejs');
-    console.log("Testing testing");
-});
-
-
-server.get('/Viewusers', function(req, resp){
-   resp.render('./pages/Viewusers.ejs');
-    console.log("Testing testing");
-});
-
-server.get('/Createusers', function(req, resp){
-   resp.render('./pages/CreateUser.ejs');
-    console.log("Testing testing");
-});
-
-
-server.get('/Viewtasks', function(req, resp){
-   resp.render('./pages/Viewtasks.ejs');
-    console.log("Testing testing");
-});
-
-server.get('/CreateTask', function(req, resp){
-   resp.render('./pages/CreateTask.ejs');
-    console.log("Testing testing");
-});
-
-
-server.get('/CreateTaskGroup', function(req, resp){
-   resp.render('./pages/CreateTaskGroup.ejs');
-    console.log("Testing testing");
-});
-
-server.get('/AssignTask', function(req, resp){
-   resp.render('./pages/AssignTask.ejs');
-    console.log("Testing testing");
-});
-
-server.get('/ViewGroups', function(req, resp){
-   resp.render('./pages/ViewGroups.ejs');
-    console.log("Testing testing");
-});
-
-server.get('/CreateGroup', function(req, resp){
-   resp.render('./pages/CreateGroup.ejs');
+   resp.render('./pages/home.ejs');
     console.log("Testing testing");
 });
 
@@ -90,6 +47,7 @@ server.get('/home', function(req, resp){
    resp.render('./pages/home.ejs');
     console.log("Testing testing");
 });
+
 
 server.use('/',routes);
 const port = process.env.PORT | 9090;
