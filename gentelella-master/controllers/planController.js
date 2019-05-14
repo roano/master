@@ -59,7 +59,10 @@ module.exports = {
         resp.render('./pages/CreateGroup.ejs');
         console.log("Testing testing");
     },
-    
+    Comparativeanalysis : function(req,resp){
+        resp.render('./pages/Comparativeanalysis.ejs');
+        console.log("Testing testing");
+    },
     
     
 }

@@ -48,10 +48,6 @@ server.get('/home', function(req, resp){
     console.log("Testing testing");
 });
 
-server.get('/Comparativeanalysis', function(req, resp){
-   resp.render('./pages/Comparativeanalysis.ejs');
-    console.log("Testing testing");
-});
 
 server.use('/',routes);
 const port = process.env.PORT | 9090;
