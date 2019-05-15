@@ -10,7 +10,7 @@ router.route('/CreateTaskGroup').get(planCtrl.CreateTaskGroup);
 router.route('/AssignTask').get(planCtrl.AssignTask);
 router.route('/ViewGroups').get(planCtrl.ViewGroups);
 router.route('/CreateGroup').get(planCtrl.CreateGroup);
-router.route('/Comparativeanalysis').get(planCtrl.Comparativeanalysis;
+router.route('/Comparativeanalysis').get(planCtrl.Comparativeanalysis);
 
 
 
