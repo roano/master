@@ -63,6 +63,24 @@ module.exports = {
         resp.render('./pages/Comparativeanalysis.ejs');
         console.log("Testing testing");
     },
+    addgroup : function(req, resp){
+        var gn = (req.body.GroupName);
+        var sg = (req.body.SelectGroup);
+        var gd =(req.body.GroupDesc);
+        console.log(sg);
+
+          var sql = "INSERT INTO `capstone`.`group` (`Group_Name`, `Area_ID`) VALUES (? , ?)";
+          var values = [gn, sg];    
+          connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+            resp.render('./pages/CreateGroup.ejs');
+          });
+           connection.end();
+        },
+
+    }
+
     
     
-}
+
