@@ -56,9 +56,14 @@ module.exports = {
             database: 'capstone'
         });
         
+        var res1;
+        var res2;
+        var res3;
+        
          connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
-            resp.render('./pages/ViewGroups.ejs',{data : result});
+            res1 = result;
+            resp.render('./pages/ViewGroups.ejs',{dataA : res1});
             });
             connection.end();
     },
@@ -72,7 +77,6 @@ module.exports = {
             password: '1234',
             database: 'capstone'
         });
-        
 
         connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
