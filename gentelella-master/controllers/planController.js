@@ -49,20 +49,18 @@ module.exports = {
         
         console.log("Testing testing");
         
-        /*var connection = mysql.createConnection({
+        var connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
             password: '1234',
             database: 'capstone'
-        });*/
+        });
         
-        resp.render('./pages/ViewGroups.ejs');
-        
-         /*connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+         connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
             resp.render('./pages/ViewGroups.ejs',{data : result});
             });
-            connection.end();*/
+            connection.end();
     },
     
     CreateGroup : function(req,resp){
