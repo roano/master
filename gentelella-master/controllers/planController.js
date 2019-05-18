@@ -13,12 +13,7 @@ var session = require('express-session');
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'capstone'
-});
+
 module.exports = {
     Viewusers : function(req,resp){
         resp.render('./pages/Viewusers.ejs');
@@ -67,7 +62,13 @@ module.exports = {
         var gn = (req.body.GroupName);
         var sg = (req.body.SelectGroup);
         var gd =(req.body.GroupDesc);
-        console.log(sg);
+        
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '1234',
+            database: 'capstone'
+        });
 
           var sql = "INSERT INTO `capstone`.`group` (`Group_Name`, `Area_ID`) VALUES (? , ?)";
           var values = [gn, sg];    
