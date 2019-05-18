@@ -48,6 +48,11 @@ server.get('/home', function(req, resp){
     console.log("Testing testing");
 });
 
+server.get('/login', function(req, resp){
+   resp.render('./pages/login.ejs');
+    console.log("Testing testing");
+});
+
 
 server.use('/',routes);
 const port = process.env.PORT | 9090;

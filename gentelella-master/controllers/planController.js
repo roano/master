@@ -46,18 +46,49 @@ module.exports = {
     },
     
     ViewGroups : function(req,resp){
-        resp.render('./pages/ViewGroups.ejs');
+        
         console.log("Testing testing");
+        
+        /*var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '1234',
+            database: 'capstone'
+        });*/
+        
+        resp.render('./pages/ViewGroups.ejs');
+        
+         /*connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/ViewGroups.ejs',{data : result});
+            });
+            connection.end();*/
     },
     
     CreateGroup : function(req,resp){
-        resp.render('./pages/CreateGroup.ejs');
         console.log("Testing testing");
-    },
+        
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '1234',
+            database: 'capstone'
+        });
+        
+
+        connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/CreateGroup.ejs',{data : result});
+            });
+            connection.end();
+
+        },
+    
     Comparativeanalysis : function(req,resp){
         resp.render('./pages/Comparativeanalysis.ejs');
         console.log("Testing testing");
     },
+    
     addgroup : function(req, resp){
         var gn = (req.body.GroupName);
         var sg = (req.body.SelectGroup);
@@ -75,8 +106,14 @@ module.exports = {
           connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log("Record Inserted");
-            resp.render('./pages/CreateGroup.ejs');
+            
           });
+        
+            connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/CreateGroup.ejs',{data : result});
+            });
+
            connection.end();
         },
 

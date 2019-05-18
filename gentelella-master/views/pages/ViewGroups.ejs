@@ -64,6 +64,7 @@
                   <div class="x_content">
 
                     <!-- start accordion -->
+                    <!--% for(var area of data) { %-->
                     <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
                       <div class="panel">
                         <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -116,20 +117,12 @@
                               </div>
                           </div>
                           </div>
-
+                            </div>
                           <!--End of Group 1 Table -->
-
                           <!-- Group 2 table testing -->
-                          <div class="panel">
-                              <a class="panel-heading" role="tab" id="HeadGroupTwo" data-toggle="collapse" data-parent="#headingOne" href="#CollapseGroupTwo" aria-expanded="true" aria-controls="CollapseGroupTwo">
-                                <h4 class="panel-title">Group 2</h4>
-                              </a>
-                              <div id="CollapseGroupTwo" class = "collapse">
-                        </div>
-                      </div>
-                          </div>
-                      <div class="sub-panel">
-        <!--Manipulate Tabs--><div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        
+                    <!--Manipulate Tabs-->
+                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                           <div class="panel-body">
                         <a class="panel-heading" role="tab" id="groupTwoHeading" data-toggle="collapse" data-parent="#accordion" href="#collapseGroupTwo" aria-expanded="true" aria-controls="collapseGroupTwo">
                           <h4 class="panel-title">Group 2</h4>
@@ -177,8 +170,8 @@
 
 
                       <!--Facilities tab-->
-                          </div>
-                          </div>
+                          
+                          
                       <div class="panel">
                         <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                           <h4 class="panel-title">Facilities</h4>
