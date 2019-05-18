@@ -17,65 +17,61 @@ server.use(session({secret: 'ssshhhhh'}));
 module.exports = {
     Viewusers : function(req,resp){
         resp.render('./pages/Viewusers.ejs');
-        console.log("Viewusers");
+        console.log("Testing testing");
     },
     
     Createusers : function(req,resp){
          resp.render('./pages/CreateUser.ejs');
-        console.log("Createusers");
+        console.log("Testing testing");
     },
     
     Viewtasks : function(req,resp){
         resp.render('./pages/Viewtasks.ejs');
-        console.log("Viewtasks ");
+        console.log("Testing testing");
     },
     
     CreateTask : function(req,resp){
         resp.render('./pages/CreateTask.ejs');
-        console.log("CreateTask");
+        console.log("Testing testing");
     },
     
     CreateTaskGroup : function(req,resp){
         resp.render('./pages/CreateTaskGroup.ejs');
-        console.log("CreateTaskGroup ");
+        console.log("Testing testing");
     },
     
     AssignTask : function(req,resp){
         resp.render('./pages/AssignTask.ejs');
-        console.log("AssignTask");
+        console.log("Testing testing");
     },
     
     ViewGroups : function(req,resp){
         
-        console.log("ViewGroups");
+        console.log("Testing testing");
         
         var connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
             password: '1234',
-            database: 'capstone'
+            database: 'capstone',
+            multipleStatements: true
         });
         
         var res1;
         var res2;
         var res3;
-        
-         connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+          
+        connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
             if (err) throw err;
-            res1 = result;
-            });
+            console.log(results[2]);
+            resp.render('./pages/ViewGroups.ejs', {dataA : results[0], dataB : results[1]} );
+            });      
         
-        connection.query("SELECT * FROM capstone.group;", function (err, result, fields) {
-            if (err) throw err;
-            res2 = result;
-            });
-        
-        resp.render('./pages/ViewGroups.ejs',{dataA : res1}, {dataB : res2});
             connection.end();
     },
     
     CreateGroup : function(req,resp){
-        console.log("CreateGroup");
+        console.log("Testing testing");
         
         var connection = mysql.createConnection({
             host: 'localhost',
@@ -94,11 +90,10 @@ module.exports = {
     
     Comparativeanalysis : function(req,resp){
         resp.render('./pages/Comparativeanalysis.ejs');
-        console.log("Comparativeanalysis");
+        console.log("Testing testing");
     },
     
     addgroup : function(req, resp){
-        console.log("addgroup");
         var gn = (req.body.GroupName);
         var sg = (req.body.SelectGroup);
         var gd =(req.body.GroupDesc);
