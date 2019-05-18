@@ -17,37 +17,37 @@ server.use(session({secret: 'ssshhhhh'}));
 module.exports = {
     Viewusers : function(req,resp){
         resp.render('./pages/Viewusers.ejs');
-        console.log("Testing testing");
+        console.log("Viewusers");
     },
     
     Createusers : function(req,resp){
          resp.render('./pages/CreateUser.ejs');
-        console.log("Testing testing");
+        console.log("Createusers");
     },
     
     Viewtasks : function(req,resp){
         resp.render('./pages/Viewtasks.ejs');
-        console.log("Testing testing");
+        console.log("Viewtasks ");
     },
     
     CreateTask : function(req,resp){
         resp.render('./pages/CreateTask.ejs');
-        console.log("Testing testing");
+        console.log("CreateTask");
     },
     
     CreateTaskGroup : function(req,resp){
         resp.render('./pages/CreateTaskGroup.ejs');
-        console.log("Testing testing");
+        console.log("CreateTaskGroup ");
     },
     
     AssignTask : function(req,resp){
         resp.render('./pages/AssignTask.ejs');
-        console.log("Testing testing");
+        console.log("AssignTask");
     },
     
     ViewGroups : function(req,resp){
         
-        console.log("Testing testing");
+        console.log("ViewGroups");
         
         var connection = mysql.createConnection({
             host: 'localhost',
@@ -63,13 +63,19 @@ module.exports = {
          connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
             res1 = result;
-            resp.render('./pages/ViewGroups.ejs',{dataA : res1});
             });
+        
+        connection.query("SELECT * FROM capstone.group;", function (err, result, fields) {
+            if (err) throw err;
+            res2 = result;
+            });
+        
+        resp.render('./pages/ViewGroups.ejs',{dataA : res1}, {dataB : res2});
             connection.end();
     },
     
     CreateGroup : function(req,resp){
-        console.log("Testing testing");
+        console.log("CreateGroup");
         
         var connection = mysql.createConnection({
             host: 'localhost',
@@ -88,10 +94,11 @@ module.exports = {
     
     Comparativeanalysis : function(req,resp){
         resp.render('./pages/Comparativeanalysis.ejs');
-        console.log("Testing testing");
+        console.log("Comparativeanalysis");
     },
     
     addgroup : function(req, resp){
+        console.log("addgroup");
         var gn = (req.body.GroupName);
         var sg = (req.body.SelectGroup);
         var gd =(req.body.GroupDesc);
