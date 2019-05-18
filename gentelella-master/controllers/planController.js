@@ -63,7 +63,7 @@ module.exports = {
           
         connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
             if (err) throw err;
-            console.log(results[2]);
+            console.log(results);
             resp.render('./pages/ViewGroups.ejs', {dataA : results[0], dataB : results[1]} );
             });      
         
