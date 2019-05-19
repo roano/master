@@ -6,12 +6,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
+var connection = require('./db');
 // ---- URL PARSER
 var url = require('url');
 var session = require('express-session');
 // ---- DEFINE SESSION
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
+
+
 
 
 module.exports = {
@@ -49,13 +52,7 @@ module.exports = {
         
         console.log("Testing testing");
         
-        var connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '1234',
-            database: 'capstone',
-            multipleStatements: true
-        });
+        connection = mysql.createConnection({multipleStatements:strue});
         
         var res1;
         var res2;
@@ -71,15 +68,7 @@ module.exports = {
     },
     
     CreateGroup : function(req,resp){
-        console.log("Testing testing");
-        
-        var connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '1234',
-            database: 'capstone'
-        });
-
+        console.log("Testing testing");s
         connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
             resp.render('./pages/CreateGroup.ejs',{data : result});
@@ -97,13 +86,6 @@ module.exports = {
         var gn = (req.body.GroupName);
         var sg = (req.body.SelectGroup);
         var gd =(req.body.GroupDesc);
-        
-        var connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '1234',
-            database: 'capstone'
-        });
 
           var sql = "INSERT INTO `capstone`.`group` (`Group_Name`, `Area_ID`) VALUES (? , ?)";
           var values = [gn, sg];    

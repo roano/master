@@ -13,12 +13,7 @@ var session = require('express-session');
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'capstone'
-});
+var connection = require('./db');
 
 
 connection.connect(function(error){
@@ -28,6 +23,8 @@ connection.connect(function(error){
         console.log('Connected successfully');
     }
 });
+
+connection.end();
 
 server.use(express.static( "public" ));
 
