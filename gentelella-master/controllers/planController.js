@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
+var connection = require('./db');
 // ---- URL PARSER
 var url = require('url');
 var session = require('express-session');
@@ -13,12 +14,9 @@ var session = require('express-session');
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'capstone'
-});
+
+
+
 module.exports = {
     Viewusers : function(req,resp){
         resp.render('./pages/Viewusers.ejs');
@@ -51,15 +49,62 @@ module.exports = {
     },
     
     ViewGroups : function(req,resp){
-        resp.render('./pages/ViewGroups.ejs');
+        
         console.log("Testing testing");
+        
+        connection = mysql.createConnection({multipleStatements:strue});
+        
+        var res1;
+        var res2;
+        var res3;
+          
+        connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
+            if (err) throw err;
+            console.log(results);
+            resp.render('./pages/ViewGroups.ejs', {dataA : results[0], dataB : results[1]} );
+            });      
+        
+            connection.end();
     },
     
     CreateGroup : function(req,resp){
-        resp.render('./pages/CreateGroup.ejs');
+        console.log("Testing testing");s
+        connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/CreateGroup.ejs',{data : result});
+            });
+            connection.end();
+
+        },
+    
+    Comparativeanalysis : function(req,resp){
+        resp.render('./pages/Comparativeanalysis.ejs');
         console.log("Testing testing");
     },
     
+    addgroup : function(req, resp){
+        var gn = (req.body.GroupName);
+        var sg = (req.body.SelectGroup);
+        var gd =(req.body.GroupDesc);
+
+          var sql = "INSERT INTO `capstone`.`group` (`Group_Name`, `Area_ID`) VALUES (? , ?)";
+          var values = [gn, sg];    
+          connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+            
+          });
+        
+            connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/CreateGroup.ejs',{data : result});
+            });
+
+           connection.end();
+        },
+
+    }
+
     
     
-}
+

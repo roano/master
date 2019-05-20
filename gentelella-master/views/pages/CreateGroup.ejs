@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Create Group </title>
+    <title> </title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,31 +45,37 @@
               </div>
               </div>
             </div>
+            
+            
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" action="add-group" data-parsley-validate class="form-horizontal form-label-left" method="post">
                     <!-- UI Part--->
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Group Name:<span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <!-- Task Group Name- txtfield -->
-                          <input type="text" id="Group Name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Group Name">
+                          <input type="text" name="GroupName" required="required" class="form-control col-md-7 col-xs-12" placeholder="Group Name">
                         </div>
                       </div>
                         <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Assign Area<span class="required">*</span> </label>
                         <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" placeholder="Select Group">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                            <option>Option three</option>
-                            <option>Option four</option>
+                          <select class="form-control" placeholder="Select Group" name="SelectGroup">
+                              
+
+                            <!-- code for taking data from sql to show on page-->
+                              <% for(var area of data){ %>
+                            
+                              <option value=<%=area.Area_ID %>> <%= area.Area_Name %> </option>
+                              <% } %>
+                              
                           </select>
                         </div>
                       </div>
@@ -78,7 +84,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Group Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="3" id="Group Description" placeholder="Group Description" required="required"></textarea>
+                          <textarea class="form-control" rows="3" id="Group Description" placeholder="Group Description" required="required" name="GroupDesc"></textarea>
                         </div>
                       </div>
                       <div class="ln_solid"></div>
@@ -145,6 +151,7 @@
     <script src="assets/vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
-	
+
+        
   </body>
 </html>
