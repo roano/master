@@ -1,14 +1,13 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '1234',
-    database: 'capstone'
+    database: 'capstone',
+    multipleStatements:true,
+    connectionLimit : 10
 });
 
-connection.connect(function(err) {
-    if (err) throw err;
-});
 
 module.exports = connection;
