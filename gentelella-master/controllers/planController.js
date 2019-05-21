@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
-var connection = require('./db');
+var connection = require('../db');
 // ---- URL PARSER
 var url = require('url');
 var session = require('express-session');
@@ -52,7 +52,6 @@ module.exports = {
         
         console.log("Testing testing");
         
-        connection = mysql.createConnection({multipleStatements:strue});
         
         var res1;
         var res2;
@@ -61,19 +60,19 @@ module.exports = {
         connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
             if (err) throw err;
             console.log(results);
-            resp.render('./pages/ViewGroups.ejs', {dataA : results[0], dataB : results[1]} );
+            resp.render('./pages/ViewGroups.ejs', {dataA : results[0], dataB : results[1], dataC : results[2]} );
             });      
         
-            connection.end();
+            
     },
     
     CreateGroup : function(req,resp){
-        console.log("Testing testing");s
+        console.log("Testing testing");
         connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
             resp.render('./pages/CreateGroup.ejs',{data : result});
             });
-            connection.end();
+            
 
         },
     
@@ -100,7 +99,7 @@ module.exports = {
             resp.render('./pages/CreateGroup.ejs',{data : result});
             });
 
-           connection.end();
+           
         },
 
     }

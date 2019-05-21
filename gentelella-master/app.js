@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
+var connection = require('./db');
 // ---- URL PARSER
 var url = require('url');
 var session = require('express-session');
@@ -13,17 +14,8 @@ var session = require('express-session');
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
 
-var connection = require('./db');
 
-connection.connect(function(error){
-    if(!!error){
-        console.log('Error could not connect');
-    }else{
-        console.log('Connected successfully');
-    }
-});
 
-connection.end();
 
 server.use(express.static( "public" ));
 
