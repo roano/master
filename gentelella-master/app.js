@@ -37,8 +37,15 @@ server.get('/home', function(req, resp){
 });
 
 server.get('/login', function(req, resp){
-   resp.render('./pages/login.ejs');
     console.log("Testing testing");
+    resp.render('./pages/login.ejs');
+});
+
+server.post('/enter', function(req, resp){
+    console.log(req.body.username);
+    console.log(req.body.password);
+    console.log("Testing testing");
+    resp.render('./pages/home.ejs');
 });
 
 

@@ -49,11 +49,11 @@ DROP TABLE IF EXISTS `group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `group` (
-  `Group_ID` int(11) NOT NULL,
+  `Group_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Group_Name` varchar(45) DEFAULT NULL,
   `Area_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Group_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,6 +62,7 @@ CREATE TABLE `group` (
 
 LOCK TABLES `group` WRITE;
 /*!40000 ALTER TABLE `group` DISABLE KEYS */;
+INSERT INTO `group` VALUES (1,'123',1),(2,'312',1),(3,'Hello',3),(4,'Hi',1),(5,'123',4),(6,'123',4),(7,'Students',9),(8,'Students',6),(9,'Test insert',8),(10,'123',1),(11,'123',1),(12,'123',1),(13,'234',1),(14,'123',1),(15,'Lisa',7);
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,6 +128,8 @@ CREATE TABLE `users` (
   `Role` int(11) DEFAULT NULL,
   `Group` int(11) DEFAULT NULL,
   `ContactNo` int(11) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `passwd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -149,4 +152,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-08 17:19:50
+-- Dump completed on 2019-05-23 19:06:07
