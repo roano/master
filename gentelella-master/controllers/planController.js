@@ -102,6 +102,33 @@ module.exports = {
            
         },
 
+        adduser : function(req, resp){
+
+            var fn = (req.body.firstname);
+            var ln = (req.body.lastname);
+            var em = (req.body.email);
+            var rl = (req.body.role);
+            var co = (req.body.contact);
+    
+            console.log(fn);
+            console.log(ln);
+            console.log(em);
+            console.log(rl);
+            console.log(co);
+
+            var sql = "INSERT INTO `capstone`.`users` (`User_First`, `User_Last`, 'e-mail_address', 'Role', 'ContactNo') VALUES (? , ? , ? , ? , ?)";
+          var values = [fn, ln, em, rl, co];    
+          connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+            
+          });
+
+            resp.render('./pages/CreateUser.ejs')
+    
+               
+            },
+
     }
 
     
