@@ -19,7 +19,15 @@ server.use(session({secret: 'ssshhhhh'}));
 
 module.exports = {
     Viewusers : function(req,resp){
-        resp.render('./pages/Viewusers.ejs');
+        
+        connection.query("SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, group.Group_Name, users.Role, users.ContactNo FROM capstone.users join capstone.group on users.Group=group.Group_ID;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/Viewusers.ejs',{data : result});
+            console.log(result);
+            });
+        
+        
+        
         console.log("Testing testing");
     },
     
@@ -116,7 +124,7 @@ module.exports = {
             console.log(rl);
             console.log(co);
 
-            var sql = "INSERT INTO `capstone`.`users` (`User_First`, `User_Last`, `e-mail_address` , `Role`, `ContactNo`) VALUES (? , ? , ? , ? , ?)";
+            var sql = "INSERT INTO `capstone`.`users` (`User_First`, `User_Last`, `email_address` , `Role`, `ContactNo`) VALUES (? , ? , ? , ? , ?)";
           var values = [fn, ln, em, rl, co];    
             
             

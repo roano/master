@@ -68,24 +68,17 @@
                         </tr>
                       </thead>
                       <tbody>
+                          <% for (var info of data) { %>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <th scope="row"><%= info.User_ID %></th>
+                          <td><%= info.User_First %></td>
+                          <td><%= info.User_Last %></td>
+                          <td><%= info.email_address %></td>
+                          <td><%= info.Group_Name %></td>
+                          <td><%= info.Role %></td>
+                          <td><%= info.ContactNo %></td>
                         </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                          <% } %>
                       </tbody>
                     </table>
                       <div class="ln_solid"></div>
