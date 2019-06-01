@@ -60,10 +60,6 @@ module.exports = {
         
         console.log("Testing testing");
         
-        
-        var res1;
-        var res2;
-        var res3;
           
         connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
             if (err) throw err;
@@ -110,7 +106,7 @@ module.exports = {
            
         },
 
-        adduser : function(req, resp){
+    adduser : function(req, resp){
 
             var fn = (req.body.firstname);
             var ln = (req.body.lastname);
@@ -136,6 +132,64 @@ module.exports = {
           });
 
             resp.render('./pages/CreateUser.ejs')
+    
+               
+            },
+    edituser : function(req, resp){
+
+            var id = (req.query.UID);
+    
+            console.log(id);
+
+             var sql = "SELECT * FROM capstone.users where users.User_ID = (?)";
+          var values = [id];    
+            
+            
+            
+          connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            resp.render('./pages/EditUser.ejs',{data : result})
+          });
+
+    
+               
+            },
+    alteruser : function(req, resp){
+        
+            var id = (req.body.UID);
+            var fn = (req.body.firstname);
+            var ln = (req.body.lastname);
+            var em = (req.body.email);
+            var rl = (req.body.role);
+            var co = (req.body.contact);
+            
+            console.log(id);
+            console.log(fn);
+            console.log(ln);
+            console.log(em);
+            console.log(rl);
+            console.log(co);
+
+             var sql = "Update capstone.users set User_First = ?, User_Last = ?, email_address = ?, Role = ?, ContactNo = ? where User_ID = ? ";
+          var values = [fn, ln, em, rl, co, id];    
+            
+            
+            
+          connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            
+          });
+        
+        console.log("updating");
+        
+        setTimeout(function() {
+        connection.query("SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, group.Group_Name, users.Role, users.ContactNo FROM capstone.users join capstone.group on users.Group=group.Group_ID;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/Viewusers.ejs',{data : result});
+            });
+        }, 3000);
     
                
             },
