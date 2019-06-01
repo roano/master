@@ -15,6 +15,6 @@ router.route('/add-group').post(planCtrl.addgroup);
 router.route('/adduser').post(planCtrl.adduser);
 router.route('/edituser').get(planCtrl.edituser);
 router.route('/alteruser').post(planCtrl.alteruser);
-
+router.route('/UploadDocument').get(planCtrl.UploadDocument);
 
 module.exports = router;    

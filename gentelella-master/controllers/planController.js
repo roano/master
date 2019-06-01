@@ -191,8 +191,14 @@ module.exports = {
             });
         }, 3000);
     
+
                
             },
+
+        UploadDocument : function(req,resp){
+              resp.render('./pages/UploadDocument.ejs');
+              console.log("Testing testing");
+        },
 
     }
 

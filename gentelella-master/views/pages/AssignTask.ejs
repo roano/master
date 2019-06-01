@@ -30,6 +30,17 @@
 
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
+
+<!--AJAX-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!--DATATABLE-->
+<link rel="stylesheet" href="assets/vendors/datatables/jquery.dataTables.css">
+<link rel="stylesheet" href="assets/vendors/datatables/jquery.dataTables_themeroller.css">
+<script src="assets/vendors/datatables/jquery.js"></script>
+<script src="assets/vendors/datatables/jquery_datatable.js"></script>
+
+
   </head>
 
   <body class="nav-md">
@@ -79,17 +90,53 @@
                       </div>
                         <!-- This should only pop out after a group has been chosen-->
                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Assign task to:<span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" placeholder="Select Group">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                            <option>Option three</option>
-                            <option>Option four</option>
-                          </select>
+                        
+                        <div class="col-md-6">
+                          <table id="tableone" class="dataTable" >
+                            <thead>
+                              <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Test</td>
+                                <td>tester</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button id="RightMove" style="float:left;">right &raquo;</button>
+                        <button id="LeftMove" style="float:left;">&laquo; left</button>
+                        <div class="col-md-6">
+                          <table id="tabletwo" class="dataTable" >
+                            <thead>
+                              <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                          </table>
                         </div>
                         </div>
+
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Assign task to:<span class="required"></span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control" placeholder="Select Group">
+                              <option>Option one</option>
+                              <option>Option two</option>
+                              <option>Option three</option>
+                              <option>Option four</option>
+                            </select>
+                          </div>
+                          </div>
+
                        <div class="col-md-6 col-sm-6 col-xs-12">
                        <label class="control-label col-md-6 col-sm-3 col-xs-12" for="first-name">Set Cycle Time:<span class="required"></span>
                         </label>
@@ -134,6 +181,36 @@
         <!-- /footer content -->
       </div>
     </div>
+
+    <!--JAVASCRIPT Datatable CODE-->
+    <script>
+    $(document).ready(function(){
+
+      var selectTable = $('#tableone').dataTable({
+      "bFilter": false
+      });
+
+      var selectedTable = $('tabletwo').dataTable({
+      "bFilter": false
+      });
+
+    selectTable.on('click', 'tbody tr' ,function() {
+		  $(this).toggleClass('selected');
+    });
+    selectedTable.on('click', 'tbody tr' ,function() {
+      $(this).toggleClass('selected');
+    });
+
+    $('#LeftMove').on('click',function () {
+		moveRows(SelectedTable, SelectTable);
+	});
+	
+	$('#RightMove').on('click',function () {
+		moveRows(SelectTable, SelectedTable);
+	});
+      
+    })
+    </script>
 
     <!-- jQuery -->
     <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
