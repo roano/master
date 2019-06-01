@@ -116,8 +116,11 @@ module.exports = {
             console.log(rl);
             console.log(co);
 
-            var sql = "INSERT INTO `capstone`.`users` (`User_First`, `User_Last`, 'e-mail_address', 'Role', 'ContactNo') VALUES (? , ? , ? , ? , ?)";
+            var sql = "INSERT INTO `capstone`.`users` (`User_First`, `User_Last`, `e-mail_address` , `Role`, `ContactNo`) VALUES (? , ? , ? , ? , ?)";
           var values = [fn, ln, em, rl, co];    
+            
+            
+            
           connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log("Record Inserted");

@@ -81,10 +81,10 @@
                                   <% for(var group of dataB) { %>
                                 <% if (group.Area_ID == area.Area_ID){ %>
                             <div class="panel">
-                              <a class="panel-heading" role="tab" id="HeadGroupOne" data-toggle="collapse" data-parent="#headingOne" href="#CollapseGroupOne" aria-expanded="true" aria-controls="CollapseGroupOne">
+                              <a class="panel-heading" role="tab" id="HeadGroupOne" data-toggle="collapse" data-parent="#headingOne" href="#Collapse<%= group.Group_ID %>" aria-expanded="true" aria-controls="Collapse<%= group.Group_ID %>">
                                 <h3 class="panel-title"><%= group.Group_Name %></h3>
                               </a>
-                              <div id="CollapseGroupOne" class = "collapse">
+                              <div id="Collapse<%= group.Group_ID %>" class = "collapse">
                                 
                                 
                             <table class="table table-bordered">
@@ -98,31 +98,28 @@
                                   <th>Position</th>
                                 </tr>
                               </thead>
+                                <% for(var user of dataC) { %>
+                                <% if(user.Group == group.Group_ID) {%>
                               <tbody>
                                 <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
+                                  
+                                  <td><%= user.User_ID %></td>
+                                  <td><%= user.User_First %></td>
+                                  <td><%= user.User_Last %></td>
+                                  <td><%= user.username %></td>
+                                  <td><%= user.ContactNo %></td>
+                                  <td><%= user.Role %></td>
                                 </tr>
                               </tbody>
+                                <% } %>
+                                <% } %>
                             </table>
+                                  
                               <div class="form-group">
                                 <button class="btn btn-primary" type="button">Add Member</button>
                                 <button class="btn btn-primary" type="button">Assign Group Leader</button>
                               </div>
+                                  
                           </div>
                           </div>
                               <% } %>
