@@ -20,7 +20,7 @@ server.use(session({secret: 'ssshhhhh'}));
 module.exports = {
     Viewusers : function(req,resp){
         
-        connection.query("SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, group.Group_Name, users.Role, users.ContactNo FROM capstone.users join capstone.group on users.Group=group.Group_ID;", function (err, result, fields) {
+        connection.query("SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, group.Group_Name, roles.Role_Name, users.ContactNo FROM capstone.users join capstone.group on users.Group=group.Group_ID join capstone.roles on users.Role = roles.Role_ID", function (err, result, fields) {
             if (err) throw err;
             resp.render('./pages/Viewusers.ejs',{data : result});
             console.log(result);
@@ -32,7 +32,13 @@ module.exports = {
     },
     
     Createusers : function(req,resp){
-         resp.render('./pages/CreateUser.ejs');
+         
+        connection.query("SELECT * FROM capstone.roles where Role_ID > 1;", function (err, result, fields) {
+            if (err) throw err;
+            resp.render('./pages/CreateUser.ejs',{data : result});
+            console.log(result)
+            });
+        
         console.log("Testing testing");
     },
     
@@ -141,15 +147,14 @@ module.exports = {
     
             console.log(id);
 
-             var sql = "SELECT * FROM capstone.users where users.User_ID = (?)";
           var values = [id];    
             
             
             
-          connection.query(sql, values, function (err, result) {
+          connection.query("SELECT * FROM capstone.users where users.User_ID = (?); SELECT * FROM capstone.roles where Role_ID > 1;", values, function (err, results) {
             if (err) throw err;
-            console.log(result);
-            resp.render('./pages/EditUser.ejs',{data : result})
+            console.log(results);
+            resp.render('./pages/EditUser.ejs',{data : results[0], dataB : results[1]})
           });
 
     

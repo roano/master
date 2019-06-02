@@ -84,9 +84,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Edit Role</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="role">
-                            <option value="1">Accreditation Personnel</option>
-                            <option value="2">Accreditation Officer</option>
-                            <option value="3">Admin</option>
+                            <% for (var role of dataB){ %>
+                            <option value="<%= role.Role_ID %>"><%= role.Role_Name %></option>
+                              <% } %>
                           </select>
                         </div>
                       </div>
