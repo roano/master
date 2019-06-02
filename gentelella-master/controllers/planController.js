@@ -145,6 +145,7 @@ module.exports = {
     
                
             },
+    
     edituser : function(req, resp){
 
             var id = (req.query.UID);
@@ -164,6 +165,7 @@ module.exports = {
     
                
             },
+    
     alteruser : function(req, resp){
         
             var id = (req.body.UID);
@@ -204,7 +206,7 @@ module.exports = {
                
             },
 
-        UploadDocument : function(req,resp){
+    UploadDocument : function(req,resp){
               resp.render('./pages/UploadDocument.ejs');
               console.log("Testing testing");
         },
