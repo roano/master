@@ -42,7 +42,7 @@
             <div class="page-title">
               <div class="title_left">
 
-                <h3>View User</h3>
+                <h3>View Users Assigned To Groups</h3>
 
               </div>
               </div>
@@ -53,7 +53,7 @@
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                   
                       <!--view table for users-->
                       <table class="table table-bordered">
                       <thead>
@@ -65,34 +65,82 @@
                           <th>Area Assigned</th>
                           <th>Role</th>
                           <th>Contact Number</th>
+                            
                         </tr>
                       </thead>
                       <tbody>
+                          
+                          <% for (var info of data) { %>
+                          <form method="get" action="edituser">
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <th scope="row"><%= info.User_ID %></th>
+                            <input type="hidden" name="UID" value="<%= info.User_ID %>">
+                          <td><%= info.User_First %></td>
+                          <td><%= info.User_Last %></td>
+                          <td><%= info.email_address %></td>
+                          <td><%= info.Group_Name %></td>
+                          <td><%= info.Role_Name %></td>
+                          <td><%= info.ContactNo %></td>
+                            <td><button type="submit" class="btn btn-success">Edit</button></td>
                         </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                          </form>
+                          <% } %>
                       </tbody>
                     </table>
-                      <div class="ln_solid"></div>
-                      
-
-                    </form>
+                      <div class="ln_solid"></div> 
                   </div>
+                </div>
+              </div>
+            </div>
+        <div role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+
+            <h3>View Users Unssigned To Groups</h3>
+
+              </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <br />
+                   
+                      <!--view table for users-->
+                      <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email</th>
+                          <th>Contact Number</th>
+                            
+                        </tr>
+                      </thead>
+                      <tbody>
+                          
+                          <% for (var info2 of dataB) { %>
+                          <form method="get" action="edituser">
+                        <tr>
+                          <th scope="row"><%= info2.User_ID %></th>
+                            <input type="hidden" name="UID" value="<%= info2.User_ID %>">
+                          <td><%= info2.User_First %></td>
+                          <td><%= info2.User_Last %></td>
+                          <td><%= info2.email_address %></td>
+                          <td><%= info2.ContactNo %></td>
+                            <td><button type="submit" class="btn btn-success">Edit</button></td>
+                        </tr>
+                          </form>
+                          <% } %>
+                      </tbody>
+                    </table>
+                      <div class="ln_solid">
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
