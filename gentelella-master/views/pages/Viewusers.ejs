@@ -124,17 +124,23 @@
                       <tbody>
                           
                           <% for (var info2 of dataB) { %>
+                          <tr>
                           <form method="get" action="edituser">
-                        <tr>
+                        
                           <th scope="row"><%= info2.User_ID %></th>
                             <input type="hidden" name="UID" value="<%= info2.User_ID %>">
                           <td><%= info2.User_First %></td>
                           <td><%= info2.User_Last %></td>
                           <td><%= info2.email_address %></td>
                           <td><%= info2.ContactNo %></td>
-                            <td><button type="submit" class="btn btn-success">Edit</button></td>
+                          <td><button type="submit" class="btn btn-success">Edit</button></td>
+                        
+                        </form>
+                              <form method="get" action="addtogroup">
+                              <input type="hidden" name="UID" value="<%= info2.User_ID %>">
+                              <td><button type="submit" class="btn btn-success">Edit</button></td>
+                              </form>
                         </tr>
-                          </form>
                           <% } %>
                       </tbody>
                     </table>
