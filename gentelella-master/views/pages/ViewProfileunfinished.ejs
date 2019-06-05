@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Create Task Group </title>
+    <title>Create Task </title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assests/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="assets/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
@@ -35,13 +35,13 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <% include ./nav %>
+        <%- include ./nav.ejs %>
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Create Task Grouping</h3>
+                <h3>Create Task</h3>
               </div>
               </div>
             </div>
@@ -53,54 +53,6 @@
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Group Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <!-- Task Group Name- txtfield -->
-                          <input type="text" id="Task Group Name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Task Name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">General Objective <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <!-- General Objective<input type="text" id="General Objective" name="General Objective" required="required" class="form-control col-md-7 col-xs-12">-->
-                                <textarea class="form-control" rows="3" id="General Objective" placeholder="General Objective" required="required"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Measurement<span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <!--Setting Quality Targets-->
-                          <textarea class="form-control" rows="3" id="Quality Target" placeholder="Measurement" required="required"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Quality Targets<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="3" id="Quality Targets" placeholder="Quality Targets" required="required"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Base Standard<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="3" id="Base Standard" placeholder="Base Standard" required="required"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Task Group</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" placeholder="Select Group">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                            <option>Option three</option>
-                            <option>Option four</option>
-                          </select>
-                        </div>
-                      </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

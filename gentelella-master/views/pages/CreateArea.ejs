@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Assign Task </title>
+    <title>Create Task </title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assests/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="assets/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
@@ -41,7 +41,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Assign Task</h3>
+                <h3>Areas</h3>
               </div>
               </div>
             </div>
@@ -52,31 +52,22 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                    <!-- UI Part--->
-                        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Assign task to:<span class="required"></span>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Task Name">Area Name: <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" placeholder="Select Group">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                            <option>Option three</option>
-                            <option>Option four</option>
-                          </select>
+                          <input type="text" id="Task Name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Area Name">
                         </div>
+                      </div>
+                    <div class="form-group">
+                        <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Area Description <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea class="form-control" rows="3" id="TaskDesc" placeholder="Area Description" required="required"></textarea>
                         </div>
-                        <div class="form-group">
-                            <select name="possible" class="possible" multiple>
-                            <option value="one">One</option>
-                            <option value="two">Two</option>
-                            </select>
-
-                            <select name="wishlist" class="wishlist" multiple></select>
-
-                              <input type="button" value="Add to wishlist" onclick="MyMoveItem();">
-                              <input type="button" value="Remove from wishlist" onclick="RemoveItem();">
-                            </div>
-<br>
+                      </div>
+                      
+                      <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
@@ -85,8 +76,8 @@
                         </div>
                       </div>
 
-                    </div>
-                 </form>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

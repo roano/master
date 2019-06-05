@@ -39,7 +39,7 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-   resp.render('./pages/home.ejs');
+   resp.render('./pages/CreateArea.ejs');
     console.log("Testing testing");
 });
 
