@@ -58,7 +58,11 @@ module.exports = {
     },
     
     AssignTask : function(req,resp){
-        resp.render('./pages/AssignTask.ejs');
+        connection.query("select * from capstone.users", function (err, result, fields){
+            if (err) throw err;
+            resp.render('./pages/AssignTask.ejs', {data : result});
+            console.log(result);
+        });
         console.log("Testing testing");
     },
     
