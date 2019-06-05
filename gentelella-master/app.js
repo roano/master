@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
+var connection = require('./db');
 // ---- URL PARSER
 var url = require('url');
 var session = require('express-session');
@@ -13,21 +14,8 @@ var session = require('express-session');
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'capstone'
-});
 
 
-connection.connect(function(error){
-    if(!!error){
-        console.log(error);
-    }else{
-        console.log('Connected successfully');
-    }
-});
 
 server.use(express.static( "public" ));
 
@@ -46,6 +34,20 @@ server.get('/', function(req, resp){
 server.get('/home', function(req, resp){
    resp.render('./pages/home.ejs');
     console.log("Testing testing");
+});
+
+
+
+server.get('/login', function(req, resp){
+    console.log("Testing testing");
+    resp.render('./pages/login.ejs');
+});
+
+server.post('/enter', function(req, resp){
+    console.log(req.body.username);
+    console.log(req.body.password);
+    console.log("Testing testing");
+    resp.render('./pages/home.ejs');
 });
 
 

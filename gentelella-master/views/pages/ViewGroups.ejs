@@ -64,20 +64,29 @@
                   <div class="x_content">
 
                     <!-- start accordion -->
+                    <% for(var area of dataA) { %>
                     <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
                       <div class="panel">
-                        <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          <h4 class="panel-title">Laboratories</h4>
+                        <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= area.Area_ID%>" aria-expanded="true" aria-controls="collapse<%= area.Area_ID%>">
+                          <h4 class="panel-title"><%= area.Area_Name %></h4>
                         </a>
-                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapse<%= area.Area_ID %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            
                           <div class="panel-body">
-
+                              
+                              
+                              
+                              
                             <!--Group 1 table-->
+                                  <% for(var group of dataB) { %>
+                                <% if (group.Area_ID == area.Area_ID){ %>
                             <div class="panel">
-                              <a class="panel-heading" role="tab" id="HeadGroupOne" data-toggle="collapse" data-parent="#headingOne" href="#CollapseGroupOne" aria-expanded="true" aria-controls="CollapseGroupOne">
-                                <h3 class="panel-title">Group 1</h3>
+                              <a class="panel-heading" role="tab" id="HeadGroupOne" data-toggle="collapse" data-parent="#headingOne" href="#Collapse<%= group.Group_ID %>" aria-expanded="true" aria-controls="Collapse<%= group.Group_ID %>">
+                                <h3 class="panel-title"><%= group.Group_Name %></h3>
                               </a>
-                              <div id="CollapseGroupOne" class = "collapse">
+                              <div id="Collapse<%= group.Group_ID %>" class = "collapse">
+                                
+                                
                             <table class="table table-bordered">
                               <thead>
                                 <tr>
@@ -89,230 +98,40 @@
                                   <th>Position</th>
                                 </tr>
                               </thead>
+                                <% for(var user of dataC) { %>
+                                <% if(user.Group == group.Group_ID) {%>
                               <tbody>
                                 <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
+                                  
+                                  <td><%= user.User_ID %></td>
+                                  <td><%= user.User_First %></td>
+                                  <td><%= user.User_Last %></td>
+                                  <td><%= user.username %></td>
+                                  <td><%= user.ContactNo %></td>
+                                  <td><%= user.Role %></td>
                                 </tr>
                               </tbody>
+                                <% } %>
+                                <% } %>
                             </table>
+                                  
                               <div class="form-group">
                                 <button class="btn btn-primary" type="button">Add Member</button>
                                 <button class="btn btn-primary" type="button">Assign Group Leader</button>
                               </div>
+                                  
                           </div>
                           </div>
-
+                              <% } %>
+                          <% } %>  
                           <!--End of Group 1 Table -->
-
-                          <!-- Group 2 table testing -->
-                          <div class="panel">
-                              <a class="panel-heading" role="tab" id="HeadGroupTwo" data-toggle="collapse" data-parent="#headingOne" href="#CollapseGroupTwo" aria-expanded="true" aria-controls="CollapseGroupTwo">
-                                <h4 class="panel-title">Group 2</h4>
-                              </a>
-                              <div id="CollapseGroupTwo" class = "collapse">
-                        </div>
-                      </div>
-                          </div>
-                      <div class="sub-panel">
-        <!--Manipulate Tabs--><div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                          <div class="panel-body">
-                        <a class="panel-heading" role="tab" id="groupTwoHeading" data-toggle="collapse" data-parent="#accordion" href="#collapseGroupTwo" aria-expanded="true" aria-controls="collapseGroupTwo">
-                          <h4 class="panel-title">Group 2</h4>
-                        </a>
-        <!--Manipulate Tabs-end--><div id="collapseGroupTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="groupTwoHeading">
-                          <div class="panel-body">
-                            <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Username</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          </div>
-                          <!--end of Group 2-->
 
                           
                           </div>
                         </div>
                       </div>
-
-
-                      <!--Facilities tab-->
-                          </div>
-                          </div>
-                      <div class="panel">
-                        <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          <h4 class="panel-title">Facilities</h4>
-                        </a>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                          <div class="panel-body">
-                            <div class="panel">
-                              <a class="panel-heading" role="tab" id="HeadGroupOne" data-toggle="collapse" data-parent="#headingTwo" href="#FacilitiesGroupOne" aria-expanded="true" aria-controls="FacilitiesGroupOne">
-                                <h3 class="panel-title">Group 1</h3>
-                              </a>
-                              <div id="FacilitiesGroupOne" class = "collapse">
-                            <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Username</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                              <div class="form-group">
-                                <button class="btn btn-primary" type="button">Add Member</button>
-                                <button class="btn btn-primary" type="button">Assign Group Leader</button>
-                              </div>
-                          </div>
-                          </div>
-
-                          <!--End of Group 1 Table -->
-
-                          <!-- Group 2 table testing -->
-                          <div class="panel">
-                              <a class="panel-heading" role="tab" id="HeadGroupTwo" data-toggle="collapse" data-parent="#headingTwo" href="#FacilitiesGroupTwo" aria-expanded="true" aria-controls="FacilitiesGroupTwo">
-                                <h4 class="panel-title">Group 2</h4>
-                              </a>
-                              <div id="FacilitiesGroupTwo" class = "collapse">
-                            <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Username</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          </div>
-                          <!--end of Group 2-->
-                          </div>
-                        </div>
-                      </div>
-
-                      <!--Administration Tab-->
-                      <div class="panel">
-                        <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          <h4 class="panel-title">Administration</h4>
-                        </a>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                          <div class="panel-body">
-                            <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Username</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
                     </div>
+                      <% } %>
                     <!-- end of accordion -->
 
                   </div>
