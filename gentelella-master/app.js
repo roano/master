@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
+var mysql2 = require('mysql2');
 var connection = require('./db');
 // ---- URL PARSER
 var url = require('url');

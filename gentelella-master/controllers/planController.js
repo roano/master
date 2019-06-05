@@ -60,7 +60,7 @@ module.exports = {
     AssignTask : function(req,resp){
         connection.query("select * from capstone.users", function (err, result, fields){
             if (err) throw err;
-                fs.writeFile('./public/JSONs/table.json', JSON.stringify(result), function (err) {
+            fs.writeFile('./public/JSONs/table.txt', JSON.stringify({data: [result]}), function (err) {
                 if (err) throw err;
                 console.log('Saved!');
                 });
