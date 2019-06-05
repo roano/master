@@ -60,6 +60,10 @@ module.exports = {
     AssignTask : function(req,resp){
         connection.query("select * from capstone.users", function (err, result, fields){
             if (err) throw err;
+                fs.writeFile('./JSONs/table.json', JSON.stringify(result), function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+                });
             resp.render('./pages/AssignTask.ejs', {data : result});
             console.log(result);
         });
