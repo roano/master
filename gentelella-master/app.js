@@ -36,8 +36,6 @@ server.get('/home', function(req, resp){
     console.log("Testing testing");
 });
 
-
-
 server.get('/login', function(req, resp){
     console.log("Testing testing");
     resp.render('./pages/login.ejs');
