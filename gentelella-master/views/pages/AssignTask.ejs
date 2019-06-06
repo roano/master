@@ -180,9 +180,13 @@
 
     <!--JAVASCRIPT Datatable CODE-->
     <script>
+
+    var selectTable;
+
     $(document).ready(function(){
 
-      var selectTable = $('#tableone').DataTable({
+    selectTable = $('#tableone').DataTable({
+        "sAjaxSource": "datatables\icd\table.txt",
         "bFilter": false,
         "deferRender": true,
         "column": [
