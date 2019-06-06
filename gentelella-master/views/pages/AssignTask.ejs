@@ -31,14 +31,13 @@
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
 
-<!--AJAX-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
 <!--DATATABLE-->
-<link rel="stylesheet" href="assets/vendors/datatables/jquery.dataTables.css">
-<link rel="stylesheet" href="assets/vendors/datatables/jquery.dataTables_themeroller.css">
-<script src="assets/vendors/datatables/jquery.js"></script>
-<script src="assets/vendors/datatables/jquery_datatable.js"></script>
+<script src="assets/vendors/datatables/icd/jquery-1.11.2.min.js"></script>
+<script src="assets/vendors/datatables/icd/jquery-ui-1.11.3.min.js"></script>
+<script src="assets/vendors/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="assets/vendors/datatables/icd/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+<link rel="stylesheet" href="assets/vendors/datatables/media/css/jquery.dataTables.min.css" type="text/css"/>
+<link rel="stylesheet" href="assets/vendors/datatables/icd/Responsive-2.2.2/css/responsive.dataTables.min.css" type="text/css"/>
 
 
   </head>
@@ -90,25 +89,22 @@
                       </div>
                         <!-- This should only pop out after a group has been chosen-->
                         <div class="form-group">
-                        
                         <div class="col-md-6">
-                          <table id="tableone" class="dataTable" >
+                          <table id="tableone" class="DataTable" >
                             <thead>
                               <tr>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tfoot>
                               <tr>
-                                <td>Test</td>
-                                <td>tester</td>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                               </tr>
-                            </tbody>
+                            </tfoot>
                           </table>
                         </div>
-                        <button id="RightMove" style="float:left;">right &raquo;</button>
-                        <button id="LeftMove" style="float:left;">&laquo; left</button>
                         <div class="col-md-6">
                           <table id="tabletwo" class="dataTable" >
                             <thead>
@@ -184,13 +180,22 @@
 
     <!--JAVASCRIPT Datatable CODE-->
     <script>
+
+    var selectTable;
+
     $(document).ready(function(){
 
-      var selectTable = $('#tableone').dataTable({
-      "bFilter": false
+    selectTable = $('#tableone').DataTable({
+        "sAjaxSource": "datatables\icd\table.txt",
+        "bFilter": false,
+        "deferRender": true,
+        "column": [
+          {"data": 'User_First'},
+          {"data": 'User_Last'}
+        ]
       });
 
-      var selectedTable = $('tabletwo').dataTable({
+      /*var selectedTable = $('tabletwo').dataTable({
       "bFilter": false
       });
 
@@ -207,13 +212,12 @@
 	
 	$('#RightMove').on('click',function () {
 		moveRows(SelectTable, SelectedTable);
-	});
+	});*/
       
-    })
+    });
     </script>
 
-    <!-- jQuery -->
-    <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
+
     <!-- Bootstrap -->
     <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
