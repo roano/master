@@ -31,13 +31,34 @@
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
 
+     <!-- jQuery -->
+     <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
+
 <!--DATATABLE-->
-<script src="assets/vendors/datatables/icd/jquery-1.11.2.min.js"></script>
-<script src="assets/vendors/datatables/icd/jquery-ui-1.11.3.min.js"></script>
-<script src="assets/vendors/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="assets/vendors/datatables/icd/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
-<link rel="stylesheet" href="assets/vendors/datatables/media/css/jquery.dataTables.min.css" type="text/css"/>
-<link rel="stylesheet" href="assets/vendors/datatables/icd/Responsive-2.2.2/css/responsive.dataTables.min.css" type="text/css"/>
+<!-- Datatables -->
+<link href="assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+<!-- Datatables -->
+<script src="assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="assets/vendors/jszip/dist/jszip.min.js"></script>
+<script src="assets/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+
 
 
   </head>
@@ -89,33 +110,28 @@
                       </div>
                         <!-- This should only pop out after a group has been chosen-->
                         <div class="form-group">
-                        <div class="col-md-6">
-                          <table id="tableone" class="DataTable" >
+                        <div class="col-md-12">
+                          <table id="Tableone" class="table table-striped table-bordered" >
                             <thead>
                               <tr>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                               </tr>
                             </thead>
+                            <% for (var user of data) { %>
+                            <!-->tbody>
+                              <tr>
+                                  <td><%= user.User_First %></td>
+                                  <td><%= user.User_Last %></td>
+                              </tr>
+                            </tbody-->
+                            <% } %>
                             <tfoot>
                               <tr>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                               </tr>
                             </tfoot>
-                          </table>
-                        </div>
-                        <div class="col-md-6">
-                          <table id="tabletwo" class="dataTable" >
-                            <thead>
-                              <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
                           </table>
                         </div>
                         </div>
@@ -181,39 +197,27 @@
     <!--JAVASCRIPT Datatable CODE-->
     <script>
 
-    var selectTable;
+    var table;
 
     $(document).ready(function(){
 
-    selectTable = $('#tableone').DataTable({
-        "sAjaxSource": "datatables\icd\table.txt",
-        "bFilter": false,
-        "deferRender": true,
-        "column": [
-          {"data": 'User_First'},
-          {"data": 'User_Last'}
-        ]
-      });
-
-      /*var selectedTable = $('tabletwo').dataTable({
-      "bFilter": false
-      });
-
-    selectTable.on('click', 'tbody tr' ,function() {
-		  $(this).toggleClass('selected');
-    });
-    selectedTable.on('click', 'tbody tr' ,function() {
-      $(this).toggleClass('selected');
-    });
-
-    $('#LeftMove').on('click',function () {
-		moveRows(SelectedTable, SelectTable);
-	});
-	
-	$('#RightMove').on('click',function () {
-		moveRows(SelectTable, SelectedTable);
-	});*/
-      
+    table = $('#Tableone').DataTable({
+      "ajax": "public\JSONs\table.txt",
+			"pageLength": 15,
+			"deferRender": true,
+			"bLengthChange": false,
+			"deferRender": true,
+			"columns": [
+				{"data": 'User_First', width: "10%"},
+				{"data": 'User_Last'}
+			]
+		});
+    
+    $('#Tableone tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        console.log(this);
+        alert( 'You clicked on '+data[User_First]+'\'s row' );
+    } );  
     });
     </script>
 

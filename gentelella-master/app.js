@@ -28,9 +28,14 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-   resp.render('./pages/CreateArea.ejs');
+   resp.render('./pages/home.ejs');
     console.log("Testing testing");
 });
+
+server.get('/debug', function(req, resp){
+    resp.render('./pages/CreateArea.ejs');
+     console.log("Testing testing");
+ });
 
 server.get('/home', function(req, resp){
    resp.render('./pages/home.ejs');
