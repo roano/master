@@ -14,12 +14,11 @@ var session = require('express-session');
 // ---- DEFINE SESSION
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
-
-
-
-
 server.use(express.static( "public" ));
 
+
+           
+           
 var routes = require('./routes');
 server.use(express.json()); 
 server.use(express.urlencoded({ extended: true }));
