@@ -27,16 +27,13 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-<<<<<<< HEAD
-   resp.render('./pages/Recommendations.ejs');
-=======
    resp.render('./pages/home.ejs');
->>>>>>> 9bc83d89230a43168a49d62f6319501d6d3a20ec
+
     console.log("Testing testing");
 });
 
 server.get('/debug', function(req, resp){
-    resp.render('./pages/CreateArea.ejs');
+    resp.render('./pages/Recommendations.ejs');
      console.log("Testing testing");
  });
 
