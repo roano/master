@@ -28,7 +28,7 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function(req, resp){
-   resp.render('./pages/CreateArea.ejs');
+   resp.render('./pages/Recommendations.ejs');
     console.log("Testing testing");
 });
 
