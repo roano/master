@@ -17,5 +17,16 @@ server.use(session({secret: 'ssshhhhh'}));
 
 module.exports = {
     
+    AssignTaskJSON : function(req, resp){
+        
+
+    connection.query("select * from capstone.users", function (err, result, fields){
+            if (err) throw err;
+            var preparedresult = JSON.stringify({data: [result]})
+            console.log(preparedresult);
+            resp.json(preparedresult);
+
+        });
+    },
     
     }
