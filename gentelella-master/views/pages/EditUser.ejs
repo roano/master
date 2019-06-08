@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Create User Page</title>
+    <title>Edit User</title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
             <div class="page-title">
               <div class="title_left">
 
-                <h3>Create User</h3>
+                <h3>Edit User</h3>
 
               </div>
               </div>
@@ -56,12 +56,12 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="alteruser" method="POST">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <!--First name Input field-->
                             <input type="hidden" name="UID" value="<%= data[0].User_ID %>">
-                          <input type="text" id="first-name" name="firstname" required="required" class="form-control col-md-7 col-xs-12" placeholder="<%= data[0].User_First %>">
+                          <input type="text" id="first-name" name="firstname" class="form-control col-md-7 col-xs-12" value="<%= data[0].User_First %>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -69,14 +69,14 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <!--Last name input field-->
-                          <input type="text" id="last-name" name="lastname" required="required" class="form-control col-md-7 col-xs-12" placeholder="<%= data[0].User_Last %>">
+                          <input type="text" id="last-name" name="lastname" class="form-control col-md-7 col-xs-12" value="<%= data[0].User_Last %>">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email Addess</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <!--Email Input field-->
-                          <input id="email" class="form-control col-md-7 col-xs-12" type="email" name="email" placeholder="<%= data[0].email_address %>">
+                          <input id="email" class="form-control col-md-7 col-xs-12" type="email" name="email" value="<%= data[0].email_address %>">
                         </div>
                       </div>
                       <!--options list of position-->
@@ -95,7 +95,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <!--Last name input field-->
-                          <input type="text" id="contact" name="contact" required="required" class="form-control col-md-7 col-xs-12" placeholder="<%= data[0].ContactNo %>">
+                          <input type="text" id="contact" name="contact"  class="form-control col-md-7 col-xs-12" value="<%= data[0].ContactNo %>">
                         </div>
                       </div>
                       <div class="ln_solid"></div>
