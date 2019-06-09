@@ -195,17 +195,18 @@
     $(document).ready(function(){
 
     table = $('#Tableone').DataTable({
-            processing: true,
-            serverSide: true,
-      ajax: { url:'AssignTaskJSON',
-             type: 'POST',
-            dataSrc:"Tasks"},
+            "processing": true,
+            "serverSide": true,
+      "ajax": { url:'AssignTaskJSON',
+             "type": 'POST',
+             "dataType": 'json',
+            "dataSrc":"Tasks"},
         
-			pageLength: 15,
-			deferRender: true,
-			bLengthChange: false,
-			deferRender: true,
-			columns: [
+			"pageLength": 15,
+			"deferRender": true,
+			"bLengthChange": false,
+			"deferRender": true,
+			"columns": [
 				{"data": 'User_First',},
 				{"data": 'User_Last'}
 			]

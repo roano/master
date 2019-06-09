@@ -25,7 +25,7 @@ module.exports = {
         connection.query("select * from capstone.users", function (err, result, fields) {
             if (err) throw err;
             var preparedresult = JSON.stringify({
-                data: [result]
+                data: result
             })
             console.log(preparedresult);
             resp.json(preparedresult);
