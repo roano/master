@@ -21,6 +21,4 @@ router.route('/UploadDocument').get(planCtrl.UploadDocument);
 
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 
-
-
-module.exports = router;    
+module.exports = router;
