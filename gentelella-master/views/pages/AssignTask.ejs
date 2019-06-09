@@ -233,7 +233,7 @@
                         var index = $(this).attr("id");
                         //console.log(index);
                         var first = $('#first'+index).attr("value");
-                        console.log(first);
+                       // console.log(first);
                         var last = $("#last"+index).attr("value");
                         //console.log(last);
                         var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
@@ -256,13 +256,13 @@
                 $("#table2 tbody tr").find('input[name="record"]').each(function() {
                     if ($(this).is(":checked")) {
                         var index = $(this).attr("id");
-                        console.log(index);
+                       // console.log(index);
                         console.log('success');
                         var first = $('#first'+index).attr("value");
                         console.log(first);
                         var last = $("#last"+index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + first + "</td><td>" +
+                       var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
                             last +
                             "</td></tr>";
                         $("#table1 tbody").append(markup);
