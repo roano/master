@@ -49,13 +49,71 @@
             </div>
             <div> 
                     <style>
-                            *{box-sizing: border-box;}
-                            table{border-collapse:collapse;}
-                            td,th{padding:5px 15px;text-align:left;}
-                            table,th,td{border:1px solid #000;}
+                      .content-table {
+                            
+                            border-collapse:collapse;
+                            margin: 25px 0;
+                            font-size: 1.0em;
+                            min-width: 400px; 
+                            border-radius: 5px 5px 0 0;
+                            overflow: hidden;
+                            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+                            
+                            
+                      } 
+
+                      .content-table th{
+                          border: 1px solid #000; 
+                          background-color: darkseagreen;
+                          color: white;
+                      }
+
+                      .content-table th,
+                      .content-table td{
+                          padding: 12px 15px;
+
+                      }
+
+                      .content-table tr{
+                        border-bottom: 1px solid #dddddd;
+                      }
+
+                      .content-table tbody tr:nth-of-type(even){
+                          background-color: #f3f3f3;
+                      }
+
+                      .content-table tbody tr:last-of-type{
+                        border-bottom: 2px solid #009879;
+                      }
+
+                      .content-table thead tr {
+                        padding:5px 15px;
+                        text-align:left; 
+                        font-weight: bold;
+                        border-bottom: 1px solid #ddd;
+
+                      }
+                      .button {
+                        background-color: #4CAF50; 
+                        border: none;
+                        color: white;
+                        padding: 16px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        -webkit-transition-duration: 0.4s; 
+                        transition-duration: 0.4s;
+                        cursor: pointer;
+                      } 
+                      .button:hover{
+                        background-color: #4CAF50; 
+                        color: white;
+                      }
                             </style>
                             <form action="ComparativeAnalysis2" method="get">
-                            <table id="tableId">
+                            <table class = "content-table" id="tableId">
                              <thead>
                               <tr>
                                <th><input type="checkbox" /></th>
@@ -82,7 +140,7 @@
                                        <tr>
                                             <td><input type="checkbox" /></td>
                                             <td>4</td>
-                                            <td>Suppoet to Students</td>
+                                            <td>Support to Students</td>
                                         </tr>
                                            <tr>
                                                 <td><input type="checkbox" /></td>
@@ -116,8 +174,9 @@
                                                                 </tr>
                              </tbody>
                             </table> 
-                    
-                            <button type="submit">Select</button>
+                            
+                              
+                            <button class ="button" type="submit">Select</button>
                                 </form>
             </div>
 
