@@ -34,7 +34,7 @@ module.exports = {
 
 
 
-        console.log("Testing testing");
+        console.log("Viewusers");
     },
 
     Createusers: function (req, resp) {
@@ -47,22 +47,22 @@ module.exports = {
             console.log(result)
         });
 
-        console.log("Testing testing");
+        console.log("Createusers");
     },
 
     Viewtasks: function (req, resp) {
         resp.render('./pages/Viewtasks.ejs');
-        console.log("Testing testing");
+        console.log("Viewtasks");
     },
 
     CreateTask: function (req, resp) {
         resp.render('./pages/CreateTask.ejs');
-        console.log("Testing testing");
+        console.log("CreateTask");
     },
 
     CreateTaskGroup: function (req, resp) {
         resp.render('./pages/CreateTaskGroup.ejs');
-        console.log("Testing testing");
+        console.log("CreateTaskGroup");
     },
 
     AssignTask: function (req, resp) {
@@ -79,12 +79,10 @@ module.exports = {
             });
             console.log(result);
         });
-        console.log("Testing testing");
+        console.log("AssignTask");
     },
 
     ViewGroups: function (req, resp) {
-
-        console.log("Testing testing");
 
 
         connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
@@ -97,11 +95,12 @@ module.exports = {
             });
         });
 
+        console.log("ViewGroupsg");
 
     },
 
     CreateGroup: function (req, resp) {
-        console.log("Testing testing");
+
         connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
             if (err) throw err;
             resp.render('./pages/CreateGroup.ejs', {
@@ -109,17 +108,18 @@ module.exports = {
             });
         });
 
+        console.log("CreateGroup");
 
     },
 
     Comparativeanalysis: function (req, resp) {
         resp.render('./pages/ComparativeAnalysisAreaSelection.ejs');
-        console.log("Testing testing");
+        console.log("Comparativeanalysis");
     },
 
     Comparativeanalysis2: function (req, resp) {
         resp.render('./pages/Comparativeanalysis.ejs');
-        console.log("Testing testing");
+        console.log("Comparativeanalysis2");
     },
 
     addgroup: function (req, resp) {

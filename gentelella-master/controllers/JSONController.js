@@ -31,6 +31,7 @@ module.exports = {
             resp.json(preparedresult);
 
         });
+        console.log('AssignTaskJSON')
     },
 
 }
