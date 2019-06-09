@@ -134,7 +134,7 @@
                     <% for (var user of data) { %>
                     <tr>
                       <td><input type='checkbox' name='record'></td>
-                      <td name="first" value="<%= user.User_First %>"><%= user.User_First %></td>
+                      <td><input type='text' id="first" value="<%= user.User_First %>"><%= user.User_First %></td>
                       <td name="last" value="<%= user.User_Last %>"><%= user.User_Last %></td>
                     </tr>
                     <% } %>
