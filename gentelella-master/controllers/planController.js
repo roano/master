@@ -253,4 +253,9 @@ module.exports = {
         console.log("Testing testing");
     },
 
+    Recommendations: function (req, resp) {
+        resp.render('./pages/Recommendations.ejs');
+        console.log("Testing testing");
+    },
+
 }

@@ -30,7 +30,7 @@ server.get('/', function(req, resp){
 });
 
 server.get('/debug', function(req, resp){
-    resp.render('./pages/Recommendations.ejs');
+    resp.render('./pages/');
      console.log("Testing testing");
  });
 
