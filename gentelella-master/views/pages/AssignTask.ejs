@@ -208,16 +208,22 @@
                         var index = $(this).attr("id");
                         //console.log(index);
                         var first = $('#first'+index).attr("value");
-                        console.log(first);
+                       // console.log(first);
                         var last = $("#last"+index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value= " + first  + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
                             last +
                             "</td></tr>";
                         $("#table2 tbody").append(markup);
                         $(this).parents("tr").remove();
                     }
                 });
+                /*console.log("Test");
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + email +
+                  "</td></tr>";
+                $("table tbody").append(markup);*/
             });
 
             // Find and remove selected table rows
@@ -225,15 +231,15 @@
                 $("#table2 tbody tr").find('input[name="record"]').each(function() {
                     if ($(this).is(":checked")) {
                         var index = $(this).attr("id");
-                        console.log(index);
+                       // console.log(index);
                         console.log('success');
                         var first = $('#first'+index).attr("value");
                         console.log(first);
                         var last = $("#last"+index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value= " + first  + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
+                       var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
                             last +
-                            "</td></tr>";s
+                            "</td></tr>";
                         $("#table1 tbody").append(markup);
                         $(this).parents("tr").remove();
                         
@@ -244,6 +250,43 @@
         });
 
     </script>
+    <!--JAVASCRIPT Datatable CODE-->
+    <!--script>
+        var table;
+
+        $(document).ready(function() {
+
+            table = $('#Tableone').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    url: 'AssignTaskJSON',
+                    "type": 'POST',
+                    "dataType": 'json',
+                    "dataSrc": ""
+                },
+
+                "pageLength": 15,
+                "deferRender": true,
+                "bLengthChange": false,
+                "deferRender": true,
+                "columns": [{
+                        "data": 'User_First',
+                    },
+                    {
+                        "data": 'User_Last'
+                    }
+                ]
+            });
+
+            $('#Tableone tbody').on('click', 'tr', function() {
+                var data = table.row(this).data();
+                console.log(this);
+                alert('You clicked on ' + data[User_First] + '\'s row');
+            });
+        });
+
+    </script-->
 
 
     <!-- Bootstrap -->
