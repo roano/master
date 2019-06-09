@@ -53,7 +53,7 @@ CREATE TABLE `group` (
   `Group_Name` varchar(45) DEFAULT NULL,
   `Area_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Group_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `group` (
 
 LOCK TABLES `group` WRITE;
 /*!40000 ALTER TABLE `group` DISABLE KEYS */;
-INSERT INTO `group` VALUES (1,'123',1),(2,'312',1),(3,'Hello',3),(4,'Hi',1),(5,'123',4),(6,'123',4),(7,'Students',9),(8,'Students',6),(9,'Test insert',8),(10,'123',1),(11,'123',1),(12,'123',1),(13,'234',1),(14,'123',1),(15,'Lisa',7);
+INSERT INTO `group` VALUES (1,'Analysis',1),(2,'Evaluation',1),(3,'Analysis',2),(4,'Evaluation',2),(5,'Analysis',3),(6,'Evaluation',3),(7,'Analysis',4),(8,'Evaluation',4),(9,'Analysis',5),(10,'Evaluation',5),(11,'Analysis',6),(12,'Evaluation',6),(13,'Analysis',7),(14,'Evaluation',7),(15,'Analysis',8),(16,'Evaluation',8),(17,'Analysis',9),(18,'Evaluation',9);
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +109,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Admin'),(2,'QAO'),(3,'Group Leader'),(4,'Group Member');
+INSERT INTO `roles` VALUES (1,'Admin'),(2,'QA Officer'),(3,'Group Leader'),(4,'Group Member');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,14 +124,14 @@ CREATE TABLE `users` (
   `User_ID` int(11) NOT NULL AUTO_INCREMENT,
   `User_First` varchar(45) DEFAULT NULL,
   `User_Last` varchar(45) DEFAULT NULL,
-  `e-mail_address` varchar(45) DEFAULT NULL,
+  `email_address` varchar(45) DEFAULT NULL,
   `Role` int(11) DEFAULT NULL,
   `Group` int(11) DEFAULT NULL,
-  `ContactNo` int(11) DEFAULT NULL,
+  `ContactNo` varchar(15) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
   `passwd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,6 +140,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -152,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-23 19:06:07
+-- Dump completed on 2019-06-09 22:51:19
