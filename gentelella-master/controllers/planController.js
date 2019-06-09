@@ -65,7 +65,7 @@ module.exports = {
                 console.log('Saved!');
                 });
             resp.render('./pages/AssignTask.ejs', {data : result});
-          //  console.log(result);
+            console.log(result);
         });
         console.log("Testing testing");
     },

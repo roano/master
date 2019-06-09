@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require('md5');
 var mysql = require('mysql');
-var connection = require('../db');
 // ---- URL PARSER
 var url = require('url');
 var session = require('express-session');
@@ -14,8 +13,12 @@ var session = require('express-session');
 server.use(session({secret: 'ssshhhhh'})); 
 // ----
 
-
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'capstone'
+});
 module.exports = {
-    
     
     }

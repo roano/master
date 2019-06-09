@@ -1,6 +1,5 @@
 var express = require('express');
 var planCtrl = require('./controllers/planController');
-var JSONCtrl = require('./controllers/JSONController');
 var router = express.Router();
 
 router.route('/Viewusers').get(planCtrl.Viewusers);
@@ -17,7 +16,5 @@ router.route('/adduser').post(planCtrl.adduser);
 router.route('/edituser').get(planCtrl.edituser);
 router.route('/alteruser').post(planCtrl.alteruser);
 router.route('/UploadDocument').get(planCtrl.UploadDocument);
-
-router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 
 module.exports = router;    
