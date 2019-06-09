@@ -12,6 +12,7 @@ router.route('/AssignTask').get(planCtrl.AssignTask);
 router.route('/ViewGroups').get(planCtrl.ViewGroups);
 router.route('/CreateGroup').get(planCtrl.CreateGroup);
 router.route('/Comparativeanalysis').get(planCtrl.Comparativeanalysis);
+router.route('/Comparativeanalysis2').get(planCtrl.Comparativeanalysis2);
 router.route('/add-group').post(planCtrl.addgroup);
 router.route('/adduser').post(planCtrl.adduser);
 router.route('/edituser').get(planCtrl.edituser);

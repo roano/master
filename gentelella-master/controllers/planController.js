@@ -95,6 +95,11 @@ module.exports = {
         },
     
     Comparativeanalysis : function(req,resp){
+        resp.render('./pages/ComparativeAnalysisAreaSelection.ejs');
+        console.log("Testing testing");
+    },
+    
+    Comparativeanalysis2 : function(req,resp){
         resp.render('./pages/Comparativeanalysis.ejs');
         console.log("Testing testing");
     },
