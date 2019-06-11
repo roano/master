@@ -68,12 +68,6 @@ module.exports = {
     AssignTask: function (req, resp) {
         connection.query("select * from capstone.users", function (err, result, fields) {
             if (err) throw err;
-            fs.writeFile('./public/JSONs/table.json', JSON.stringify({
-                data: [result]
-            }), function (err) {
-                if (err) throw err;
-                console.log('Saved!');
-            });
             resp.render('./pages/AssignTask.ejs', {
                 data: result
             });
@@ -95,7 +89,7 @@ module.exports = {
             });
         });
 
-        console.log("ViewGroupsg");
+        console.log("ViewGroups");
 
     },
 
@@ -135,12 +129,7 @@ module.exports = {
 
         });
 
-        connection.query("SELECT * FROM capstone.area;", function (err, result, fields) {
-            if (err) throw err;
-            resp.render('./pages/CreateGroup.ejs', {
-                data: result
-            });
-        });
+        resp.redirect('/CreateGroup');
 
 
     },
@@ -170,13 +159,8 @@ module.exports = {
 
         });
 
-        connection.query("SELECT * FROM capstone.roles where Role_ID > 1;", function (err, result, fields) {
-            if (err) throw err;
-            resp.render('./pages/CreateUser.ejs', {
-                data: result
-            });
-            console.log(result)
-        });
+        resp.redirect('/Createusers');
+        
 
 
     },
@@ -234,14 +218,7 @@ module.exports = {
         console.log("updating");
 
         setTimeout(function () {
-            connection.query("SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, group.Group_Name, roles.Role_Name, users.ContactNo FROM capstone.users join capstone.group on users.Group=group.Group_ID join capstone.roles on users.Role = roles.Role_ID; SELECT * FROM capstone.users where users.Group IS NULL and User_ID > 1; ", function (err, results, fields) {
-                if (err) throw err;
-                resp.render('./pages/Viewusers.ejs', {
-                    data: results[0],
-                    dataB: results[1]
-                });
-                console.log(results);
-            });
+            resp.redirect('/Viewusers');
         }, 3000);
 
 
