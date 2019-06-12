@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `capstone` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_0900_ai_ci */;
+CREATE DATABASE  IF NOT EXISTS `capstone` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
 USE `capstone`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
@@ -28,7 +28,7 @@ CREATE TABLE `area` (
   `Area_ID` int(11) NOT NULL,
   `Area_Name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Area_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `group` (
   `Group_Name` varchar(45) DEFAULT NULL,
   `Area_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Group_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `groupdetails` (
   `Groupdetails_ID` int(11) NOT NULL,
   `Group_Leader_ID` int(11) DEFAULT NULL,
   `Group_Member_ID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +100,7 @@ CREATE TABLE `roles` (
   `Role_ID` int(11) NOT NULL,
   `Role_Name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Role_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `users` (
   `username` varchar(45) DEFAULT NULL,
   `passwd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
