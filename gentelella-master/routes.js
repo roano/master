@@ -18,6 +18,7 @@ router.route('/adduser').post(planCtrl.adduser);
 router.route('/edituser').get(planCtrl.edituser);
 router.route('/alteruser').post(planCtrl.alteruser);
 router.route('/UploadDocument').get(planCtrl.UploadDocument);
+router.route('/SendDocument').post(planCtrl.SendDocument);
 router.route('/Recommendations').get(planCtrl.Recommendations);
 
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
