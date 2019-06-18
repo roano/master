@@ -3,7 +3,7 @@ var planCtrl = require('./controllers/planController');
 var JSONCtrl = require('./controllers/JSONController');
 var DocCtrl = require('./controllers/DocumentController');
 var router = express.Router();
-
+//--PlanCtrl--
 router.route('/Viewusers').get(planCtrl.Viewusers);
 router.route('/Createusers').get(planCtrl.Createusers);
 router.route('/Viewtasks').get(planCtrl.Viewtasks);
@@ -19,9 +19,9 @@ router.route('/adduser').post(planCtrl.adduser);
 router.route('/edituser').get(planCtrl.edituser);
 router.route('/alteruser').post(planCtrl.alteruser);
 router.route('/Recommendations').get(planCtrl.Recommendations);
-
+//--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
-
+//--DocCtrl--
 router.route('/UploadDocument').get(DocCtrl.UploadDocument);
 router.route('/SendDocument').post(DocCtrl.SendDocument);
 

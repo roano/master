@@ -16,7 +16,6 @@ server.use(session({
 }));
 // ----
 
-
 module.exports = {
 
     AssignTaskJSON: function (req, resp) {

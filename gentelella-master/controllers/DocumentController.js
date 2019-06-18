@@ -16,10 +16,9 @@ server.use(session({
 }));
 // ----
 
-
 module.exports = {
-    
-     UploadDocument: function (req, resp) {
+
+    UploadDocument: function (req, resp) {
         resp.render('./pages/UploadDocument.ejs');
         console.log("Testing testing");
     },
