@@ -106,7 +106,8 @@
                                                             class="control-label col-md-3 col-sm-3 col-xs-12">Base
                                                             Standard</label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <textarea class="form-control autoExpand" rows="3"
+                                                            <!check onkeyup tag in text area>
+                                                            <textarea class="form-control" rows="3"
                                                                 id="General Objective" placeholder="Base Standard"
                                                                 required="required" onkeyup="textAreaAdjust(this)"
                                                                 style="overflow:hidden"></textarea>
@@ -131,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!script for dynamic text area>
                 <script>
                     function textAreaAdjust(o) {
                         o.style.height = "1px";
