@@ -33,6 +33,7 @@
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
 </head>
 
+
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
@@ -57,67 +58,72 @@
                                 <br />
                                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                                     <!Group select dropdown>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Group<span
-                                            class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                          <select class="form-control" name="role">
-                                            <!--Use Area ID to retrieve groups from db-->
-                                            <option>Group A</option>
-                                            <option>Group B</option>
-                                            <option>Group C</option>
-                                            <option>Group F</option>
-                                          </select>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                for="first-name">Group<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select class="form-control" name="role">
+                                                    <!--Use Area ID to retrieve groups from db-->
+                                                    <option>Group A</option>
+                                                    <option>Group B</option>
+                                                    <option>Group C</option>
+                                                    <option>Group F</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                      </div>
-                                      <!Cycle Time dropdown>
-                                      <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Cycle Time<span
-                                            class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                          <select class="form-control" name="role">
-                                            <!--Use Area ID to retrieve groups from db-->
-                                            <option>Group A</option>
-                                            <option>Group B</option>
-                                            <option>Group C</option>
-                                            <option>Group F</option>
-                                          </select>
-                                        </div>
-                                      </div>
-                                      <!Priority level dropdown>
-                                      <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Priority Level<span
-                                            class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                          <select class="form-control" name="role">
-                                            <option>High</option>
-                                            <option>Medium</option>
-                                            <option>Low</option>
-                                          </select>
-                                        </div>
-                                      </div>
-                                      <!Base Standards dropdown>
-                                      <div class="form-group">
-                                        <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Base
-                                          Standard</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                          <textarea class="form-control" rows="3" id="General Objective" placeholder="Base Standard"
-                                            required="required"></textarea>
-                                        </div>
-                                      </div>
-                                      <!buttons>
-                                      <div>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                          Close
-                                        </button>
-                                        <button type="button" class="btn btn-primary">
-                                          Submit
-                                        </button>
-                                      </div>
-                                    <div class="ln_solid"></div>
+                                        <!Cycle Time dropdown>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                    for="first-name">Cycle Time<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control" name="role">
+                                                        <!--Use Area ID to retrieve groups from db-->
+                                                        <option>Group A</option>
+                                                        <option>Group B</option>
+                                                        <option>Group C</option>
+                                                        <option>Group F</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!Priority level dropdown>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                        for="first-name">Priority Level<span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <select class="form-control" name="role">
+                                                            <option>High</option>
+                                                            <option>Medium</option>
+                                                            <option>Low</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!Base Standards dropdown>
+                                                    <div class="form-group">
+                                                        <label for="Quality Target"
+                                                            class="control-label col-md-3 col-sm-3 col-xs-12">Base
+                                                            Standard</label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <textarea class="form-control autoExpand" rows="3"
+                                                                id="General Objective" placeholder="Base Standard"
+                                                                required="required" onkeyup="textAreaAdjust(this)"
+                                                                style="overflow:hidden"></textarea>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <!buttons>
+                                                        <div>
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                                Close
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary">
+                                                                Submit
+                                                            </button>
+                                                        </div>
+                                                        <div class="ln_solid"></div>
 
 
                                 </form>
@@ -126,6 +132,12 @@
                     </div>
                 </div>
 
+                <script>
+                    function textAreaAdjust(o) {
+                        o.style.height = "1px";
+                        o.style.height = (25 + o.scrollHeight) + "px";
+                    }
+                </script>
 
                 <!-- /page content -->
 
@@ -133,6 +145,9 @@
                 <footer>
                     <div class="pull-right">
                         Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+
+
+
                     </div>
                     <div class="clearfix"></div>
                 </footer>
