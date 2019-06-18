@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `capstone` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
+CREATE DATABASE  IF NOT EXISTS `capstone` /*!40100 DEFAULT CHARACTER SET UTF8 COLLATE utf8_general_ci */;
 USE `capstone`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
@@ -23,12 +23,12 @@ USE `capstone`;
 
 DROP TABLE IF EXISTS `area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = UTF8 ;
 CREATE TABLE `area` (
   `Area_ID` int(11) NOT NULL,
   `Area_Name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Area_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,18 +42,43 @@ INSERT INTO `area` VALUES (1,'Purposes and Objectives'),(2,'Faculty'),(3,'Instru
 UNLOCK TABLES;
 
 --
+-- Table structure for table `documents`
+--
+
+DROP TABLE IF EXISTS `documents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = UTF8 ;
+CREATE TABLE `documents` (
+  `Document_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Document_Name` varchar(45) NOT NULL,
+  `Document_Route` varchar(100) NOT NULL,
+  `Document_Desc` varchar(300) DEFAULT 'No Description Given.',
+  PRIMARY KEY (`Document_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documents`
+--
+
+LOCK TABLES `documents` WRITE;
+/*!40000 ALTER TABLE `documents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `group`
 --
 
 DROP TABLE IF EXISTS `group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = UTF8 ;
 CREATE TABLE `group` (
   `Group_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Group_Name` varchar(45) DEFAULT NULL,
   `Area_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Group_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +87,7 @@ CREATE TABLE `group` (
 
 LOCK TABLES `group` WRITE;
 /*!40000 ALTER TABLE `group` DISABLE KEYS */;
-INSERT INTO `group` VALUES (1,'Analysis',1),(2,'Evaluation',1),(3,'Analysis',2),(4,'Evaluation',2),(5,'Analysis',3),(6,'Evaluation',3),(7,'Analysis',4),(8,'Evaluation',4),(9,'Analysis',5),(10,'Evaluation',5),(11,'Analysis',6),(12,'Evaluation',6),(13,'Analysis',7),(14,'Evaluation',7),(15,'Analysis',8),(16,'Evaluation',8),(17,'Analysis',9),(18,'Evaluation',9);
+INSERT INTO `group` VALUES (1,'Analysis',1),(2,'Evaluation',1),(3,'Analysis',2),(4,'Evaluation',2),(5,'Analysis',3),(6,'Evaluation',3),(7,'Analysis',4),(8,'Evaluation',4),(9,'Analysis',5),(10,'Evaluation',5),(11,'Analysis',6),(12,'Evaluation',6),(13,'Analysis',7),(14,'Evaluation',7),(15,'Analysis',8),(16,'Evaluation',8),(17,'Analysis',9),(18,'Evaluation',9),(19,'Test Area',1);
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,12 +97,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `groupdetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = UTF8 ;
 CREATE TABLE `groupdetails` (
   `Groupdetails_ID` int(11) NOT NULL,
   `Group_Leader_ID` int(11) DEFAULT NULL,
   `Group_Member_ID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,12 +120,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = UTF8 ;
 CREATE TABLE `roles` (
   `Role_ID` int(11) NOT NULL,
   `Role_Name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Role_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +144,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = UTF8 ;
 CREATE TABLE `users` (
   `User_ID` int(11) NOT NULL AUTO_INCREMENT,
   `User_First` varchar(45) DEFAULT NULL,
@@ -131,7 +156,7 @@ CREATE TABLE `users` (
   `username` varchar(45) DEFAULT NULL,
   `passwd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +165,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(7,'Test Acc4','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(8,'TestAcc7','Yes','ForTesting@test.com',-1,NULL,'79841561',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-09 22:51:19
+-- Dump completed on 2019-06-16 10:05:00
