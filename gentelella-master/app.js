@@ -30,7 +30,7 @@ server.get('/', function(req, resp){
 });
 
 server.get('/debug', function(req, resp){
-    resp.render('./pages/');
+    resp.render('./pages/AssignPlanToGroup.ejs');
      console.log("Testing testing");
  });
 
