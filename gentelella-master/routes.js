@@ -21,6 +21,7 @@ router.route('/alteruser').post(planCtrl.alteruser);
 router.route('/Recommendations').get(planCtrl.Recommendations);
 router.route('/ViewPlans').get(planCtrl.ViewPlans);
 router.route('/CreatePlan').get(planCtrl.CreatePlan);
+router.route('/SendPlan').post(planCtrl.SendPlan);
 router.route('/AssignPlanToGroup').get(planCtrl.AssignPlanToGroup);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);

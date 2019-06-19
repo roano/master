@@ -52,20 +52,20 @@
                         <div class="x_panel">
                             <div class="x_content">
                                 <br />
-                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <form id="demo-form2" method="post" action="SendPlan" data-parsley-validate class="form-horizontal form-label-left">
                                     <!General Objective input field>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Task Name">General Objective: <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="Task Name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Task Name">
+                                            <input type="text" id="Task Name" name="GenObj" required="required" class="form-control col-md-7 col-xs-12" placeholder="General Objective">
                                         </div>
                                     </div>
                                     <!Measurement input field>
                                     <div class="form-group">
                                         <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Measurement: <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="TaskDesc" placeholder="Task Description" required="required" onkeyup="textAreaAdjust(this)"
+                                            <textarea class="form-control" rows="3" id="PlanM" name="PlanM" placeholder="Measurement" required="required" onkeyup="textAreaAdjust(this)"
                                             style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                         <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Base Formula: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="General Objective" placeholder="General Objective" onkeyup="textAreaAdjust(this)"
+                                            <textarea class="form-control" rows="3" id="General Objective" name="BaseFormula" placeholder="Base Formula" onkeyup="textAreaAdjust(this)"
                                             style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                     <div class="form-group">
                                         <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Quality Target: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="Measurement" placeholder="Measurement" onkeyup="textAreaAdjust(this)"
+                                            <textarea class="form-control" rows="3" id="Measurement" name="QualityTarget" placeholder="Quality Target" onkeyup="textAreaAdjust(this)"
                                             style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Procedures: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="Quality Targets" placeholder="Quality Targets" onkeyup="textAreaAdjust(this)"
+                                            <textarea class="form-control" rows="3" id="Quality Targets" name="Procedures" placeholder="Procedures" onkeyup="textAreaAdjust(this)"
                                             style="overflow:hidden"></textarea>
                                         </div>
                                     </div>

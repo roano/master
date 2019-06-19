@@ -224,22 +224,53 @@ module.exports = {
 
     Recommendations: function (req, resp) {
         resp.render('./pages/Recommendations.ejs');
-        console.log("Testing testing");
+        console.log("Recommendations");
     },
 
     ViewPlans: function (req, resp) {
         resp.render('./pages/ViewPlans.ejs');
-        console.log("Viewtasks");
+        console.log("ViewPlans");
     },
 
     CreatePlan: function (req, resp) {
         resp.render('./pages/CreatePlan.ejs');
-        console.log("Viewtasks");
+        console.log("CreatePlan");
+    },
+
+    SendPlan: function (req, resp) {
+
+
+        var go = req.body.GenObj;
+        var me = req.body.PlanM;
+        var tn = req.body.BaseFormula;
+        var qt = req.body.QualityTarget;
+        var pr = req.body.Procedures;
+        
+        console.log(go);
+        console.log(me);
+        console.log(tn);
+        console.log(qt);
+        console.log(pr);
+        
+        var sql = "INSERT INTO `capstone`.`plans` (`GenObjective`, `Measurement`, `BaseFormula`, `QualityTarget`, `Procedures`) VALUES (? , ? , ? , ?, ?)";
+        
+
+        var values = [go, me, tn, qt, pr];
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            resp.redirect('/CreatePlan');
+
+        });
+        
+        
+
     },
 
     AssignPlanToGroup: function (req, resp) {
         resp.render('./pages/AssignPlanToGroup.ejs');
-        console.log("Viewtasks");
+        console.log("AssignPlanToGroup");
     },
 
 }
