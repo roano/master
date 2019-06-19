@@ -65,28 +65,32 @@
                                     <div class="form-group">
                                         <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Measurement: <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="TaskDesc" placeholder="Task Description" required="required"></textarea>
+                                            <textarea class="form-control" rows="3" id="TaskDesc" placeholder="Task Description" required="required" onkeyup="textAreaAdjust(this)"
+                                            style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
                                     <!Base Formula input field>
                                     <div class="form-group">
                                         <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Base Formula: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="General Objective" placeholder="General Objective"></textarea>
+                                            <textarea class="form-control" rows="3" id="General Objective" placeholder="General Objective" onkeyup="textAreaAdjust(this)"
+                                            style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
                                     <!Quality Target Input field>
                                     <div class="form-group">
                                         <label for="Quality Target" class="control-label col-md-3 col-sm-3 col-xs-12">Quality Target: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="Measurement" placeholder="Measurement"></textarea>
+                                            <textarea class="form-control" rows="3" id="Measurement" placeholder="Measurement" onkeyup="textAreaAdjust(this)"
+                                            style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
                                     <!Procedures input field>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Procedures: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" id="Quality Targets" placeholder="Quality Targets"></textarea>
+                                            <textarea class="form-control" rows="3" id="Quality Targets" placeholder="Quality Targets" onkeyup="textAreaAdjust(this)"
+                                            style="overflow:hidden"></textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
@@ -118,6 +122,14 @@
                 <!-- /footer content -->
             </div>
         </div>
+
+        <!Script for dynamic text area>
+        <script>
+            function textAreaAdjust(o) {
+                o.style.height = "1px";
+                o.style.height = (25 + o.scrollHeight) + "px";
+            }
+        </script>
 
         <!-- jQuery -->
         <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
