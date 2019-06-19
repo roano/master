@@ -226,20 +226,10 @@ module.exports = {
         resp.render('./pages/Recommendations.ejs');
         console.log("Testing testing");
     },
-
-    ViewPlans: function (req, resp) {
-        resp.render('./pages/ViewPlans.ejs');
-        console.log("Viewtasks");
-    },
-
-    CreatePlan: function (req, resp) {
-        resp.render('./pages/CreatePlan.ejs');
-        console.log("Viewtasks");
-    },
-
-    AssignPlanToGroup: function (req, resp) {
-        resp.render('./pages/AssignPlanToGroup.ejs');
-        console.log("Viewtasks");
+    
+    Planning: function (req, resp) {
+        resp.render('./pages/PlanPage.ejs');
+        console.log("CreateTaskGroup");
     },
 
 }
