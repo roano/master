@@ -236,15 +236,15 @@ module.exports = {
         var tn = req.body.BaseFormula;
         var qt = req.body.QualityTarget;
         var pr = req.body.Procedures;
-        
+
         console.log(go);
         console.log(me);
         console.log(tn);
         console.log(qt);
         console.log(pr);
-        
+
         var sql = "INSERT INTO `capstone`.`plans` (`GenObjective`, `Measurement`, `BaseFormula`, `QualityTarget`, `Procedures`) VALUES (? , ? , ? , ?, ?)";
-        
+
 
         var values = [go, me, tn, qt, pr];
 
@@ -254,11 +254,11 @@ module.exports = {
             resp.redirect('/CreatePlan');
 
         });
-        
-        
+
+
 
     },
-    
+
     Planning: function (req, resp) {
         resp.render('./pages/PlanPage.ejs');
         console.log("CreateTaskGroup");
