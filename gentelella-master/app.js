@@ -35,12 +35,12 @@ server.get('/debug', function (req, resp) {
 });
 
 server.get('/debug1', function (req, resp) {
-    resp.render('./pages/CreatePlan.ejs');
+    resp.render('./pages/RecommendationNonAjax.ejs');
     console.log("Testing testing");
 });
 
 server.get('/debug2', function (req, resp) {
-    resp.render('./pages/AssignPlanToGroup.ejs');
+    resp.render('./pages/PlanPage.ejs');
     console.log("Testing testing");
 });
 
