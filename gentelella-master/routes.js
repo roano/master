@@ -19,6 +19,9 @@ router.route('/adduser').post(planCtrl.adduser);
 router.route('/edituser').get(planCtrl.edituser);
 router.route('/alteruser').post(planCtrl.alteruser);
 router.route('/Recommendations').get(planCtrl.Recommendations);
+router.route('/ViewPlans').get(planCtrl.ViewPlans);
+router.route('/CreatePlan').get(planCtrl.CreatePlan);
+router.route('/AssignPlanToGroup').get(planCtrl.AssignPlanToGroup);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 //--DocCtrl--
