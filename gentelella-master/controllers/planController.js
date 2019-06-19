@@ -228,16 +228,6 @@ module.exports = {
     },
 
 
-    ViewPlans: function (req, resp) {
-        resp.render('./pages/ViewPlans.ejs');
-        console.log("ViewPlans");
-    },
-
-    CreatePlan: function (req, resp) {
-        resp.render('./pages/CreatePlan.ejs');
-        console.log("CreatePlan");
-    },
-
     SendPlan: function (req, resp) {
 
 
@@ -267,11 +257,6 @@ module.exports = {
         
         
 
-    },
-
-    AssignPlanToGroup: function (req, resp) {
-        resp.render('./pages/AssignPlanToGroup.ejs');
-        console.log("AssignPlanToGroup");
     },
     
     Planning: function (req, resp) {
