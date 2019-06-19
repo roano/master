@@ -227,4 +227,19 @@ module.exports = {
         console.log("Testing testing");
     },
 
+    ViewPlans: function (req, resp) {
+        resp.render('./pages/ViewPlans.ejs');
+        console.log("Viewtasks");
+    },
+
+    CreatePlan: function (req, resp) {
+        resp.render('./pages/CreatePlan.ejs');
+        console.log("Viewtasks");
+    },
+
+    AssignPlanToGroup: function (req, resp) {
+        resp.render('./pages/AssignPlanToGroup.ejs');
+        console.log("Viewtasks");
+    },
+
 }
