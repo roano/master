@@ -23,6 +23,7 @@ router.route('/ViewPlans').get(planCtrl.ViewPlans);
 router.route('/CreatePlan').get(planCtrl.CreatePlan);
 router.route('/SendPlan').post(planCtrl.SendPlan);
 router.route('/AssignPlanToGroup').get(planCtrl.AssignPlanToGroup);
+router.route('/PlanPage').get(planCtrl.Planning);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 //--DocCtrl--

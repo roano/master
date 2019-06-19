@@ -227,6 +227,7 @@ module.exports = {
         console.log("Recommendations");
     },
 
+
     ViewPlans: function (req, resp) {
         resp.render('./pages/ViewPlans.ejs');
         console.log("ViewPlans");
@@ -271,6 +272,12 @@ module.exports = {
     AssignPlanToGroup: function (req, resp) {
         resp.render('./pages/AssignPlanToGroup.ejs');
         console.log("AssignPlanToGroup");
+    },
+    
+    Planning: function (req, resp) {
+        resp.render('./pages/PlanPage.ejs');
+        console.log("CreateTaskGroup");
+
     },
 
 }
