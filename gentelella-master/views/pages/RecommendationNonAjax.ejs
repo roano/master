@@ -42,7 +42,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Recommendations</h3>
+                            <h3>Recommendations Non Ajax Page</h3>
                         </div>
                     </div>
                 </div>
@@ -90,9 +90,9 @@
                                                             <button type="button" class="btn btn-primary"
                                                                 data-toggle="modal" data-target=".edit">
                                                                 Edit Recommendation</button><br /><br />
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-toggle="modal" data-target=".plan">
-                                                                Plan</button><br /><br />
+                                                            <a type="button" class="btn btn-primary"
+                                                                href="/PlanPage">
+                                                               Click Here To add Plan</a><br /><br />
                                                         </div>
                                                     </div>
                                                 </td>
@@ -123,7 +123,7 @@
                             </h4>
                         </div>
                         <div class="modal-body">
-                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <form id="CreateRecommendation" data-parsley-validate class="form-horizontal form-label-left">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                         for="first-name">Recommendation Name<span class="required">*</span>
@@ -173,7 +173,7 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" form="CreateRecommendation">
                                         Submit
                                     </button>
                                 </div>
@@ -196,7 +196,7 @@
                             </h4>
                         </div>
                         <div class="modal-body">
-                            <form id="demo-form" data-parsley-validate class="form-horizontal form-label-left">
+                            <form id="EditRecommendation" data-parsley-validate class="form-horizontal form-label-left">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                         for="first-name">Recommendation Name<span class="required">*</span>
@@ -245,7 +245,7 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" form="EditRecommendation">
                                         Submit
                                     </button>
                                 </div>
@@ -268,7 +268,7 @@
                             <h4 class="modal-title" id="myModalLabel2">Create Cycle</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="demo-form" data-parsley-validate class="form-horizontal form-label-left">
+                            <form id="CreateCycle" data-parsley-validate class="form-horizontal form-label-left">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Cycle
                                         Name<span class="required">*</span>
@@ -301,7 +301,7 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" form="CreateCycle">
                                         Submit
                                     </button>
                                 </div>
