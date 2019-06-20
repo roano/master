@@ -251,7 +251,7 @@ module.exports = {
         connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log(result);
-            resp.redirect('/CreatePlan');
+            resp.redirect('/PlanPage');
 
         });
 
@@ -261,7 +261,7 @@ module.exports = {
 
     Planning: function (req, resp) {
         resp.render('./pages/PlanPage.ejs');
-        console.log("CreateTaskGroup");
+        console.log("PlanPage");
 
     },
 
