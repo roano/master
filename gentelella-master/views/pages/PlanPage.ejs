@@ -43,11 +43,13 @@
             <div class="right_col" role="main">
                 <div class="">
                     <div class="page-title">
-                        <div class="title_left">
+                        <div class="col-md-9">
                             <h3>Planning</h3>
                             <h3>INSERT RECOMMENDATION NAME HERE</h3>
                         </div>
-                        
+                        <div class="col-md-3">
+                            <a type="button" class="btn btn-primary" href="/debug1" style="float: right">Go Back</a><br /><br />
+                        </div>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -57,11 +59,12 @@
                             <div class="x_content">
 
                                 <div>
+
                                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                             <li role="presentation" class="">
                                                 <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab"
-                                                    aria-expanded="true" >View
+                                                    aria-expanded="true">View
                                                     Plan</a>
                                             </li>
                                             <li role="presentation" class="">
@@ -116,7 +119,8 @@
                                                     <div role="tabpanel" class="tab-pane fade" id="tab_content2"
                                                         aria-labelledby="profile-tab">
                                                         <form id="create" data-parsley-validate
-                                                            class="form-horizontal form-label-left" method="post" action="SendPlan">
+                                                            class="form-horizontal form-label-left" method="post"
+                                                            action="SendPlan">
                                                             <!General Objective input field>
                                                                 <div class="form-group">
                                                                     <label
@@ -132,172 +136,154 @@
                                                                     </div>
                                                                 </div>
                                                                 <!--Measurement input field-->
-                                                                    <div class="form-group">
-                                                                        <label for="Quality Target"
-                                                                            class="control-label col-md-3 col-sm-3 col-xs-12">Measurement:
-                                                                            <span class="required">*</span></label>
-                                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                            <textarea class="form-control" rows="3"
-                                                                                id="TaskDesc" name="PlanM"
-                                                                                placeholder="Measurement"
-                                                                                required="required"
-                                                                                onkeyup="textAreaAdjust(this)"
-                                                                                style="overflow:hidden"></textarea>
-                                                                        </div>
+                                                                <div class="form-group">
+                                                                    <label for="Quality Target"
+                                                                        class="control-label col-md-3 col-sm-3 col-xs-12">Measurement:
+                                                                        <span class="required">*</span></label>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                        <textarea class="form-control" rows="3"
+                                                                            id="TaskDesc" name="PlanM"
+                                                                            placeholder="Measurement"
+                                                                            required="required"
+                                                                            onkeyup="textAreaAdjust(this)"
+                                                                            style="overflow:hidden"></textarea>
                                                                     </div>
-                                                                    <!--Base Formula input field-->
-                                                                        <div class="form-group">
-                                                                            <label for="Quality Target"
-                                                                                class="control-label col-md-3 col-sm-3 col-xs-12">Base
-                                                                                Formula: </label>
-                                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                                <textarea class="form-control" rows="3"
-                                                                                    id="General Objective"
-                                                                                    name="BaseFormula"
-                                                                                    placeholder="Base Formula"
-                                                                                    onkeyup="textAreaAdjust(this)"
-                                                                                    style="overflow:hidden"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--Quality Target Input field-->
-                                                                            <div class="form-group">
-                                                                                <label for="Quality Target"
-                                                                                    class="control-label col-md-3 col-sm-3 col-xs-12">Quality
-                                                                                    Target: </label>
-                                                                                <div
-                                                                                    class="col-md-6 col-sm-6 col-xs-12">
-                                                                                    <textarea class="form-control"
-                                                                                        rows="3" id="Measurement"
-                                                                                        placeholder="Quality Target"
-                                                                                        name="QualityTarget"
-                                                                                        onkeyup="textAreaAdjust(this)"
-                                                                                        style="overflow:hidden"></textarea>
-                                                                                </div>
-                                                                            </div>
-                                                                            <!--Procedures input field-->
-                                                                                <div class="form-group">
-                                                                                    <label
-                                                                                        class="control-label col-md-3 col-sm-3 col-xs-12">Procedures:
-                                                                                    </label>
-                                                                                    <div
-                                                                                        class="col-md-6 col-sm-6 col-xs-12">
-                                                                                        <textarea class="form-control"
-                                                                                            rows="3"
-                                                                                            id="Quality Targets"
-                                                                                            placeholder="Procedures"
-                                                                                            name="Procedures"
-                                                                                            onkeyup="textAreaAdjust(this)"
-                                                                                            style="overflow:hidden"></textarea>
-                                                                                    </div>
-                                                                                </div>
+                                                                </div>
+                                                                <!--Base Formula input field-->
+                                                                <div class="form-group">
+                                                                    <label for="Quality Target"
+                                                                        class="control-label col-md-3 col-sm-3 col-xs-12">Base
+                                                                        Formula: </label>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                        <textarea class="form-control" rows="3"
+                                                                            id="General Objective" name="BaseFormula"
+                                                                            placeholder="Base Formula"
+                                                                            onkeyup="textAreaAdjust(this)"
+                                                                            style="overflow:hidden"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Quality Target Input field-->
+                                                                <div class="form-group">
+                                                                    <label for="Quality Target"
+                                                                        class="control-label col-md-3 col-sm-3 col-xs-12">Quality
+                                                                        Target: </label>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                        <textarea class="form-control" rows="3"
+                                                                            id="Measurement"
+                                                                            placeholder="Quality Target"
+                                                                            name="QualityTarget"
+                                                                            onkeyup="textAreaAdjust(this)"
+                                                                            style="overflow:hidden"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Procedures input field-->
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        class="control-label col-md-3 col-sm-3 col-xs-12">Procedures:
+                                                                    </label>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                        <textarea class="form-control" rows="3"
+                                                                            id="Quality Targets"
+                                                                            placeholder="Procedures" name="Procedures"
+                                                                            onkeyup="textAreaAdjust(this)"
+                                                                            style="overflow:hidden"></textarea>
+                                                                    </div>
+                                                                </div>
 
-                                                                                <!--Buttons to submit-->
+                                                                <!--Buttons to submit-->
 
-                                                                                    <div
-                                                                                        class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                                                        <button class="btn btn-primary"
-                                                                                            type="reset">Reset</button>
-                                                                                        <button type="submit"
-                                                                                            form="create"
-                                                                                            class="btn btn-primary">Submit</button>
-                                                                                    </div>
+                                                                <div
+                                                                    class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                                    <button class="btn btn-primary"
+                                                                        type="reset">Reset</button>
+                                                                    <button type="submit" form="create"
+                                                                        class="btn btn-primary">Submit</button>
+                                                                </div>
                                                         </form>
 
                                                     </div>
 
                                                     <!--ASSIGN PLAN TO GROUP TAB-->
-                                                        <div role="tabpanel" class="tab-pane fade" id="tab_content3"
-                                                            aria-labelledby="profile-tab">
-                                                            <form id="Assign" data-parsley-validate
-                                                                class="form-horizontal form-label-left">
-                                                                <!--Group select dropdown-->
-                                                                    <div class="form-group">
-                                                                        <label
-                                                                            class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                                            for="first-name">Group<span
-                                                                                class="required">*</span>
-                                                                        </label>
-                                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                            <select class="form-control" name="role">
-                                                                                <!--Use Area ID to retrieve groups from db-->
-                                                                                <option>Group A</option>
-                                                                                <option>Group B</option>
-                                                                                <option>Group C</option>
-                                                                                <option>Group F</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--Cycle Time dropdown-->
-                                                                        <div class="form-group">
-                                                                            <label
-                                                                                class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                                                for="first-name">Cycle Time<span
-                                                                                    class="required">*</span>
-                                                                            </label>
-                                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                                <select class="form-control"
-                                                                                    name="role">
-                                                                                    <!--Use Area ID to retrieve groups from db-->
-                                                                                    <option>Group A</option>
-                                                                                    <option>Group B</option>
-                                                                                    <option>Group C</option>
-                                                                                    <option>Group F</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--Priority level dropdown-->
-                                                                            <div class="form-group">
-                                                                                <label
-                                                                                    class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                                                    for="first-name">Priority
-                                                                                    Level<span class="required">*</span>
-                                                                                </label>
-                                                                                <div
-                                                                                    class="col-md-6 col-sm-6 col-xs-12">
-                                                                                    <select class="form-control"
-                                                                                        name="role">
-                                                                                        <option>High</option>
-                                                                                        <option>Medium</option>
-                                                                                        <option>Low</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                            <!--Base Standards dropdown-->
-                                                                                <div class="form-group">
-                                                                                    <label for="Quality Target"
-                                                                                        class="control-label col-md-3 col-sm-3 col-xs-12">Base
-                                                                                        Standard</label>
-                                                                                    <div
-                                                                                        class="col-md-6 col-sm-6 col-xs-12">
-                                                                                        <!--check onkeyup tag in text
+                                                    <div role="tabpanel" class="tab-pane fade" id="tab_content3"
+                                                        aria-labelledby="profile-tab">
+                                                        <form id="Assign" data-parsley-validate
+                                                            class="form-horizontal form-label-left">
+                                                            <!--Group select dropdown-->
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                                    for="first-name">Group<span
+                                                                        class="required">*</span>
+                                                                </label>
+                                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                    <select class="form-control" name="role">
+                                                                        <!--Use Area ID to retrieve groups from db-->
+                                                                        <option>Group A</option>
+                                                                        <option>Group B</option>
+                                                                        <option>Group C</option>
+                                                                        <option>Group F</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!--Cycle Time dropdown-->
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                                    for="first-name">Cycle Time<span
+                                                                        class="required">*</span>
+                                                                </label>
+                                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                    <select class="form-control" name="role">
+                                                                        <!--Use Area ID to retrieve groups from db-->
+                                                                        <option>Group A</option>
+                                                                        <option>Group B</option>
+                                                                        <option>Group C</option>
+                                                                        <option>Group F</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!--Priority level dropdown-->
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                                    for="first-name">Priority
+                                                                    Level<span class="required">*</span>
+                                                                </label>
+                                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                    <select class="form-control" name="role">
+                                                                        <option>High</option>
+                                                                        <option>Medium</option>
+                                                                        <option>Low</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!--Base Standards dropdown-->
+                                                            <div class="form-group">
+                                                                <label for="Quality Target"
+                                                                    class="control-label col-md-3 col-sm-3 col-xs-12">Base
+                                                                    Standard</label>
+                                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                    <!--check onkeyup tag in text
                                                                                             area-->
-                                                                                            <textarea
-                                                                                                class="form-control"
-                                                                                                rows="3"
-                                                                                                id="General Objective"
-                                                                                                placeholder="Base Standard"
-                                                                                                required="required"
-                                                                                                onkeyup="textAreaAdjust(this)"
-                                                                                                style="overflow:hidden"></textarea>
+                                                                    <textarea class="form-control" rows="3"
+                                                                        id="General Objective"
+                                                                        placeholder="Base Standard" required="required"
+                                                                        onkeyup="textAreaAdjust(this)"
+                                                                        style="overflow:hidden"></textarea>
 
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!--buttons-->
-                                                                                    <div
-                                                                                        class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                                                        <button class="btn btn-primary"
-                                                                                            type="reset">Reset</button>
-                                                                                        <button type="submit"
-                                                                                            form="Assign"
-                                                                                            class="btn btn-primary">
-                                                                                            Submit
-                                                                                        </button>
-                                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--buttons-->
+                                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                                <button class="btn btn-primary"
+                                                                    type="reset">Reset</button>
+                                                                <button type="submit" form="Assign"
+                                                                    class="btn btn-primary">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
 
 
 
-                                                            </form>
-                                                        </div>
+                                                        </form>
+                                                    </div>
                                             </div>
                                     </div>
                                 </div>
