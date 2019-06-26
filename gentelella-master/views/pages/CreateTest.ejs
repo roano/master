@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Upload Document</title>
+    <title>Create User Page</title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
                     <div class="page-title">
                         <div class="title_left">
 
-                            <h3>Upload Document</h3>
+                            <h3>Create User</h3>
 
                         </div>
                     </div>
@@ -54,79 +54,79 @@
                         <div class="x_panel">
                             <div class="x_content">
                                 <br />
-                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
-                                    action="SendDocument" method="POST" encType="multipart/form-data">
+                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="adduser" method="POST">
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                            for="first-name">Document Name <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <!--First name Input field-->
-                                            <input type="text" id="first-name" name="DocName" required="required"
-                                                class="form-control col-md-7 col-xs-12" placeholder="First name">
+                                            <input type="text" id="first-name" name="firstname" required="required" class="form-control col-md-7 col-xs-12" placeholder="First name" name=>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fileupload">Choose
-                                            File <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="file" name="DocFile" required="required"
-                                                class="form-control col-md-7 col-xs-12" placeholder="Last Name">
+                                            <!--Last name input field-->
+                                            <input type="text" id="last-name" name="lastname" required="required" class="form-control col-md-7 col-xs-12" placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                            for="first-name">Description <span class="required">*</span>
+                                        <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email Addess</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <!--Email Input field-->
+                                            <input id="email" class="form-control col-md-7 col-xs-12" type="email" name="email">
+                                        </div>
+                                    </div>
+                                    <!--options list of position-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Role</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="role">
+                                                <option value="-1">Choose Role...</option>
+                                                
+                                                <option value=""></option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Contact Number <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <!Document Description>
-                                            <textarea id="description" name="DocDesc" required="required"
-                                                class="form-control col-md-7 col-xs-12" onkeyup="textAreaAdjust(this)"
-                                                style="overflow:hidden"></textarea>
+                                            <!--Last name input field-->
+                                            <input type="text" id="contact" name="contact" required="required" class="form-control col-md-7 col-xs-12" placeholder="Cellphone or Contact Number">
+                                        </div>
+                                    </div>
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            <button class="btn btn-primary" type="button">Cancel</button>
+                                            <button class="btn btn-primary" type="reset">Reset</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
 
-
-
+                                </form>
                             </div>
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button class="btn btn-primary" type="button">Cancel</button>
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                </div>
-                            </div>
-
-                            </form>
                         </div>
                     </div>
                 </div>
+
+
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
-
-
-            <!-- /page content -->
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
         </div>
-    </div>
-
-    <!script for dynamic text area>
-        <script>
-            function textAreaAdjust(o) {
-                o.style.height = "1px";
-                o.style.height = (25 + o.scrollHeight) + "px";
-            }
-        </script>
 
         <!-- jQuery -->
         <script src="assets/vendors/jquery/dist/jquery.min.js"></script>

@@ -48,7 +48,7 @@ server.get('/debug1', function (req, resp) {
 });
 
 server.get('/debug2', function (req, resp) {
-    resp.render('./pages/PlanPage.ejs');
+    resp.render('./pages/CreateTest.ejs');
     console.log("Testing testing");
 });
 
