@@ -12,14 +12,22 @@ var connection = require('./db');
 var url = require('url');
 var session = require('express-session');
 // ---- DEFINE SESSION
-server.use(session({ secret: 'ssshhhhh' }));
+server.use(session({
+    secret: 'ssshhhhh'
+}));
 // ----
 server.use(express.static("public"));
 
 var routes = require('./routes');
 server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
-server.use(fileUpload({ createParentPath: true, safeFileNames: true, preserveExtension: true }));
+server.use(express.urlencoded({
+    extended: true
+}));
+server.use(fileUpload({
+    createParentPath: true,
+    safeFileNames: true,
+    preserveExtension: true
+}));
 server.set('view engine', 'ejs');
 
 
