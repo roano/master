@@ -38,7 +38,7 @@ server.get('/', function (req, resp) {
 });
 
 server.get('/debug', function (req, resp) {
-    resp.render('./pages/CreateArea.ejs');
+    resp.render('./pages/login.ejs');
     console.log("Testing testing");
 });
 
