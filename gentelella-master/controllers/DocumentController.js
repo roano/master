@@ -26,12 +26,12 @@ module.exports = {
     SendDocument: function (req, resp) {
         var name = req.body.DocName;
         var filename = req.files.DocFile.name;
-        var path = 'public/uploads/' + req.files.DocFile.name
+        var path = 'uploads/' + req.files.DocFile.name
         var desc = req.body.DocDesc;
         console.log(path);
 
         let uploadedimg = req.files.DocFile;
-        uploadedimg.mv('public/uploads/' + req.files.DocFile.name, function (err) {
+        uploadedimg.mv('uploads/' + req.files.DocFile.name, function (err) {
             if (err) return console.log(err);
             else console.log("File uploaded");
         })
@@ -48,6 +48,21 @@ module.exports = {
 
         resp.redirect('/UploadDocument');
 
+    },
+
+    ViewDocument: function (req, resp) {
+
+        connection.query("SELECT * FROM capstone.documents ;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/ViewDocument.ejs', {
+                data: results
+            });
+            console.log(results);
+        });
+
+
+
+        console.log("ViewDocument");
     },
 
 }

@@ -43,7 +43,7 @@ server.get('/debug', function (req, resp) {
 });
 
 server.get('/debug1', function (req, resp) {
-    resp.render('./pages/RecommendationNonAjax.ejs');
+    resp.render('./pages/ViewDocument.ejs');
     console.log("Testing testing");
 });
 
