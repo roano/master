@@ -54,7 +54,7 @@ CREATE TABLE `documents` (
   `Document_Route` varchar(100) NOT NULL,
   `Document_Desc` varchar(300) DEFAULT 'No Description Given.',
   PRIMARY KEY (`Document_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +63,7 @@ CREATE TABLE `documents` (
 
 LOCK TABLES `documents` WRITE;
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
+INSERT INTO `documents` VALUES (2,'Test File','public/uploads/114134761.pdf','Hello'),(3,'Test','public/uploads/06-07-08-22-01-2019.png','Test'),(4,'Test','public/uploads/06-09-10-34-16-2019.jpg','Test');
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,6 +116,34 @@ LOCK TABLES `groupdetails` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `plans`
+--
+
+DROP TABLE IF EXISTS `plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `plans` (
+  `Plan_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `GenObjective` varchar(200) NOT NULL,
+  `Measurement` varchar(200) NOT NULL,
+  `BaseFormula` varchar(200) NOT NULL,
+  `QualityTarget` varchar(200) NOT NULL,
+  `Procedures` varchar(500) NOT NULL,
+  PRIMARY KEY (`Plan_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `plans`
+--
+
+LOCK TABLES `plans` WRITE;
+/*!40000 ALTER TABLE `plans` DISABLE KEYS */;
+INSERT INTO `plans` VALUES (1,'1','2','3','4','5'),(2,'1','2','3','4','5'),(3,'1','2','3','4','5'),(4,'1','2','3','4','5'),(5,'1','2','3','4','5'),(6,'1','2','3','4','5');
+/*!40000 ALTER TABLE `plans` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -156,7 +185,7 @@ CREATE TABLE `users` (
   `username` varchar(45) DEFAULT NULL,
   `passwd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +194,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(7,'Test Acc4','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(8,'TestAcc7','Yes','ForTesting@test.com',-1,NULL,'79841561',NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(7,'Test Acc4','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(8,'TestAcc7','Yes','ForTesting@test.com',-1,NULL,'79841561',NULL,NULL),(9,'1','2','3@3.com',2,NULL,'1',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -178,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-16 10:05:00
+-- Dump completed on 2019-06-26 14:02:50
