@@ -69,9 +69,6 @@ server.post('/enter', function (req, resp) {
     resp.render('./pages/home.ejs');
 });
 
-server.get('*', function(req, res) {
-    res.redirect('/');
-});
 
 
 server.use('/', routes);
