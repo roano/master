@@ -16,19 +16,25 @@ server.use(session({
 }));
 // ----
 
+server.use(fileUpload({
+    createParentPath: true,
+    safeFileNames: true,
+    preserveExtension: 10
+}));
+
 module.exports = {
 
     UploadDocument: function (req, resp) {
         resp.render('./pages/UploadDocument.ejs');
-        console.log("Testing testing");
+       // console.log("Testing testing");
     },
 
     SendDocument: function (req, resp) {
         var name = req.body.DocName;
         var filename = req.files.DocFile.name;
-        var path = 'public/uploads/' + req.files.DocFile.name
+        var path = 'uploads/' + req.files.DocFile.name
         var desc = req.body.DocDesc;
-        console.log(path);
+        console.log(req.files.DocFile.name);
 
         let uploadedimg = req.files.DocFile;
         uploadedimg.mv('public/uploads/' + req.files.DocFile.name, function (err) {
@@ -48,6 +54,21 @@ module.exports = {
 
         resp.redirect('/UploadDocument');
 
+    },
+
+    ViewDocument: function (req, resp) {
+
+        connection.query("SELECT * FROM capstone.documents ;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/ViewDocument.ejs', {
+                data: results
+            });
+            console.log(results);
+        });
+
+
+
+        console.log("ViewDocument");
     },
 
 }

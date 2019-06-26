@@ -265,4 +265,12 @@ module.exports = {
 
     },
 
+    RecommendationNonAjax: function (req, resp) {
+        resp.render('./pages/RecommendationNonAjax.ejs');
+        console.log("RECOMMENDATION NON AJAX");
+
+    },
+
+    
+
 }
