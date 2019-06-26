@@ -31,7 +31,7 @@ module.exports = {
         console.log(path);
 
         let uploadedimg = req.files.DocFile;
-        uploadedimg.mv('uploads/' + req.files.DocFile.name, function (err) {
+        uploadedimg.mv('public/uploads/' + req.files.DocFile.name, function (err) {
             if (err) return console.log(err);
             else console.log("File uploaded");
         })
