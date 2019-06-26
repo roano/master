@@ -16,11 +16,17 @@ server.use(session({
 }));
 // ----
 
+server.use(fileUpload({
+    createParentPath: true,
+    safeFileNames: true,
+    preserveExtension: 10
+}));
+
 module.exports = {
 
     UploadDocument: function (req, resp) {
         resp.render('./pages/UploadDocument.ejs');
-        console.log("Testing testing");
+       // console.log("Testing testing");
     },
 
     SendDocument: function (req, resp) {
@@ -28,7 +34,7 @@ module.exports = {
         var filename = req.files.DocFile.name;
         var path = 'uploads/' + req.files.DocFile.name
         var desc = req.body.DocDesc;
-        console.log(path);
+        console.log(req.files.DocFile.name);
 
         let uploadedimg = req.files.DocFile;
         uploadedimg.mv('public/uploads/' + req.files.DocFile.name, function (err) {

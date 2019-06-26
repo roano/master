@@ -26,7 +26,7 @@ server.use(express.urlencoded({
 server.use(fileUpload({
     createParentPath: true,
     safeFileNames: true,
-    preserveExtension: true
+    preserveExtension: 10
 }));
 server.set('view engine', 'ejs');
 
