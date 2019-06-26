@@ -38,7 +38,7 @@ server.get('/', function (req, resp) {
 });
 
 server.get('/debug', function (req, resp) {
-    resp.render('./pages/login.ejs');
+    resp.render('./pages/login2.ejs');
     console.log("Testing testing");
 });
 
@@ -67,6 +67,10 @@ server.post('/enter', function (req, resp) {
     console.log(req.body.password);
     console.log("Testing testing");
     resp.render('./pages/home.ejs');
+});
+
+server.get('*', function(req, res) {
+    res.redirect('/');
 });
 
 

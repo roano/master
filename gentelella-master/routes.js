@@ -2,6 +2,7 @@ var express = require('express');
 var planCtrl = require('./controllers/planController');
 var JSONCtrl = require('./controllers/JSONController');
 var DocCtrl = require('./controllers/DocumentController');
+var SessCtrl = require('./controllers/SessionController');
 var router = express.Router();
 //--PlanCtrl--
 router.route('/Viewusers').get(planCtrl.Viewusers);
@@ -26,5 +27,8 @@ router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 //--DocCtrl--
 router.route('/UploadDocument').get(DocCtrl.UploadDocument);
 router.route('/SendDocument').post(DocCtrl.SendDocument);
+//--SessCtrl
+router.route('/DebugCreate').post(SessCtrl.Register);
+router.route('/Login').post(SessCtrl.Login);
 
 module.exports = router;
