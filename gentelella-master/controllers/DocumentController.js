@@ -26,7 +26,7 @@ module.exports = {
 
     UploadDocument: function (req, resp) {
         resp.render('./pages/UploadDocument.ejs');
-       // console.log("Testing testing");
+        // console.log("Testing testing");
     },
 
     SendDocument: function (req, resp) {
@@ -34,7 +34,11 @@ module.exports = {
         var filename = req.files.DocFile.name;
         var path = 'uploads/' + req.files.DocFile.name
         var desc = req.body.DocDesc;
-        console.log(req.files.DocFile.name);
+
+        var point = filename.lastIndexOf(".");
+
+        var ext = filename.substr(point);
+
 
         let uploadedimg = req.files.DocFile;
         uploadedimg.mv('public/uploads/' + req.files.DocFile.name, function (err) {
@@ -42,17 +46,15 @@ module.exports = {
             else console.log("File uploaded");
         })
 
-        var sql = "INSERT INTO `capstone`.`documents` (`Document_Name`, `Document_Route`, `Document_Desc`) VALUES (? , ? , ?);"
-        var values = [name, path, desc];
+        var sql = "INSERT INTO `capstone`.`documents` (`Document_Name`, `Document_Route`, `Document_Desc`, `Document_Ext`) VALUES (? , ? , ?, ?);"
+        var values = [name, path, desc, ext];
 
         connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log("Record Inserted");
-
+            resp.redirect('/UploadDocument');
         });
 
-
-        resp.redirect('/UploadDocument');
 
     },
 
