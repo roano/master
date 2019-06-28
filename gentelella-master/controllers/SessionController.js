@@ -44,9 +44,9 @@ module.exports = {
 
     },
 
-    Login: function (req, resp) {
-        resp.render('./pages/login.ejs');
-        console.log("Login");
+    Login: function (req, resp) {        
+        var user = req.body.username;
+        var hashed = md5(req.body.password);
     },
 
 }
