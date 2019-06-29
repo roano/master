@@ -271,8 +271,13 @@ module.exports = {
     },
 
     RecommendationNonAjax: function (req, resp) {
-        resp.render('./pages/RecommendationNonAjax.ejs');
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields){
+            if(err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+              data: results  
+            });
         console.log("RECOMMENDATION NON AJAX");
+        });
 
     },
 
@@ -290,8 +295,6 @@ module.exports = {
 
         var sql = "INSERT INTO `capstone`.`recommendation` (`recommendation_Name`, `recommendation_Desc`, `recommendation_Grade` , `priority_Level`) VALUES (? , ? , ? , ?)";
         var values = [recommendationName, recommendationDesc, grade, priority];
-
-
 
         connection.query(sql, values, function (err, result) {
             if (err) throw err;

@@ -76,13 +76,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <% for (var recommendation of data) { %>
                                             <tr>
-                                                <td>Prepare requirements in advance</td>
-                                                <td>Delay in giving of final report due to excessive procrastination
-                                                </td>
-                                                <td>2</td>
-                                                <td>High</td>
-                                                <td>Updated Last: June 6, 2019</td>
+                                                <td><%= recommendation.recommendation_Name %></td>
+                                                <td><%= recommendation.recommendation_Desc %></td>
+                                                <td><%= recommendation.recommendation_Grade %></td>
+                                                <td><%= recommendation.priority_Level %></td>
+                                                <td></td>
                                                 <td>
                                                     <div class="form-group">
                                                         <div>
@@ -97,6 +97,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 
