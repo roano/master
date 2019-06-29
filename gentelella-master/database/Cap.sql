@@ -53,8 +53,9 @@ CREATE TABLE `documents` (
   `Document_Name` varchar(45) NOT NULL,
   `Document_Route` varchar(100) NOT NULL,
   `Document_Desc` varchar(300) DEFAULT 'No Description Given.',
+  `Document_Ext` varchar(45) NOT NULL,
   PRIMARY KEY (`Document_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +64,7 @@ CREATE TABLE `documents` (
 
 LOCK TABLES `documents` WRITE;
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
-INSERT INTO `documents` VALUES (2,'Test File','public/uploads/114134761.pdf','Hello'),(3,'Test','public/uploads/06-07-08-22-01-2019.png','Test'),(4,'Test','public/uploads/06-09-10-34-16-2019.jpg','Test');
+INSERT INTO `documents` VALUES (19,'Testing','uploads/testing2.docx','123','.docx');
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,9 +184,9 @@ CREATE TABLE `users` (
   `Group` int(11) DEFAULT NULL,
   `ContactNo` varchar(15) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
-  `passwd` varchar(45) DEFAULT NULL,
+  `passwd` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +195,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(7,'Test Acc4','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(8,'TestAcc7','Yes','ForTesting@test.com',-1,NULL,'79841561',NULL,NULL),(9,'1','2','3@3.com',2,NULL,'1',NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(7,'Test Acc4','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(8,'TestAcc7','Yes','ForTesting@test.com',-1,NULL,'79841561',NULL,NULL),(9,'1','2','3@3.com',2,NULL,'1',NULL,NULL),(11,'admin','admin','debug@debug.com',1,NULL,'99999999999','admin','81dc9bdb52d04dc20036dbd8313ed055'),(12,'admin','admin','debug@debug.com',1,NULL,'99999999999','Admin','81dc9bdb52d04dc20036dbd8313ed055'),(13,'admin','admin','debug@debug.com',1,NULL,'99999999999','admin','81dc9bdb52d04dc20036dbd8313ed055'),(14,'admin','admin','debug@debug.com',1,NULL,'99999999999','admin','827ccb0eea8a706c4c34a16891f84e7b');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -207,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-26 14:02:50
+-- Dump completed on 2019-06-29 16:19:36
