@@ -184,7 +184,7 @@
                               console.log("Hi");
                               const request=new XMLHttpRequest();
                               
-                              request.open("POST","viewplantest.json");
+                              request.open("POST","viewplantest");
                               request.onload = () => {
                                   try{
                                       const json=JSON.parse(request.responseText);

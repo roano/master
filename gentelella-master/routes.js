@@ -25,6 +25,7 @@ router.route('/PlanPage').get(planCtrl.Planning);
 router.route('/RecommendationNonAjax').get(planCtrl.RecommendationNonAjax);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
+router.route('/viewplantest').post(JSONCtrl.ViewPlanTest);
 //--DocCtrl--
 router.route('/UploadDocument').get(DocCtrl.UploadDocument);
 router.route('/SendDocument').post(DocCtrl.SendDocument);
