@@ -276,6 +276,35 @@ module.exports = {
 
     },
 
+    addrecommendation: function (req, resp) {
+
+        var recommendationName = (req.body.recommendationName);
+        var recommendationDesc = (req.body.recommendationDesc);
+        var grade = (req.body.grade);
+        var priority = (req.body.priority);
+
+        console.log(recommendationName);
+        console.log(recommendationDesc);
+        console.log(grade);
+        console.log(priority);
+
+        var sql = "INSERT INTO `capstone`.`recommendation` (`recommendation_Name`, `recommendation_Desc`, `recommendation_Grade` , `priority_Level`) VALUES (? , ? , ? , ?)";
+        var values = [recommendationName, recommendationDesc, grade, priority];
+
+
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+
+        });
+
+        resp.redirect('/RecommendationNonAjax');
+
+
+
+    },
+
     
 
 }
