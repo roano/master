@@ -13,7 +13,9 @@ var url = require('url');
 var session = require('express-session');
 // ---- DEFINE SESSION
 server.use(session({
-    secret: 'ssshhhhh'
+    secret: 'ssshhhhh',
+    resave: false,
+    saveUninitialized: true
 }));
 // ----
 server.use(express.static("public"));
@@ -31,6 +33,9 @@ server.use(fileUpload({
 server.set('view engine', 'ejs');
 
 
+
+//---------
+    
 server.get('/', function (req, resp) {
     resp.render('./pages/home.ejs');
 
@@ -74,3 +79,4 @@ server.post('/enter', function (req, resp) {
 server.use('/', routes);
 const port = process.env.PORT | 9090;
 server.listen(port);
+console.log("Server active at port", port)
