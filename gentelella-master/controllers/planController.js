@@ -229,7 +229,6 @@ module.exports = {
         console.log("Recommendations");
     },
 
-
     SendPlan: function (req, resp) {
 
 
@@ -262,17 +261,58 @@ module.exports = {
     },
 
     Planning: function (req, resp) {
-        resp.render('./pages/PlanPage.ejs');
-        console.log("PlanPage");
-
+        connection.query("Select * FROM capstone.plans; Select group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/PlanPage.ejs', {
+                data: results[0],
+                dataB: results[1]
+            });
+            console.log(results);
+        });
     },
 
     RecommendationNonAjax: function (req, resp) {
-        resp.render('./pages/RecommendationNonAjax.ejs');
-        console.log("RECOMMENDATION NON AJAX");
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+                data: results
+            });
+            console.log("RECOMMENDATION NON AJAX");
+        });
 
     },
 
-    
+    addrecommendation: function (req, resp) {
+
+        var recommendationName = (req.body.recommendationName);
+        var recommendationDesc = (req.body.recommendationDesc);
+        var grade = (req.body.grade);
+        var priority = (req.body.priority);
+        var date = new Date();
+        var current = date.toISOString().split('T')[0];
+        
+
+        console.log(recommendationName);
+        console.log(recommendationDesc);
+        console.log(grade);
+        console.log(priority);
+        console.log(current);
+
+        var sql = "INSERT INTO `capstone`.`recommendation` (`recommendation_Name`, `recommendation_Desc`, `recommendation_Grade` , `priority_Level`, `status`) VALUES (? , ? , ? , ?, ?)";
+        var values = [recommendationName, recommendationDesc, grade, priority, current];
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+
+        });
+
+        resp.redirect('/RecommendationNonAjax');
+
+
+
+    },
+
+
 
 }
