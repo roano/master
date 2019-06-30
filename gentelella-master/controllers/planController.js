@@ -290,7 +290,7 @@ module.exports = {
         var priority = (req.body.priority);
         var date = new Date();
         var current = date.toISOString().split('T')[0];
-        
+
 
         console.log(recommendationName);
         console.log(recommendationDesc);
