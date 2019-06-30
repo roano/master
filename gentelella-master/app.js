@@ -13,7 +13,9 @@ var url = require('url');
 var session = require('express-session');
 // ---- DEFINE SESSION
 server.use(session({
-    secret: 'ssshhhhh'
+    secret: 'ssshhhhh',
+    resave: false,
+    saveUninitialized: true
 }));
 // ----
 server.use(express.static("public"));
@@ -29,6 +31,7 @@ server.use(fileUpload({
     preserveExtension: 10
 }));
 server.set('view engine', 'ejs');
+//---------
 
 
 server.get('/', function (req, resp) {
@@ -62,15 +65,27 @@ server.get('/login', function (req, resp) {
     resp.render('./pages/login.ejs');
 });
 
-server.post('/enter', function (req, resp) {
-    console.log(req.body.username);
-    console.log(req.body.password);
-    console.log("Testing testing");
-    resp.render('./pages/home.ejs');
-});
 
 
 
 server.use('/', routes);
 const port = process.env.PORT | 9090;
-server.listen(port);
+var serverclose = server.listen(port);
+
+
+
+connection.query("SHOW DATABASES LIKE 'capstone';", function (err, result, fields) {
+    if (err) {
+        console.log("\x1b[31m","")
+        console.log("---------------------------------------------------------------------------------")
+        console.log("AccredIT Server could not initiate a connection to the database")
+        console.log("Check db.js for connection configurations or check if the MySQL Server is online")
+        console.log("AccredIT Server is now offline")
+        console.log("---------------------------------------------------------------------------------")
+        console.log("\x1b[0m" ,"")
+        serverclose.close();
+    } else {
+        console.log("\x1b[32m%s\x1b[0m", "AccredIT Server has successfully connected to the database")
+        console.log("\x1b[32m%s\x1b[0m" ,"Server active at port", port);
+    }
+});
