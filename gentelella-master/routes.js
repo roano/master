@@ -32,7 +32,7 @@ router.route('/SendDocument').post(DocCtrl.SendDocument);
 router.route('/ViewDocument').get(DocCtrl.ViewDocument);
 //--SessCtrl
 router.route('/DebugCreate').post(SessCtrl.Register);
-router.route('/SessLogin').get(SessCtrl.Login);
+router.route('/SessLogin').post(SessCtrl.Login);
 
 
 
