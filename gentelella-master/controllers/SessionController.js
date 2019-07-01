@@ -29,8 +29,8 @@ module.exports = {
         //  console.log(req.body.password);
         var user = req.body.username;
         var pass = req.body.password;
-        var fname = "admin";
-        var lname = "admin";
+        var fname = req.body.username;
+        var lname = req.body.username;
         var email = "debug@debug.com";
         var role = "1";
         var contact = "99999999999"
