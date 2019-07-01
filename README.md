@@ -1,4 +1,4 @@
-# master
+# AccredIT
 Sessions Debug
 
 Start the server with "npm run start"
