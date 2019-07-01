@@ -35,7 +35,6 @@ server.set('view engine', 'ejs');
 
 server.get('/', function (req, resp) {
     resp.render('./pages/Recommendations.ejs');
-
     console.log("Testing testing");
 });
 
@@ -55,8 +54,14 @@ server.get('/debug2', function (req, resp) {
 });
 
 server.get('/home', function (req, resp) {
-    resp.render('./pages/home.ejs');
-    console.log("Testing testing");
+    sess = req.session;
+    if(!req.session.user){
+        console.log("No session")
+        resp.redirect('/login');
+    }else{
+    resp.render('./pages/home.ejs',{current_user: sess.user});
+    console.log(sess.user);
+    }
 });
 
 server.get('/login', function (req, resp) {

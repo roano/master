@@ -17,7 +17,7 @@ server.use(session({
     saveUninitialized: true
 }));
 // ----
-
+var sess;
 module.exports = {
 
     AssignTaskJSON: function (req, resp) {

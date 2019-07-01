@@ -17,7 +17,7 @@ server.use(session({
     saveUninitialized: true
 }));
 // ----
-
+var sess;
 module.exports = {
 
     Viewusers: function (req, resp) {

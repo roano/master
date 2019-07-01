@@ -24,6 +24,7 @@ server.use(fileUpload({
     preserveExtension: 10
 }));
 
+var sess
 module.exports = {
 
     UploadDocument: function (req, resp) {

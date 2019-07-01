@@ -21,7 +21,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 // ----
-
+var sess;
 module.exports = {
 
     Register: function (req, resp) {
@@ -55,13 +55,12 @@ module.exports = {
     },
 
     Login: function (req, resp) {
-
+        sess = req.session;
         var user = req.body.username;
         var pass = req.body.password;
         console.log(user);
-        console.log(pass);
 
-        var sql = "SELECT users.passwd FROM capstone.users where username = ?;"
+        var sql = "SELECT users.passwd FROM capstone.users where binary username = ?;"
         var values = [user];
 
         connection.query(sql, values, function (err, result, fields) {
@@ -72,8 +71,22 @@ module.exports = {
                 bcrypt.compare(pass, result[0].passwd, function (err, res) {
                     console.log(res);
                     if (res == true) {
-                        resp.redirect('/login');
-                        console.log("User validated");  
+                        console.log("User validated");
+
+                        
+                        var sessql = "SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, users.role, users.group, users.ContactNo FROM capstone.users where binary username = ?"
+                        var sesvalues = [user];
+
+                        connection.query(sessql, sesvalues, function (err2, result2, fields2) {
+                            if (err) throw err;
+                            sess.user = result2;
+                            console.log(sess.user);
+                            resp.redirect('/home');
+                        });
+
+
+
+
                     } else {
                         resp.redirect('/login');
                         console.log("Invalid user");
@@ -85,5 +98,10 @@ module.exports = {
         });
 
     },
+    
+    Logout: function(req, resp) {
+        req.session.destroy();
+        resp.redirect('/home');
+    }
 
 }
