@@ -66,6 +66,7 @@ module.exports = {
         connection.query(sql, values, function (err, result, fields) {
             if (result.length < 1) {
                 console.log("user not found")
+                resp.redirect('/login');
             } else {
 
                 bcrypt.compare(pass, result[0].passwd, function (err, res) {
@@ -73,7 +74,7 @@ module.exports = {
                     if (res == true) {
                         console.log("User validated");
 
-                        
+
                         var sessql = "SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, users.role, users.group, users.ContactNo FROM capstone.users where binary username = ?"
                         var sesvalues = [user];
 
@@ -98,8 +99,8 @@ module.exports = {
         });
 
     },
-    
-    Logout: function(req, resp) {
+
+    Logout: function (req, resp) {
         req.session.destroy();
         resp.redirect('/home');
     }
