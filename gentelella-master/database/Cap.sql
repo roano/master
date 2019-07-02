@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `capstone` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE `capstone`;
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: capstone
+-- Host: 127.0.0.1    Database: capstone
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	8.0.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,6 +37,32 @@ LOCK TABLES `area` WRITE;
 /*!40000 ALTER TABLE `area` DISABLE KEYS */;
 INSERT INTO `area` VALUES (1,'Purposes and Objectives'),(2,'Faculty'),(3,'Instruction'),(4,'Library'),(5,'Laboratories'),(6,'Physial Plan'),(7,'Student Services'),(8,'Administration'),(9,'School and Community');
 /*!40000 ALTER TABLE `area` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cycle`
+--
+
+DROP TABLE IF EXISTS `cycle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `cycle` (
+  `cycle_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `cycle_Name` varchar(45) NOT NULL,
+  `start_Date` date NOT NULL,
+  `end_Date` date NOT NULL,
+  PRIMARY KEY (`cycle_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cycle`
+--
+
+LOCK TABLES `cycle` WRITE;
+/*!40000 ALTER TABLE `cycle` DISABLE KEYS */;
+INSERT INTO `cycle` VALUES (1,'CYCLE 1','2019-07-02','2019-07-31'),(2,'CYCLE 2','2019-07-16','2020-03-05'),(3,'ADDING CYCLE TEST AT HOME','2019-07-02','2020-09-15');
+/*!40000 ALTER TABLE `cycle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -150,6 +174,34 @@ INSERT INTO `plans` VALUES (1,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(2,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `players`
+--
+
+DROP TABLE IF EXISTS `players`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `players` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `number` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `players`
+--
+
+LOCK TABLES `players` WRITE;
+/*!40000 ALTER TABLE `players` DISABLE KEYS */;
+/*!40000 ALTER TABLE `players` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `recommendation`
 --
 
@@ -229,7 +281,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (19,'admin','admin','debug@debug.com',1,NULL,'99999999999','Admin','$2b$10$b0yHVAlc2Na94ldTZQU.X.v.l.sDBOY1zBn6UzYwHkkUjIPpjtmo2');
+INSERT INTO `users` VALUES (19,'Admin','Super User','debug@debug.com',2,NULL,'99999999999','Admin','$2b$10$b0yHVAlc2Na94ldTZQU.X.v.l.sDBOY1zBn6UzYwHkkUjIPpjtmo2');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -242,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 23:47:40
+-- Dump completed on 2019-07-02 22:16:49
