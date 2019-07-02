@@ -12,10 +12,12 @@ var url = require('url');
 var session = require('express-session');
 // ---- DEFINE SESSION
 server.use(session({
-    secret: 'ssshhhhh'
+    secret: 'ssshhhhh',
+    resave: false,
+    saveUninitialized: true
 }));
 // ----
-
+var sess;
 module.exports = {
 
     Viewusers: function (req, resp) {
@@ -227,7 +229,6 @@ module.exports = {
         console.log("Recommendations");
     },
 
-
     SendPlan: function (req, resp) {
 
 
@@ -260,9 +261,112 @@ module.exports = {
     },
 
     Planning: function (req, resp) {
-        resp.render('./pages/PlanPage.ejs');
-        console.log("PlanPage");
+        connection.query("Select * FROM capstone.plans; Select group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/PlanPage.ejs', {
+                data: results[0],
+                dataB: results[1]
+            });
+            console.log(results);
+        });
+    },
 
+    RecommendationNonAjax: function (req, resp) {
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+                data: results
+            });
+            console.log("RECOMMENDATION NON AJAX");
+        });
+
+    },
+
+    addrecommendation: function (req, resp) {
+
+        var recommendationName = (req.body.recommendationName);
+        var recommendationDesc = (req.body.recommendationDesc);
+        var grade = (req.body.grade);
+        var priority = (req.body.priority);
+        var date = new Date();
+        var current = date.toISOString().split('T')[0];
+
+
+        console.log(recommendationName);
+        console.log(recommendationDesc);
+        console.log(grade);
+        console.log(priority);
+        console.log(current);
+
+        var sql = "INSERT INTO `capstone`.`recommendation` (`recommendation_Name`, `recommendation_Desc`, `recommendation_Grade` , `priority_Level`, `status`) VALUES (? , ? , ? , ?, ?)";
+        var values = [recommendationName, recommendationDesc, grade, priority, current];
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+
+        });
+
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+                data: results
+            });
+            console.log("RECOMMENDATION NON AJAX");
+        });
+    },
+
+    Viewcycle: function (req, resp) {
+        connection.query("Select * FROM capstone.cycle;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/Viewcycle.ejs', {
+                data: results
+            });
+            console.log("View Cycle Page");
+        });
+    },
+
+    addcycle: function (req, resp) {
+        var cyclename = (req.body.cycleName);
+        var date = (req.body.date);
+        var startDate = '';
+        var endDate = '';
+        var startYear = date.substr(6, 4);
+        var endYear = date.substr(19, 4);
+        var startMonth = date.substr(0,2);
+        var endMonth = date.substr(13, 2);
+        var startDay = date.substr(3, 2);
+        var endDay = date.substr(16, 2);
+        
+        console.log(cyclename);
+        console.log(date);
+        startDate = startYear + "-" + startMonth + "-" + startDay;
+        endDate = endYear + "-" + endMonth + "-" + endDay;
+        console.log("Start Date: " + startDate);
+        console.log("End Date: " + endDate);
+
+        var sql = "INSERT INTO `capstone`.`cycle` (`cycle_Name`, `start_Date`, `end_Date`) VALUES (? , ? , ?)";
+        var values = [cyclename, startDate, endDate];
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+
+        });
+
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+                data: results
+            });
+            console.log("RECOMMENDATION NON AJAX");
+        });
+
+    },
+
+    editrecommendation: function (req, resp) {
+        resp.render('./pages/EditRecommendation.ejs');
+        console.log("Edit Recommendations Page");
     },
 
 }

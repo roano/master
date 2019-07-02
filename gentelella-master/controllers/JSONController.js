@@ -12,10 +12,12 @@ var url = require('url');
 var session = require('express-session');
 // ---- DEFINE SESSION
 server.use(session({
-    secret: 'ssshhhhh'
+    secret: 'ssshhhhh',
+    resave: false,
+    saveUninitialized: true
 }));
 // ----
-
+var sess;
 module.exports = {
 
     AssignTaskJSON: function (req, resp) {

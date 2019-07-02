@@ -2,6 +2,7 @@ var express = require('express');
 var planCtrl = require('./controllers/planController');
 var JSONCtrl = require('./controllers/JSONController');
 var DocCtrl = require('./controllers/DocumentController');
+var SessCtrl = require('./controllers/SessionController');
 var router = express.Router();
 //--PlanCtrl--
 router.route('/Viewusers').get(planCtrl.Viewusers);
@@ -21,10 +22,22 @@ router.route('/alteruser').post(planCtrl.alteruser);
 router.route('/Recommendations').get(planCtrl.Recommendations);
 router.route('/SendPlan').post(planCtrl.SendPlan);
 router.route('/PlanPage').get(planCtrl.Planning);
+router.route('/RecommendationNonAjax').get(planCtrl.RecommendationNonAjax);
+router.route('/addrecommendation').post(planCtrl.addrecommendation);
+router.route('/addcycle').post(planCtrl.addcycle);
+router.route('/Viewcycle').get(planCtrl.Viewcycle);
+router.route('/editrecommendation').get(planCtrl.editrecommendation);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 //--DocCtrl--
 router.route('/UploadDocument').get(DocCtrl.UploadDocument);
 router.route('/SendDocument').post(DocCtrl.SendDocument);
+router.route('/ViewDocument').get(DocCtrl.ViewDocument);
+//--SessCtrl
+router.route('/DebugCreate').post(SessCtrl.Register);
+router.route('/SessLogin').post(SessCtrl.Login);
+router.route('/Logout').get(SessCtrl.Logout);
+
+
 
 module.exports = router;

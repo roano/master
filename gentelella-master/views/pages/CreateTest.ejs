@@ -85,9 +85,9 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="role">
                                                 <option value="-1">Choose Role...</option>
-                                                <% for (var role of data){ %>
-                                                <option value="<%= role.Role_ID %>"><%= role.Role_Name %></option>
-                                                <% } %>
+                                                
+                                                <option value=""></option>
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <!--Last name input field-->
-                                            <input type="number" id="contact" name="contact" required="required" class="form-control col-md-7 col-xs-12" placeholder="Cellphone or Contact Number" maxlength="11">
+                                            <input type="text" id="contact" name="contact" required="required" class="form-control col-md-7 col-xs-12" placeholder="Cellphone or Contact Number">
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

@@ -53,8 +53,9 @@ CREATE TABLE `documents` (
   `Document_Name` varchar(45) NOT NULL,
   `Document_Route` varchar(100) NOT NULL,
   `Document_Desc` varchar(300) DEFAULT 'No Description Given.',
+  `Document_Ext` varchar(45) NOT NULL,
   PRIMARY KEY (`Document_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE `documents` (
 
 LOCK TABLES `documents` WRITE;
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
+INSERT INTO `documents` VALUES (20,'IMAGE TEST','uploads/picture.jpg','TESTING TESTING ','.jpg'),(21,'DOCUMENT TEST','uploads/asean.docx','DOCUMENT TESTING TESTING','.docx'),(22,'Test File','uploads/GEFILIFINALPRESENTATION.pdf','Hi','.pdf'),(23,'Test','uploads/Jeld-RentalReceipt.docx','Test','.docx'),(24,'wsdfawqefq','uploads/05UsersandFilePermissionsv2.pptx','wefqwefqw','.pptx'),(25,'ewqfqfeqefqwefqwefq','uploads/LSDC-Folk-Attendance.pdf','qfwefqwefqwefqwefqewf','.pdf'),(26,'TEST PPTX','uploads/05UsersandFilePermissionsv2.pptx','TESTING','.pptx'),(27,'Network Test','uploads/__ai_chan_getsuyoubi_no_tawawa_drawn_by_himura_kiseki__351255e59b8f196938aa0f378be7a6f1.png','Tawawa','.png');
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,6 +117,67 @@ LOCK TABLES `groupdetails` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `plans`
+--
+
+DROP TABLE IF EXISTS `plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `plans` (
+  `Plan_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `GenObjective` varchar(200) NOT NULL,
+  `Measurement` varchar(200) NOT NULL,
+  `BaseFormula` varchar(200) NOT NULL,
+  `QualityTarget` varchar(200) NOT NULL,
+  `Procedures` varchar(500) NOT NULL,
+  `GroupAssigned` int(11) DEFAULT NULL,
+  `CycleTime` int(11) DEFAULT NULL,
+  `PriorityLevel` varchar(45) DEFAULT NULL,
+  `BaseStandard` varchar(200) DEFAULT NULL,
+  `recommendation_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Plan_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `plans`
+--
+
+LOCK TABLES `plans` WRITE;
+/*!40000 ALTER TABLE `plans` DISABLE KEYS */;
+INSERT INTO `plans` VALUES (1,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(2,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(3,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(4,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(5,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(6,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(7,'TEST','TEST','TEST','TEST','TEST',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `plans` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `recommendation`
+--
+
+DROP TABLE IF EXISTS `recommendation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `recommendation` (
+  `recommendation_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `recommendation_Name` varchar(45) DEFAULT NULL,
+  `recommendation_Desc` varchar(200) DEFAULT NULL,
+  `recommendation_Grade` varchar(45) DEFAULT NULL,
+  `priority_Level` varchar(45) DEFAULT NULL,
+  `status` datetime DEFAULT NULL,
+  PRIMARY KEY (`recommendation_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `recommendation`
+--
+
+LOCK TABLES `recommendation` WRITE;
+/*!40000 ALTER TABLE `recommendation` DISABLE KEYS */;
+INSERT INTO `recommendation` VALUES (1,'TEST','TEST','B','Medium',NULL),(2,'1','2','A','High','2019-06-29 00:00:00');
+/*!40000 ALTER TABLE `recommendation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -152,11 +215,12 @@ CREATE TABLE `users` (
   `email_address` varchar(45) DEFAULT NULL,
   `Role` int(11) DEFAULT NULL,
   `Group` int(11) DEFAULT NULL,
-  `ContactNo` varchar(15) DEFAULT NULL,
+  `ContactNo` varchar(12) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
-  `passwd` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `passwd` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`User_ID`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +229,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin','admin@admin.com',1,NULL,NULL,NULL,NULL),(2,'Jack','Smith','JackSmith@gmail.com',2,NULL,'123123',NULL,NULL),(3,'Hot','Dog','hotdog@gmail.com',3,NULL,' 123456',NULL,NULL),(4,'Your','Name','Testname@test.com',2,NULL,'564654564',NULL,NULL),(5,'TestAcc2','Yes','testset@kek.com',-1,NULL,'999999999',NULL,NULL),(6,'TestAcc3','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(7,'Test Acc4','Yes','testset@kek.com',-1,NULL,NULL,NULL,NULL),(8,'TestAcc7','Yes','ForTesting@test.com',-1,NULL,'79841561',NULL,NULL);
+INSERT INTO `users` VALUES (19,'admin','admin','debug@debug.com',1,NULL,'99999999999','Admin','$2b$10$b0yHVAlc2Na94ldTZQU.X.v.l.sDBOY1zBn6UzYwHkkUjIPpjtmo2');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -178,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-16 10:05:00
+-- Dump completed on 2019-07-01 23:47:40

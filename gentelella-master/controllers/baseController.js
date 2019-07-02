@@ -15,7 +15,7 @@ server.use(session({
     secret: 'ssshhhhh'
 }));
 // ----
-
+var sess;
 module.exports = {
 
 }

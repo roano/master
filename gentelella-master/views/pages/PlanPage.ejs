@@ -98,20 +98,19 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            <% for (var plan of data) { %>
                                                             <tr>
-                                                                <td>Prepare requirements in advance</td>
-                                                                <td>
-                                                                    Delay in giving of final report due to excessive
-                                                                    procrastination
-                                                                </td>
-                                                                <td>2</td>
-                                                                <td>Laboratories</td>
-                                                                <td>High</td>
-                                                                <td>For Checking</td>
-                                                                <td>For Checking</td>
-                                                                <td>For Checking</td>
-                                                                <td>For Checking</td>
+                                                                <td><%= plan.GenObjective %></td>
+                                                                <td><%= plan.Measurement %></td>
+                                                                <td><%= plan.BaseFormula %></td>
+                                                                <td>Base Standard</td>
+                                                                <td><%= plan.QualityTarget %></td>
+                                                                <td>Group Assigned</td>
+                                                                <td>Priority Level</td>
+                                                                <td>Cycle Time</td>
+                                                                <td>Procedures</td>
                                                             </tr>
+                                                            <% } %>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -215,13 +214,14 @@
                                                                         class="required">*</span>
                                                                 </label>
                                                                 <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                       
                                                                     <select class="form-control" name="role">
-                                                                        <!--Use Area ID to retrieve groups from db-->
-                                                                        <option>Group A</option>
-                                                                        <option>Group B</option>
-                                                                        <option>Group C</option>
-                                                                        <option>Group F</option>
+                                                                        <!CODE FOR RETRIEVVING AND SHOWING THE GROUPS FOR SELECTION>
+                                                                        <% for (var group of dataB) { %>
+                                                                        <option value=""><%= group.Area_Name %> <%= group.Group_Name %></option>
+                                                                        <% } %>
                                                                     </select>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <!--Cycle Time dropdown-->
