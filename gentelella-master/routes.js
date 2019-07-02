@@ -27,6 +27,7 @@ router.route('/addrecommendation').post(planCtrl.addrecommendation);
 router.route('/addcycle').post(planCtrl.addcycle);
 router.route('/Viewcycle').get(planCtrl.Viewcycle);
 router.route('/editrecommendation').get(planCtrl.editrecommendation);
+router.route('/alterrecommendation').post(planCtrl.alterrecommendation);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 //--DocCtrl--

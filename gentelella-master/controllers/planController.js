@@ -372,8 +372,51 @@ module.exports = {
     },
 
     editrecommendation: function (req, resp) {
-        resp.render('./pages/EditRecommendation.ejs');
+
+        var id = (req.query.UID);
+
+        console.log(id);
+
+        var values = [id];
+
+        connection.query("SELECT * FROM capstone.recommendation where recommendation.recommendation_ID = (?);", values, function (err, results) {
+            if(err) throw err;
+            console.log(results);
+            resp.render('./pages/EditRecommendation.ejs', {
+                data: results
+            })
+        });
+        
         console.log("Edit Recommendations Page");
     },
+
+    alterrecommendation: function (req, resp) {
+        var id = (req.body.UID);
+        var name = (req.body.recommendationName);
+        var desc = (req.body.recommendationDesc);
+        var grade = (req.body.grade);
+        var priority = (req.body.priority); 
+        var date = new Date();
+        var current = date.toISOString().split('T')[0];
+
+        console.log(id);
+        console.log(name);
+        console.log(desc);
+        console.log(grade);
+        console.log(priority);
+
+        var sql = "Update capstone.recommendation set recommendation_Name = ?, recommendation_Desc = ?, recommendation_Grade = ?, priority_Level = ?, status = ? where recommendation_ID = ?";
+        var values = [name, desc, grade, priority, current, id];
+
+        connection.query(sql, values, function (err, result){
+            if(err) throw err;
+            console.log(result);
+        });
+
+        console.log("updating");
+        setTimeout(function () {
+            resp.redirect('/RecommendationNonAjax');
+        }, 3000);
+    }
 
 }
