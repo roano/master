@@ -51,8 +51,8 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
-                                
-                                    <!BUTTONS FOR CREATE OF RECOMENDATION AND CYCLE TIME>
+
+                                <!BUTTONS FOR CREATE OF RECOMENDATION AND CYCLE TIME>
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target=".bs-example-modal-lg">
                                         Create Recommendation
@@ -63,45 +63,48 @@
                                     </button>
 
                                     <!view table for users>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Given Grade</th>
-                                                <th>Priority Level</th>
-                                                <!High, Medium, Low>
-                                                <th>Status</th>
-                                                <! Status will be No Updates or Updated Last(Date Here)>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% for (var recommendation of data) { %>
-                                            <tr>
-                                                <td><%= recommendation.recommendation_Name %></td>
-                                                <td><%= recommendation.recommendation_Desc %></td>
-                                                <td><%= recommendation.recommendation_Grade %></td>
-                                                <td><%= recommendation.priority_Level %></td>
-                                                <td><%= recommendation.status %></td>
-                                                <td>
-                                                    <div class="form-group">
-                                                        <div>
-                                                            <!BUTTONS FOR EDIT AND PLAN>
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-toggle="modal" data-target=".edit">
-                                                                Edit Recommendation</button><br /><br />
-                                                            <a type="button" class="btn btn-primary"
-                                                                href="/PlanPage">
-                                                               Click Here To add Plan</a><br /><br />
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <% } %>
-                                        </tbody>
-                                    </table>
-                                
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                    <th>Given Grade</th>
+                                                    <th>Priority Level</th>
+                                                    <!High, Medium, Low>
+                                                        <th>Status</th>
+                                                        <! Status will be No Updates or Updated Last(Date Here)>
+                                                            <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% for (var recommendation of data) { %>
+                                                <form method="get" action="editrecommendation">
+                                                    <tr>
+                                                        <td><%= recommendation.recommendation_Name %></td>
+                                                        <td><%= recommendation.recommendation_Desc %></td>
+                                                        <td><%= recommendation.recommendation_Grade %></td>
+                                                        <td><%= recommendation.priority_Level %></td>
+                                                        <td><%= recommendation.status %></td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <div>
+                                                                    <!BUTTONS FOR EDIT AND PLAN>
+                                                                        <! EDIT USER BUTTON>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Edit
+                                                                                Recommendation</button><br /><br />
+                                                                            <a type="button" class="btn btn-primary"
+                                                                                href="/PlanPage">
+                                                                                Click Here To add Plan</a><br /><br />
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </form>
+                                                <% } %>
+                                            </tbody>
+                                        </table>
+
                             </div>
                         </div>
                     </div>
@@ -175,7 +178,7 @@
 
             <!-- /page content -->
 
-            
+
 
             <!--Modal for Create Recommendation -->
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
@@ -190,14 +193,16 @@
                             </h4>
                         </div>
                         <div class="modal-body">
-                            <form id="CreateRecommendation" data-parsley-validate class="form-horizontal form-label-left" action="addrecommendation" method="POST">
+                            <form id="CreateRecommendation" data-parsley-validate
+                                class="form-horizontal form-label-left" action="addrecommendation" method="POST">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                         for="first-name">Recommendation Name<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="recommendationName" name="recommendationName" required="required"
-                                            class="form-control col-md-7 col-xs-12" placeholder="Name" />
+                                        <input type="text" id="recommendationName" name="recommendationName"
+                                            required="required" class="form-control col-md-7 col-xs-12"
+                                            placeholder="Name" />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -205,9 +210,9 @@
                                         class="control-label col-md-3 col-sm-3 col-xs-12">Description<span
                                             class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea class="form-control" rows="3" id="recommendationDesc" name="recommendationDesc" placeholder="Description"
-                                            required="required" onkeyup="textAreaAdjust(this)"
-                                            style="overflow:hidden"></textarea>
+                                        <textarea class="form-control" rows="3" id="recommendationDesc"
+                                            name="recommendationDesc" placeholder="Description" required="required"
+                                            onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -250,7 +255,7 @@
                 </div>
             </div>
 
-            <!--Modal for Edit-->
+            <!--Modal for Edit>
             <div class="modal fade edit" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -288,7 +293,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select class="form-control" name="role">
-                                            <!--Must be able  retrieve grading scheme from Grade setting-->
+                                            <Must be able  retrieve grading scheme from Grade setting>
                                             <option>A</option>
                                             <option>B</option>
                                             <option>C</option>
@@ -322,7 +327,7 @@
                 </div>
             </div>
 
-            <!--Modal-->
+            <Modal-->
 
             <!--MODAL FOR CREATE CYCLE-->
             <div class="modal fade createCycle" tabindex="-1" role="dialog" aria-hidden="true">
@@ -335,7 +340,8 @@
                             <h4 class="modal-title" id="myModalLabel2">Create Cycle</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="CreateCycle" data-parsley-validate class="form-horizontal form-label-left" action="addcycle" method="POST">
+                            <form id="CreateCycle" data-parsley-validate class="form-horizontal form-label-left"
+                                action="addcycle" method="POST">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Cycle
                                         Name<span class="required">*</span>
@@ -356,7 +362,8 @@
                                                     <div class="input-prepend input-group">
                                                         <span class="add-on input-group-addon"><i
                                                                 class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-                                                        <input type="text" name="date" id="reservation"class="form-control">
+                                                        <input type="text" name="date" id="reservation"
+                                                            class="form-control">
                                                     </div>
                                                 </div>
                                             </div>

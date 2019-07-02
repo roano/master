@@ -362,6 +362,11 @@ module.exports = {
             console.log("RECOMMENDATION NON AJAX");
         });
 
-    }
+    },
+
+    editrecommendation: function (req, resp) {
+        resp.render('./pages/EditRecommendation.ejs');
+        console.log("Edit Recommendations Page");
+    },
 
 }
