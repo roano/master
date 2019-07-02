@@ -44,7 +44,7 @@ server.get('/debug', function (req, resp) {
 });
 
 server.get('/debug1', function (req, resp) {
-    resp.render('./pages/ViewDocument.ejs');
+    resp.render('./pages/EditRecommendation.ejs');
     console.log("Testing testing");
 });
 
