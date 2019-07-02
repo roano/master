@@ -76,7 +76,9 @@
                                             </thead>
                                             <tbody>
                                                 <% for (var recommendation of data) { %>
+                                                    <form method="get" action="editrecommendation">
                                                 <tr>
+                                                    <input type="hidden" name="UID" value="<%= recommendation.recommendation_ID %>">
                                                     <td><%= recommendation.recommendation_Name %></td>
                                                     <td><%= recommendation.recommendation_Desc %></td>
                                                     <td><%= recommendation.recommendation_Grade %></td>
@@ -86,8 +88,10 @@
                                                         <div class="form-group">
                                                             <div>
                                                                 <!BUTTONS FOR EDIT AND PLAN>
-                                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".edit">
-                                                                        Edit Recommendation</button><br /><br />
+                                                                    <button type="submit" class="btn btn-primary" >
+                                                                        Edit Recommendation</button>
+                                                                    </form>
+                                                                        <br /><br />
                                                                     <form method="get" action="PlanPage">
                                                                         <input type="hidden" name="PID" value="<%= recommendation.recommendation_ID %>">
                                                                         <button type="submit" class="btn btn-primary">Add Plan</button>
@@ -97,7 +101,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-
+                                                
                                                 <% } %>
                                             </tbody>
                                         </table>
