@@ -237,22 +237,24 @@ module.exports = {
         var tn = req.body.BaseFormula;
         var qt = req.body.QualityTarget;
         var pr = req.body.Procedures;
+        var RID = req.body.RID;
 
         console.log(go);
         console.log(me);
         console.log(tn);
         console.log(qt);
         console.log(pr);
+        console.log(RID);
 
-        var sql = "INSERT INTO `capstone`.`plans` (`GenObjective`, `Measurement`, `BaseFormula`, `QualityTarget`, `Procedures`) VALUES (? , ? , ? , ?, ?)";
+        var sql = "INSERT INTO `capstone`.`plans` (`GenObjective`, `Measurement`, `BaseFormula`, `QualityTarget`, `Procedures`, `recommendation_ID`) VALUES (? , ? , ? , ?, ?, ?)";
 
 
-        var values = [go, me, tn, qt, pr];
+        var values = [go, me, tn, qt, pr, RID];
 
         connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log(result);
-            resp.redirect('/PlanPage');
+            resp.redirect('/PlanPage?PID=' + RID);
 
         });
 
@@ -262,13 +264,17 @@ module.exports = {
 
     Planning: function (req, resp) {
         var PlanID = req.query.PID;
-        connection.query("Select * FROM capstone.plans; Select group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID;", function (err, results, fields) {
+        var sql = "Select * FROM capstone.plans where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?; "
+        var values = [PlanID, PlanID];
+        
+        
+        connection.query(sql, values, function (err, results, fields) {
             if (err) throw err;
             resp.render('./pages/PlanPage.ejs', {
                 data: results[0],
                 dataB: results[1]
             });
-            //console.log(results);
+            console.log(results);
         });
     },
 
