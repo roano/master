@@ -314,12 +314,66 @@ module.exports = {
 
         });
 
-        resp.redirect('/RecommendationNonAjax');
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+                data: results
+            });
+            console.log("RECOMMENDATION NON AJAX");
+        });
+    },
 
+    Viewcycle: function (req, resp) {
+        connection.query("Select * FROM capstone.cycle;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/Viewcycle.ejs', {
+                data: results
+            });
+            console.log("View Cycle Page");
+        });
+    },
 
+    addcycle: function (req, resp) {
+        var cyclename = (req.body.cycleName);
+        var date = (req.body.date);
+        var startDate = '';
+        var endDate = '';
+        var startYear = date.substr(6, 4);
+        var endYear = date.substr(19, 4);
+        var startMonth = date.substr(0,2);
+        var endMonth = date.substr(13, 2);
+        var startDay = date.substr(3, 2);
+        var endDay = date.substr(16, 2);
+        
+        console.log(cyclename);
+        console.log(date);
+        startDate = startYear + "-" + startMonth + "-" + startDay;
+        endDate = endYear + "-" + endMonth + "-" + endDay;
+        console.log("Start Date: " + startDate);
+        console.log("End Date: " + endDate);
+
+        var sql = "INSERT INTO `capstone`.`cycle` (`cycle_Name`, `start_Date`, `end_Date`) VALUES (? , ? , ?)";
+        var values = [cyclename, startDate, endDate];
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+
+        });
+
+        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/RecommendationNonAjax.ejs', {
+                data: results
+            });
+            console.log("RECOMMENDATION NON AJAX");
+        });
 
     },
 
-
+    editrecommendation: function (req, resp) {
+        resp.render('./pages/EditRecommendation.ejs');
+        console.log("Edit Recommendations Page");
+    },
 
 }
