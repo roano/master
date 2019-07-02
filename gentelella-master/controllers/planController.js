@@ -261,13 +261,14 @@ module.exports = {
     },
 
     Planning: function (req, resp) {
+        var PlanID = req.query.PID;
         connection.query("Select * FROM capstone.plans; Select group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID;", function (err, results, fields) {
             if (err) throw err;
             resp.render('./pages/PlanPage.ejs', {
                 data: results[0],
                 dataB: results[1]
             });
-            console.log(results);
+            //console.log(results);
         });
     },
 
