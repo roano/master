@@ -42,9 +42,13 @@ module.exports = {
             var values = [fname, lname, email, role, contact, user, hash];
 
             connection.query(sql, values, function (err, result) {
-                if (err) throw err;
-                console.log("Admin Created");
-                resp.redirect('/login');
+                if (err) {
+                    console.log("Username already exists");
+                    resp.redirect('/debug');
+                } else {
+                    console.log("Admin Created");
+                    resp.redirect('/login');
+                }
             });
 
         });
@@ -81,7 +85,6 @@ module.exports = {
                         connection.query(sessql, sesvalues, function (err2, result2, fields2) {
                             if (err) throw err;
                             sess.user = result2;
-                            console.log(sess.user);
                             resp.redirect('/home');
                         });
 
