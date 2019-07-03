@@ -219,8 +219,8 @@
                                                                        
                                                                     <select class="form-control" name="role">
                                                                         <!CODE FOR RETRIEVVING AND SHOWING THE GROUPS FOR SELECTION>
-                                                                        <% for (var group of dataB) { %>
-                                                                        <option value=""><%= group.Area_Name %> <%= group.Group_Name %></option>
+                                                                        <% for (var group of dataC) { %>
+                                                                        <option value=""><%= group.Area_Name %> - <%= group.Group_Name %> Team</option>
                                                                         <% } %>
                                                                     </select>
                                                                     
@@ -229,16 +229,15 @@
                                                             <!--Cycle Time dropdown-->
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                                    for="first-name">Cycle Time<span
+                                                                    for="first-name">Choose Cycle<span
                                                                         class="required">*</span>
                                                                 </label>
                                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                                     <select class="form-control" name="role">
-                                                                        <!--Use Area ID to retrieve groups from db-->
-                                                                        <option>Group A</option>
-                                                                        <option>Group B</option>
-                                                                        <option>Group C</option>
-                                                                        <option>Group F</option>
+                                                                        <!--CHOOSING OF CYCLE-->
+                                                                        <% for (var cycle of dataD) { %>
+                                                                        <option><%= cycle.cycle_Name %> : <%= cycle.start_Date %> - <%= cycle.end_Date %></option>
+                                                                        <% } %>
                                                                     </select>
                                                                 </div>
                                                             </div>

@@ -264,7 +264,7 @@ module.exports = {
 
     Planning: function (req, resp) {
         var PlanID = req.query.PID;
-        var sql = "Select * FROM capstone.plans where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?; "
+        var sql = "Select * FROM capstone.plans where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?; SELECT group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID; SELECT * FROM capstone.cycle;"
         var values = [PlanID, PlanID];
         
         
@@ -272,7 +272,9 @@ module.exports = {
             if (err) throw err;
             resp.render('./pages/PlanPage.ejs', {
                 data: results[0],
-                dataB: results[1]
+                dataB: results[1],
+                dataC: results[2],
+                dataD: results[3]
             });
             console.log(results);
         });
