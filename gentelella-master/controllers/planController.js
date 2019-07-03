@@ -73,7 +73,7 @@ module.exports = {
         connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log("Record Inserted");
-            resp.redirect("/CreateTask")
+            resp.redirect("/Viewtasks")
         });
 
 
