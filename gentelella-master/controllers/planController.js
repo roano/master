@@ -59,11 +59,6 @@ module.exports = {
         console.log("CreateTask");
     },
 
-    CreateTaskGroup: function (req, resp) {
-        resp.render('./pages/CreateTaskGroup.ejs');
-        console.log("CreateTaskGroup");
-    },
-
     AssignTask: function (req, resp) {
         connection.query("select * from capstone.users", function (err, result, fields) {
             if (err) throw err;
