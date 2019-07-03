@@ -461,8 +461,8 @@ module.exports = {
         console.log(priority);
         console.log(basestandard);
 
-        var sql = "INSERT INTO `capstone`.`plans` set (`GroupAssigned`, `CycleTime`, `PriorityLevel`, `BaseStandard`) VALUES (? , ? , ? , ?);";
-        var values = [group, cycle, priority, basestandard];
+        var sql = "UPDATE capstone.plans set GroupAssigned = ?, CycleTime = ?, PriorityLevel = ?, BaseStandard = ? where Plan_ID = ? ";
+        var values = [group, cycle, priority, basestandard, id];
 
         connection.query(sql, values, function (err, result) {
             if (err) throw err;
