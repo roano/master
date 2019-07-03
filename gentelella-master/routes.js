@@ -28,6 +28,8 @@ router.route('/addcycle').post(planCtrl.addcycle);
 router.route('/Viewcycle').get(planCtrl.Viewcycle);
 router.route('/editrecommendation').get(planCtrl.editrecommendation);
 router.route('/alterrecommendation').post(planCtrl.alterrecommendation);
+router.route('/assignplantogroup').get(planCtrl.assignplantogroup);
+router.route('/alterplan').post(planCtrl.alterplan);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 //--DocCtrl--

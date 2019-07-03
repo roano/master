@@ -264,7 +264,7 @@ module.exports = {
 
     Planning: function (req, resp) {
         var PlanID = req.query.PID;
-        var sql = "Select * FROM capstone.plans where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?; SELECT group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID; SELECT * FROM capstone.cycle;"
+        var sql = "Select * FROM capstone.plans where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?;"
         var values = [PlanID, PlanID];
         
         
@@ -273,8 +273,6 @@ module.exports = {
             resp.render('./pages/PlanPage.ejs', {
                 data: results[0],
                 dataB: results[1],
-                dataC: results[2],
-                dataD: results[3]
             });
             console.log(results);
         });
@@ -424,6 +422,55 @@ module.exports = {
         setTimeout(function () {
             resp.redirect('/RecommendationNonAjax');
         }, 3000);
-    }
+    },
+
+    assignplantogroup: function (req, resp) {
+
+        var id = (req.query.UID);
+        var idrecommendation = (req.query.UIDRecommendation);
+        console.log(id);
+
+        var values = [id, idrecommendation];
+
+        connection.query("SELECT * FROM capstone.plans where plans.Plan_ID = ?; SELECT group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID; SELECT * FROM capstone.cycle; SELECT * FROM capstone.recommendation where recommendation_ID = ?;", values, function (err, results) {
+            if(err) throw err;
+            console.log(results);
+            resp.render('./pages/AssignPlanToGroup.ejs', {
+                data: results[0],
+                dataB: results[1],
+                dataC: results[2],
+                dataD: results[3]
+            })
+        });
+        
+        console.log("Edit Recommendations Page");
+    },
+
+    alterplan: function (req, resp) {
+        var idrecommendation = (req.body.UIDRecommendation);
+        var id = (req.body.UID);
+        var group = (req.body.group);
+        var cycle = (req.body.cycle);
+        var priority = (req.body.priority);
+        var basestandard = (req.body.basestandard); 
+        
+
+        console.log(id);
+        console.log(group);
+        console.log(cycle);
+        console.log(priority);
+        console.log(basestandard);
+
+        var sql = "INSERT INTO `capstone`.`plans` set (`GroupAssigned`, `CycleTime`, `PriorityLevel`, `BaseStandard`) VALUES (? , ? , ? , ?);";
+        var values = [group, cycle, priority, basestandard];
+
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            resp.redirect('/PlanPage?PID=' + idrecommendation);
+
+        });
+        
+    },
 
 }
