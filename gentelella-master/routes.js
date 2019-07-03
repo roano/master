@@ -32,6 +32,7 @@ router.route('/assignplantogroup').get(planCtrl.assignplantogroup);
 router.route('/alterplan').post(planCtrl.alterplan);
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
+router.route('/viewplantest').post(JSONCtrl.ViewPlanTest);
 //--DocCtrl--
 router.route('/UploadDocument').get(DocCtrl.UploadDocument);
 router.route('/SendDocument').post(DocCtrl.SendDocument);

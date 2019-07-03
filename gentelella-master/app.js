@@ -34,7 +34,9 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', function (req, resp) {
-    resp.render('./pages/Recommendations.ejs');
+
+    resp.render('./pages/ViewTaskDetails.ejs');
+
     console.log("Testing testing");
 });
 
