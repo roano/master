@@ -38,6 +38,7 @@ router.route('/SendDocument').post(DocCtrl.SendDocument);
 router.route('/ViewDocument').get(DocCtrl.ViewDocument);
 //--SessCtrl
 router.route('/DebugCreate').post(SessCtrl.Register);
+router.route('/DebugCreate2').post(SessCtrl.Register2);
 router.route('/SessLogin').post(SessCtrl.Login);
 router.route('/Logout').get(SessCtrl.Logout);
 
