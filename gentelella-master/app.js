@@ -39,7 +39,7 @@ server.get('/', function (req, resp) {
 });
 
 server.get('/debug', function (req, resp) {
-    resp.render('./pages/login2.ejs');
+    resp.render('./pages/register.ejs');
     console.log("Testing testing");
 });
 
