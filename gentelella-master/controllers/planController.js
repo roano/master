@@ -46,13 +46,37 @@ module.exports = {
     },
 
     Viewtasks: function (req, resp) {
-        resp.render('./pages/Viewtasks.ejs');
+
+        connection.query("Select * from capstone.tasks", function (err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            
+            resp.render('./pages/Viewtasks.ejs', {data: result});
+        });
         console.log("Viewtasks");
     },
 
     CreateTask: function (req, resp) {
         resp.render('./pages/CreateTask.ejs');
         console.log("CreateTask");
+    },
+
+    SubmitTask: function (req, resp) {
+        var TN = req.body.TaskName;
+        var TD = req.body.TaskDesc;
+        var GO = req.body.GenObj;
+        var ME = req.body.Measurement;
+        var QT = req.body.QT;
+        var BS = req.body.BS;
+        var sql = "INSERT INTO `capstone`.`tasks` (`Task_Name`, `Task_Desc`, `GenObj`, `Measurement`, `QT`, `BaseStandard`) VALUES (?, ?, ?, ?, ?, ?);"
+        var values = [TN, TD, GO, ME, QT, BS]
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log("Record Inserted");
+            resp.redirect("/CreateTask")
+        });
+
+
     },
 
     AssignTask: function (req, resp) {

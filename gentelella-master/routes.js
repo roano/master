@@ -9,6 +9,7 @@ router.route('/Viewusers').get(planCtrl.Viewusers);
 router.route('/Createusers').get(planCtrl.Createusers);
 router.route('/Viewtasks').get(planCtrl.Viewtasks);
 router.route('/CreateTask').get(planCtrl.CreateTask);
+router.route('/SubmitTask').post(planCtrl.SubmitTask);
 router.route('/AssignTask').get(planCtrl.AssignTask);
 router.route('/ViewGroups').get(planCtrl.ViewGroups);
 router.route('/CreateGroup').get(planCtrl.CreateGroup);

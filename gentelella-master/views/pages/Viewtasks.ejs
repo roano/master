@@ -73,26 +73,21 @@
                                                 <th>Priority Level</th>
                                             </tr>
                                         </thead>
+                                        <% for(var task of data) { %>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
+                                                <th scope="row"><%= task.task_ID%></th>
+                                                <td><%= task.Task_Name%></td>
+                                                <td><%= task.GenObj%></td>
+                                                <td><%= task.Measurement%></td>
+                                                <td><%= task.QT%></td>
+                                                <td><%= task.BaseStandard%></td>
+                                                <td><%= task.Group%></td>
+                                                <td><%= task.Personnel%></td>
+                                                <td><%= task.Level%></td>
                                             </tr>
                                         </tbody>
+                                        <%}%>
                                     </table>
                                     <div class="ln_solid"></div>
 
