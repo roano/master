@@ -126,6 +126,7 @@
                                         <tbody>
 
                                             <% for (var info2 of dataB) { %>
+                                            <% if (info2.Role != "1") {%>
                                             <tr>
                                                 <form method="get" action="edituser">
 
@@ -135,13 +136,15 @@
                                                     <td><%= info2.User_Last %></td>
                                                     <td><%= info2.email_address %></td>
                                                     <td><%= info2.ContactNo %></td>
+                                                    
+                                                    
                                                     <td><button type="submit" class="btn btn-success">Edit</button></td>
-
                                                 </form>
                                                 <form method="get" action="addtogroup">
                                                     <input type="hidden" name="UID" value="<%= info2.User_ID %>">
-                                                    <td><button type="submit" class="btn btn-success">Edit</button></td>
+                                                    <td><button type="submit" class="btn btn-success">Add to group</button></td>
                                                 </form>
+                                                <%}%>
                                             </tr>
                                             <% } %>
                                         </tbody>

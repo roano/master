@@ -52,11 +52,37 @@ module.exports = {
             });
 
         });
-
-
-
-
     },
+
+    Register2: function (req, resp) {
+        // console.log(req.body.username);
+        //  console.log(req.body.password);
+        var user = req.body.username;
+        var pass = req.body.password;
+        var fname = req.body.username;
+        var lname = req.body.username;
+        var email = req.body.email;
+        var contact = req.body.contact;
+
+
+        bcrypt.hash(pass, saltRounds, function (err, hash) {
+
+            var sql = "INSERT INTO `capstone`.`users` (`User_First`, `User_Last`, `email_address`, `ContactNo`, `username`, `passwd`) VALUES (?, ?, ?, ?, ?, ?);"
+            var values = [fname, lname, email, contact, user, hash];
+
+            connection.query(sql, values, function (err, result) {
+                if (err) {
+                    console.log("Username already exists");
+                    resp.redirect('/debug');
+                } else {
+                    console.log("User Created");
+                    resp.redirect('/login');
+                }
+            });
+
+        });
+    },
+
 
     Login: function (req, resp) {
         sess = req.session;

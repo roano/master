@@ -141,7 +141,7 @@
                   <!--- Tab1-->
                   <div id="myTabContent" class="tab-content">
                     <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                      <table class="table table-bordered">
+                      <table id="ViewPlan" class="table table-bordered">
                         <thead>
                           <tr>
                             <th>General Objective</th>
@@ -156,7 +156,7 @@
                             <th>Procedures</th>
                           </tr>
                         </thead>
-                        <tbody id="ViewPlan">
+                        <tbody>
                           <tr>
                             <td>Prepare requirements in advance</td>
                             <td>
@@ -173,11 +173,34 @@
                           </tr>
                         </tbody>
                       </table>
+
                      <!--ViewPlan Ajax Script-->
-                      <script>
-                          const recoBody= document.querySelector("#ViewPlan");
+                      <script type="text/javascript">
+                          const recoBody= document.querySelector("#ViewPlan > tbody");
                           console.log(recoBody);
+                          console.log("Hey");
+                          
+                          function loadPlans(){
+                              console.log("Hi");
+                              const request=new XMLHttpRequest();
+                              
+                              request.open("POST","viewplantest");
+                              request.onload = () => {
+                                  try{
+                                      const json=JSON.parse(request.responseText);
+                                      viewPlanPopulation(json);
+                                  }catch(e){
+                                      console.warn("Could not load Plans!")
+                                  }
+                              } 
+                            request.send();
+                          }
+                          function viewPlanPopulation(json){
+                              console.log("Hello");
+                          }
                       </script>
+                     <!--End of Ajax Script for View Plan-->
+                    
                     </div>
                     <!---Tab2-->
                     <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">

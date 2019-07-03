@@ -88,11 +88,7 @@
                                                             <th>Base Formula</th>
                                                             <th>Base Standard</th>
                                                             <th>Quality Targets</th>
-                                                            <th>Group Assigned</th>
-                                                            <th>Priority Level</th>
-                                                            <!--High, Medium, Low-->
-                                                            <th>Cycle Time</th>
-                                                            <th>Procedures</th>
+                                                            <th>Group Assigned</th><!--if Owning group views the ViewTaskDetails Page this should not show this should only show if an eligible member like Q.A needs to view task details-->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -104,9 +100,6 @@
                                                             <td>Laboratories</td>
                                                             <td>High</td>
                                                             <td>For Checking</td>
-                                                            <td>For Checking</td>
-                                                            <td>For Checking</td>
-                                                            <td>For Checking</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -115,21 +108,55 @@
                                             <!--End of Group 1 Table -->
 
                                             <!-- Group 2 table testing -->
-                                            <div class="panel">
                                                 <a class="panel-heading" role="tab" id="HeadGroupTwo" data-toggle="collapse" data-parent="#headingTwo" href="#FacilitiesGroupTwo" aria-expanded="true" aria-controls="FacilitiesGroupTwo">
                                                 </a>
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Procedures</th>
-                                                        </tr>
-                                                    </thead>
+            <table class="table table-bordered">
                                                     <tbody>
-                                                        <tr>
-                                                            <td>This block of text goes on and on and does not have any visual separation between what would normally make up a new paragraph. Instead, it will continue to have more text added to it and look like it has not been formatted. It just keeps going and going and going and will start new topics without separating them with paragraphs. You see, even though this is nice, let's talk about CSS (Cascading Style Sheets), often called style sheets, for a minute. Style sheets are often used to affect the appearance of Web pages. CSS code contains selectors and definitions for the various tags, classes, or ids that are used when marking up and HTML document. JavaScript, on the other hand, can add additional functionality to a Web page. Since it is a programming language, you can write code to perform any number of tasks. You could change the content within a block of text, change an image when the user places their mouse over a specific part of the page, validate form content, send alert messages, and more. It can be learned through books, tutorials, or classes that are offered in many place, especially on the Web. If you want to delve into server-side programming, you might look into PHP, ASP, Perl, Java, or other available languages. These allow you to save information into databases, handle feedback forms, create shopping carts, and more. Did you read all of this or give up?</td>
+            <div>
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>To Do List</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                  <div class="">
+                    <ul class="to_do">
+                      <li>
+                        <p>
+                          <input type="checkbox" class="flat"> Schedule meeting with new client </p>
+                      </li>
+                      <li>
+                        <p>
+                          <input type="checkbox" class="flat"> Create email address for new intern</p>
+                      </li>
+                      <li>
+                        <p>
+                          <input type="checkbox" class="flat"> Have IT fix the network printer</p>
+                      </li>
+                      <li>
+                        <p>
+                          <input type="checkbox" class="flat"> Copy backups to offsite location</p>
+                      </li>
+                      <li>
+                        <p>
+                          <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
+                      </li>
+                      <li>
+                        <p>
+                          <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
                                                     </tbody>
                                                 </table>
-                                            </div>
+                                            
                                         </div>
                                         <!--end of Group 2-->
                                     </div>

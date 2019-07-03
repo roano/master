@@ -34,5 +34,11 @@ module.exports = {
         });
         console.log('AssignTaskJSON')
     },
+    
+    ViewPlanTest: function (req, resp){
+        const submit = require ('../public/JSONs/viewplantest.json');
+        console.log(submit);
+        resp.json(submit);
+    },
 
 }
