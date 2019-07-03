@@ -295,10 +295,14 @@ module.exports = {
         var recommendationDesc = (req.body.recommendationDesc);
         var grade = (req.body.grade);
         var priority = (req.body.priority);
-        var date = new Date();
-        var current = date.toISOString().split('T')[0];
+        var today = new Date();
+        //var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        //var dateTime = date+' '+time;
+        
+        var current = today.toISOString().split('T')[0];
 
-
+        console.log(today);
         console.log(recommendationName);
         console.log(recommendationDesc);
         console.log(grade);
@@ -311,16 +315,17 @@ module.exports = {
         connection.query(sql, values, function (err, result) {
             if (err) throw err;
             console.log("Record Inserted");
-
-        });
-
-        connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
-            if (err) throw err;
-            resp.render('./pages/RecommendationNonAjax.ejs', {
-                data: results
+            connection.query("Select * FROM capstone.recommendation;", function (err, results, fields) {
+                if (err) throw err;
+                resp.render('./pages/RecommendationNonAjax.ejs', {
+                    data: results
+                    
+                });
+                console.log("RECOMMENDATION NON AJAX");
             });
-            console.log("RECOMMENDATION NON AJAX");
         });
+
+        
     },
 
     Viewcycle: function (req, resp) {
