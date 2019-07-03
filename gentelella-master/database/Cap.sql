@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `capstone` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `capstone`;
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: capstone
+-- Host: localhost    Database: capstone
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -52,7 +54,7 @@ CREATE TABLE `cycle` (
   `start_Date` date NOT NULL,
   `end_Date` date NOT NULL,
   PRIMARY KEY (`cycle_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +63,7 @@ CREATE TABLE `cycle` (
 
 LOCK TABLES `cycle` WRITE;
 /*!40000 ALTER TABLE `cycle` DISABLE KEYS */;
-INSERT INTO `cycle` VALUES (1,'CYCLE 1','2019-07-02','2019-07-31'),(2,'CYCLE 2','2019-07-16','2020-03-05'),(3,'ADDING CYCLE TEST AT HOME','2019-07-02','2020-09-15');
+INSERT INTO `cycle` VALUES (1,'CYCLE 1','2019-07-02','2019-07-31'),(2,'CYCLE 2','2019-07-16','2020-03-05'),(3,'ADDING CYCLE TEST AT HOME','2019-07-02','2020-09-15'),(4,'Test Cycle','2019-07-02','2019-09-19');
 /*!40000 ALTER TABLE `cycle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +81,7 @@ CREATE TABLE `documents` (
   `Document_Desc` varchar(300) DEFAULT 'No Description Given.',
   `Document_Ext` varchar(45) NOT NULL,
   PRIMARY KEY (`Document_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +90,7 @@ CREATE TABLE `documents` (
 
 LOCK TABLES `documents` WRITE;
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
-INSERT INTO `documents` VALUES (20,'IMAGE TEST','uploads/picture.jpg','TESTING TESTING ','.jpg'),(21,'DOCUMENT TEST','uploads/asean.docx','DOCUMENT TESTING TESTING','.docx'),(22,'Test File','uploads/GEFILIFINALPRESENTATION.pdf','Hi','.pdf'),(23,'Test','uploads/Jeld-RentalReceipt.docx','Test','.docx'),(24,'wsdfawqefq','uploads/05UsersandFilePermissionsv2.pptx','wefqwefqw','.pptx'),(25,'ewqfqfeqefqwefqwefq','uploads/LSDC-Folk-Attendance.pdf','qfwefqwefqwefqwefqewf','.pdf'),(26,'TEST PPTX','uploads/05UsersandFilePermissionsv2.pptx','TESTING','.pptx'),(27,'Network Test','uploads/__ai_chan_getsuyoubi_no_tawawa_drawn_by_himura_kiseki__351255e59b8f196938aa0f378be7a6f1.png','Tawawa','.png');
+INSERT INTO `documents` VALUES (20,'IMAGE TEST','uploads/picture.jpg','TESTING TESTING ','.jpg'),(21,'DOCUMENT TEST','uploads/asean.docx','DOCUMENT TESTING TESTING','.docx'),(22,'Test File','uploads/GEFILIFINALPRESENTATION.pdf','Hi','.pdf'),(23,'Test','uploads/Jeld-RentalReceipt.docx','Test','.docx'),(24,'wsdfawqefq','uploads/05UsersandFilePermissionsv2.pptx','wefqwefqw','.pptx'),(25,'ewqfqfeqefqwefqwefq','uploads/LSDC-Folk-Attendance.pdf','qfwefqwefqwefqwefqewf','.pdf'),(26,'TEST PPTX','uploads/05UsersandFilePermissionsv2.pptx','TESTING','.pptx'),(27,'Network Test','uploads/__ai_chan_getsuyoubi_no_tawawa_drawn_by_himura_kiseki__351255e59b8f196938aa0f378be7a6f1.png','Tawawa','.png'),(28,'Network Test2','uploads/1543998205_yMm5Qfr0MVuOWQ7DR_360.mp4','Test','.mp4');
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +162,7 @@ CREATE TABLE `plans` (
   `BaseStandard` varchar(200) DEFAULT NULL,
   `recommendation_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Plan_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +171,7 @@ CREATE TABLE `plans` (
 
 LOCK TABLES `plans` WRITE;
 /*!40000 ALTER TABLE `plans` DISABLE KEYS */;
-INSERT INTO `plans` VALUES (1,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(2,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(3,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(4,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(5,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(6,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(7,'TEST','TEST','TEST','TEST','TEST',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `plans` VALUES (1,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(2,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(3,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(4,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(5,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(6,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(7,'TEST','TEST','TEST','TEST','TEST',NULL,NULL,NULL,NULL,NULL),(8,'1','1','2','4','6',1,1,'High','1234',1),(9,'dsafas','gsdgdsga','dafadgsad','dgasdffdsa','adfsgadfgdf',NULL,NULL,NULL,NULL,1),(10,'2','3','5','6','7',NULL,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `plans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +218,7 @@ CREATE TABLE `recommendation` (
   `priority_Level` varchar(45) DEFAULT NULL,
   `status` datetime DEFAULT NULL,
   PRIMARY KEY (`recommendation_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,7 +227,7 @@ CREATE TABLE `recommendation` (
 
 LOCK TABLES `recommendation` WRITE;
 /*!40000 ALTER TABLE `recommendation` DISABLE KEYS */;
-INSERT INTO `recommendation` VALUES (1,'TEST','TEST','B','Medium',NULL),(2,'1','2','A','High','2019-06-29 00:00:00');
+INSERT INTO `recommendation` VALUES (1,'TEST2','TEST2','B','Medium','2019-07-03 00:00:00'),(2,'1','2','A','High','2019-06-29 00:00:00'),(3,'1234214','123412e12xd','A','Low','2019-07-03 00:00:00');
 /*!40000 ALTER TABLE `recommendation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,6 +256,38 @@ INSERT INTO `roles` VALUES (1,'Admin'),(2,'QA Officer'),(3,'Group Leader'),(4,'G
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tasks`
+--
+
+DROP TABLE IF EXISTS `tasks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tasks` (
+  `task_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Task_Name` varchar(45) NOT NULL,
+  `Task_Desc` varchar(45) NOT NULL,
+  `GenObj` varchar(45) NOT NULL,
+  `Measurement` varchar(45) NOT NULL,
+  `QT` varchar(45) NOT NULL,
+  `BaseStandard` varchar(45) NOT NULL,
+  `Group` varchar(45) DEFAULT 'Not Assigned',
+  `Personnel` varchar(45) DEFAULT 'Not Assigned',
+  `Level` int(11) DEFAULT NULL,
+  PRIMARY KEY (`task_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tasks`
+--
+
+LOCK TABLES `tasks` WRITE;
+/*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
+INSERT INTO `tasks` VALUES (1,'1','2','3','4','5','6','Not Assigned','Not Assigned',NULL);
+/*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -272,7 +306,7 @@ CREATE TABLE `users` (
   `passwd` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`User_ID`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,7 +315,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (19,'Admin','Super User','debug@debug.com',2,NULL,'99999999999','Admin','$2b$10$b0yHVAlc2Na94ldTZQU.X.v.l.sDBOY1zBn6UzYwHkkUjIPpjtmo2');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -294,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-02 22:16:49
+-- Dump completed on 2019-07-03 23:00:45
