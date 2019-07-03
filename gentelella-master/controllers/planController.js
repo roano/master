@@ -264,7 +264,7 @@ module.exports = {
 
     Planning: function (req, resp) {
         var PlanID = req.query.PID;
-        var sql = "Select * FROM capstone.plans where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?;"
+        var sql = "Select plans.Plan_ID, plans.GenObjective, plans.Measurement, plans.BaseFormula, plans.QualityTarget, plans.Procedures, group.Group_Name, cycle.cycle_Name, cycle.start_Date, cycle.end_Date, plans.PriorityLevel, plans.BaseStandard FROM capstone.plans join capstone.cycle on plans.CycleTime = cycle.Cycle_ID join capstone.group on plans.GroupAssigned = group.Group_ID where recommendation_ID = ?; Select recommendation.recommendation_ID, recommendation.recommendation_Name from capstone.recommendation where recommendation_ID = ?;"
         var values = [PlanID, PlanID];
         
         

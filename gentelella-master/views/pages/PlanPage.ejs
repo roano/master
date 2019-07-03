@@ -108,9 +108,9 @@
                                                                 <td><%= plan.BaseFormula %></td>
                                                                 <td>Base Standard</td>
                                                                 <td><%= plan.QualityTarget %></td>
-                                                                <td>Group Assigned</td>
-                                                                <td>Priority Level</td>
-                                                                <td>Cycle Time</td>
+                                                                <td><%= plan.Group_Name %></td>
+                                                                <td><%= plan.PriorityLevel %></td>
+                                                                <td><%= plan.CycleTime %>: <%= plan.start_Date %> - <%= plan.end_Date %></td>
                                                                 <td><%= plan.Procedures %></td>
                                                                 <td><button type="submit" class="btn btn-primary">Assign Group</button></td>
                                                             </tr>
