@@ -30,6 +30,8 @@ router.route('/editrecommendation').get(planCtrl.editrecommendation);
 router.route('/alterrecommendation').post(planCtrl.alterrecommendation);
 router.route('/assignplantogroup').get(planCtrl.assignplantogroup);
 router.route('/alterplan').post(planCtrl.alterplan);
+router.route('/AssignMemberToGroup').get(planCtrl.assignmembertogroup);
+
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
 router.route('/viewplantest').post(JSONCtrl.ViewPlanTest);

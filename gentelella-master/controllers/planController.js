@@ -402,4 +402,18 @@ module.exports = {
 
     },
 
+    assignmembertogroup: function (req, resp) {
+        var GID = req.query.GID;
+        var sql = "Select users.User_ID, users.User_First, users.User_Last, users.email_address FROM capstone.users; SELECT group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID where group.Group_ID = ?;"
+        var values= [GID];
+        connection.query(sql, values, function (err, results, fields) {
+            if (err) throw err;
+            resp.render('./pages/AssignMemberToGroup.ejs', {
+                data: results[0],
+                dataB: results[1]
+            });
+            console.log("Assign Member to Group Page");
+        });
+    },
+
 }
