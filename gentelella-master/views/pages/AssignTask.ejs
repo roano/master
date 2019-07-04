@@ -98,6 +98,7 @@
                                     <thead>
                                         <tr>
                                             <th>Check</th>
+                                            <th>User ID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                         </tr>
@@ -107,18 +108,14 @@
                                         <% for (var user of data) { %>
                                         <tr>
                                             <td><input type='checkbox' name='record' id='<%= user.User_ID %>'></td>
+                                            <td id="UID<%= user.User_ID %>" value="<%= user.User_ID %>"><%= user.User_ID %></td>
                                             <td id="first<%= user.User_ID %>" value="<%= user.User_First %>"><%= user.User_First %></td>
                                             <td id='last<%= user.User_ID %>' value="<%= user.User_Last %>"><%= user.User_Last %></td>
                                         </tr>
                                         <% } %>
                                     </tbody>
 
-                                    <tfoot>
-                                        <tr>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                        </tr>
-                                    </tfoot>
+
                                 </table>
                             </div>
                         </div>
@@ -131,6 +128,7 @@
                                     <thead>
                                         <tr>
                                             <th>Check</th>
+                                            <th>User ID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                         </tr>
@@ -140,12 +138,7 @@
 
                                     </tbody>
 
-                                    <tfoot>
-                                        <tr>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                        </tr>
-                                    </tfoot>
+
                                 </table>
                             </div>
                         </div>
@@ -155,7 +148,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                 <button class="btn btn-primary" type="button">Cancel</button>
                                 <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success" id="toJSON">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -206,14 +199,12 @@
                     //console.log('test');
                     if ($(this).is(":checked")) {
                         var index = $(this).attr("id");
-                        //console.log(index);
-                        var first = $('#first'+index).attr("value");
-                       // console.log(first);
-                        var last = $("#last"+index).attr("value");
+                        var UID = $('#UID' + index).attr("value");
+                        var first = $('#first' + index).attr("value");
+                        // console.log(first);
+                        var last = $("#last" + index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
-                            last +
-                            "</td></tr>";
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td></tr>";
                         $("#table2 tbody").append(markup);
                         $(this).parents("tr").remove();
                     }
@@ -231,22 +222,36 @@
                 $("#table2 tbody tr").find('input[name="record"]').each(function() {
                     if ($(this).is(":checked")) {
                         var index = $(this).attr("id");
-                       // console.log(index);
-                        console.log('success');
-                        var first = $('#first'+index).attr("value");
-                        console.log(first);
-                        var last = $("#last"+index).attr("value");
+                        var UID = $('#UID' + index).attr("value");
+                        var first = $('#first' + index).attr("value");
+                        // console.log(first);
+                        var last = $("#last" + index).attr("value");
                         //console.log(last);
-                       var markup = "<tr><td><input type='checkbox' name='record' id=" + index +"></td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" +
-                            last +
-                            "</td></tr>";
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td></tr>";
                         $("#table1 tbody").append(markup);
                         $(this).parents("tr").remove();
-                        
-                        
+
+
                     }
                 });
             });
+
+            $("#toJSON").click(function() {
+                console.log("Hello");
+                $('#result').append(JSON.stringify(makeJsonFromTable('table2')))
+                $('#result').show()
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/AssignTaskJSON');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    console.log(xhr.responseText);
+                };
+                xhr.send(JSON.stringify(makeJsonFromTable('table2')));
+
+            });
+
+
         });
 
     </script>
@@ -322,6 +327,7 @@
     <script src="assets/vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+    <script src="assets/js/JSONjs/TableToJson.min.js"></script>
 
 </body>
 
