@@ -71,6 +71,11 @@ server.get('/login', function (req, resp) {
     resp.render('./pages/login.ejs');
 });
 
+server.get('/*', function (req, resp) {
+    resp.render('./pages/ErrorPage.ejs');
+    console.log("Testing testing");
+});
+
 
 
 
