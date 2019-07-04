@@ -46,12 +46,12 @@ server.get('/debug', function (req, resp) {
 });
 
 server.get('/debug1', function (req, resp) {
-    resp.render('./pages/EditRecommendation.ejs');
+    resp.render('./pages/ErrorPage.ejs');
     console.log("Testing testing");
 });
 
 server.get('/debug2', function (req, resp) {
-    resp.render('./pages/CreateTest.ejs');
+    resp.render('./pages/NotAuthorizedPage.ejs');
     console.log("Testing testing");
 });
 
