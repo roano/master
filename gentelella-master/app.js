@@ -46,7 +46,7 @@ server.get('/debug', function (req, resp) {
 });
 
 server.get('/debug1', function (req, resp) {
-    resp.render('./pages/ErrorPage.ejs');
+    resp.render('./pages/ViewAllPlans.ejs');
     console.log("Testing testing");
 });
 
@@ -71,6 +71,8 @@ server.get('/login', function (req, resp) {
     resp.render('./pages/login.ejs');
 });
 
+server.use('/', routes);
+
 server.get('/*', function (req, resp) {
     resp.render('./pages/ErrorPage.ejs');
     console.log("Testing testing");
@@ -79,7 +81,7 @@ server.get('/*', function (req, resp) {
 
 
 
-server.use('/', routes);
+
 const port = process.env.PORT | 9090;
 var serverclose = server.listen(port);
 
