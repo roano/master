@@ -80,8 +80,9 @@
                                                         <%= user.User_ID %></td>
                                                     <td id="first<%= user.User_ID %>" value="<%= user.User_First %>">
                                                         <%= user.User_First %></td>
-                                                    <td id='last<%= user.User_ID %>' value="<%= dataB[0].Group_ID %>">
+                                                    <td id='last<%= user.User_ID %>' value="<%= user.User_Last %>">
                                                         <%= user.User_Last %></td>
+                                                        <td id='hidden<%= user.User_ID %>' value="<%= dataB[0].Group_ID %>" style="visibility:collapse;">test</td>
                                                 </tr>
                                                 <% } %>
                                             </tbody>
@@ -183,7 +184,8 @@
                         // console.log(first);
                         var last = $("#last" + index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td></tr>";
+                        var hidden = $('#hidden' + index).attr("value");
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td><td id= hidden" + index + " value=" + hidden + " style='visibility:collapse'>" + hidden + "</td></tr>";
                         $("#table2 tbody").append(markup);
                         $(this).parents("tr").remove();
                     }
@@ -206,7 +208,8 @@
                         // console.log(first);
                         var last = $("#last" + index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td></tr>";
+                        var hidden = $('#hidden' + index).attr("value");
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td><td id= hidden" + index + " value=" + hidden + ">" + hidden + "</td></tr>";
                         $("#table1 tbody").append(markup);
                         $(this).parents("tr").remove();
 
