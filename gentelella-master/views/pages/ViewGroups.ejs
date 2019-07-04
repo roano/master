@@ -97,6 +97,7 @@
                                                                                     <th>Username</th>
                                                                                     <th>Contact Number</th>
                                                                                     <th>Position</th>
+                                                                                    <th></th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <% for(var user of dataC) { %>
@@ -110,6 +111,11 @@
                                                                                     <td><%= user.username %></td>
                                                                                     <td><%= user.ContactNo %></td>
                                                                                     <td><%= user.Role %></td>
+                                                                                    <td>
+                                                                                        <form method="get" action="EditPositionInGroup  ">
+                                                                                            <button class="btn btn-primary" type="button">Edit Position</button>
+                                                                                        </form>
+                                                                                    </td>
                                                                                 </tr>
                                                                             </tbody>
                                                                             <% } %>
