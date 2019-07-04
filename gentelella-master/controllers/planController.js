@@ -91,7 +91,7 @@ module.exports = {
     },
 
     ViewGroups: function (req, resp) {
-        connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, user.Role, user.Group, user.ContactNo, user.username FROM capstone.users", function (err, results, fields) {
+        connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, users.Role, users.Group, users.ContactNo, users.username FROM capstone.users", function (err, results, fields) {
             if (err) throw err;
             console.log(results);
             resp.render('./pages/ViewGroups.ejs', {
