@@ -222,16 +222,19 @@
 
             $("#toJSON").click(function () {
 
-                var table = $('#table2').tableToJSON({ignoreColumns: [0, 2, 3]}); // 
-                console.log(table);
+                var table = JSON.stringify($('#table2').tableToJSON({ignoreColumns: [0, 2, 3]}));
+                var table2 = JSON.stringify($('#table2').tableToJSON({ignoreColumns: [0, 2, 3, 4]}));// 
                 
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', '/AssignTaskJSON', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                 xhr.onload = function () {
                     console.log(xhr.responseText);
                 };
-                xhr.send(JSON.stringify(table));
+                
+                
+
+                xhr.send("table="+table+"&table2="+table2);
 
             });
 

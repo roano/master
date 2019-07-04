@@ -22,22 +22,25 @@ module.exports = {
 
     AssignTaskJSON: function (req, resp) {
 
-        console.log(req.body);
-       var JINSERT = req.body
-       JINSERT = JINSERT.toArray;
-        console.log(JINSERT);
-        console.log('AssignTaskJSON')
-    },
-    
-    AssignTaskJSON: function (req, resp) {
+        var UID = req.body.table;
+        UID = JSON.parse(UID);
+        console.log(UID)
 
-        console.log(req.body);
-       
+
+        /*
+        var sql = "Update capstone.users set Group = ? where User_ID = ? ";
+        var values = [UID, GID];
+        connection.query(sql, values, function (err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+        */
         console.log('AssignTaskJSON')
     },
-    
-    ViewPlanTest: function (req, resp){
-        const submit = require ('../public/JSONs/viewplantest.json');
+
+
+    ViewPlanTest: function (req, resp) {
+        const submit = require('../public/JSONs/viewplantest.json');
         console.log(submit);
         resp.json(submit);
     },
