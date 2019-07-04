@@ -50,6 +50,7 @@
                         <div class="title_left">
                             <h3>Area: <%= dataB[0].Area_Name %></h3>
                             <h3>Group: <%= dataB[0].Group_Name %></h3>
+                            <input type="hidden" id="GID" value="<%= dataB[0].Group_ID %>">
                         </div>
                     </div>
                 </div>
@@ -79,7 +80,7 @@
                                                         <%= user.User_ID %></td>
                                                     <td id="first<%= user.User_ID %>" value="<%= user.User_First %>">
                                                         <%= user.User_First %></td>
-                                                    <td id='last<%= user.User_ID %>' value="<%= user.User_Last %>">
+                                                    <td id='last<%= user.User_ID %>' value="<%= dataB[0].Group_ID %>">
                                                         <%= user.User_Last %></td>
                                                 </tr>
                                                 <% } %>
@@ -220,12 +221,13 @@
                 $('#result').show()
 
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', '/AssignTaskJSON');
+                xhr.open('POST', '/AssignTaskJSON', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onload = function () {
                     console.log(xhr.responseText);
                 };
-                xhr.send(JSON.stringify(makeJsonFromTable('table2')));
+                var JINSERT = JSON.stringify(makeJsonFromTable('table2'));
+                xhr.send(JINSERT);
 
             });
 

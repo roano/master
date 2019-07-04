@@ -34,6 +34,7 @@ router.route('/AssignMemberToGroup').get(planCtrl.assignmembertogroup);
 
 //--JSONCtrl--
 router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
+router.route('/AssignUserJSON').post(JSONCtrl.AssignTaskJSON);
 router.route('/viewplantest').post(JSONCtrl.ViewPlanTest);
 //--DocCtrl--
 router.route('/UploadDocument').get(DocCtrl.UploadDocument);

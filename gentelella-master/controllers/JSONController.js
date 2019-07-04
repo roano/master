@@ -27,6 +27,13 @@ module.exports = {
         console.log('AssignTaskJSON')
     },
     
+    AssignTaskJSON: function (req, resp) {
+
+        console.log(req.body);
+       
+        console.log('AssignTaskJSON')
+    },
+    
     ViewPlanTest: function (req, resp){
         const submit = require ('../public/JSONs/viewplantest.json');
         console.log(submit);
