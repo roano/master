@@ -91,7 +91,7 @@ module.exports = {
     },
 
     ViewGroups: function (req, resp) {
-        connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT * FROM capstone.users", function (err, results, fields) {
+        connection.query("SELECT * FROM capstone.area; SELECT * FROM capstone.group; SELECT users.User_ID, users.User_First, users.User_Last, users.email_address, user.Role, user.Group, user.ContactNo, user.username FROM capstone.users", function (err, results, fields) {
             if (err) throw err;
             console.log(results);
             resp.render('./pages/ViewGroups.ejs', {
@@ -404,7 +404,7 @@ module.exports = {
 
     assignmembertogroup: function (req, resp) {
         var GID = req.query.GID;
-        var sql = "Select users.User_ID, users.User_First, users.User_Last, users.email_address FROM capstone.users; SELECT group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID where group.Group_ID = ?;"
+        var sql = "Select users.User_ID, users.User_First, users.User_Last, users.email_address, user.Role, user.Group, user.ContactNo, user.username FROM capstone.users; SELECT group.Group_ID, group.Group_Name, area.Area_Name FROM capstone.group join capstone.area on group.Area_ID = area.Area_ID where group.Group_ID = ?;"
         var values= [GID];
         connection.query(sql, values, function (err, results, fields) {
             if (err) throw err;
