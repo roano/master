@@ -6,7 +6,7 @@ var connection = mysql.createPool({
     password: '1234',
     database: 'capstone',
     multipleStatements: true,
-    connectionLimit: 10
+    connectionLimit: 30
 });
 
 

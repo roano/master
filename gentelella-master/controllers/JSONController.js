@@ -24,17 +24,20 @@ module.exports = {
 
         var UID = req.body.table;
         UID = JSON.parse(UID);
-        console.log(UID)
+     //   console.log(UID[0]["User ID"]);
 
 
-        /*
-        var sql = "Update capstone.users set Group = ? where User_ID = ? ";
-        var values = [UID, GID];
-        connection.query(sql, values, function (err, result) {
-            if (err) throw err;
-            console.log(result);
-        });
-        */
+        for (var i = 0; i < UID.length; i++) {
+            var gid = UID[i]["Group ID"];
+            var uid =  UID[i]["User ID"]
+            var sql = "Update capstone.users set users.Group = ? where users.User_ID = ? ";
+            var values = [gid, uid];
+            connection.query(sql, values, function (err, result) {
+                if (err) throw err;
+                console.log(result);
+            });
+        };
+       
         console.log('AssignTaskJSON')
     },
 
