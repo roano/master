@@ -221,18 +221,17 @@
             });
 
             $("#toJSON").click(function () {
-                console.log("Hello");
-                $('#result').append(JSON.stringify(makeJsonFromTable('table2')))
-                $('#result').show()
 
+                var table = $('#table2').tableToJSON({ignoreColumns: [0, 2, 3]}); // 
+                console.log(table);
+                
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', '/AssignTaskJSON', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onload = function () {
                     console.log(xhr.responseText);
                 };
-                var JINSERT = JSON.stringify(makeJsonFromTable('table2'));
-                xhr.send(JINSERT);
+                xhr.send(JSON.stringify(table));
 
             });
 
@@ -312,7 +311,7 @@
     <script src="assets/vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
-    <script src="assets/js/JSONjs/TableToJson.min.js"></script>
+    <script src="assets/js/JSONjs/jquery.tabletojson.js"></script>
 
 </body>
 

@@ -23,7 +23,9 @@ module.exports = {
     AssignTaskJSON: function (req, resp) {
 
         console.log(req.body);
-       
+       var JINSERT = req.body
+       JINSERT = JINSERT.toArray;
+        console.log(JINSERT);
         console.log('AssignTaskJSON')
     },
     
