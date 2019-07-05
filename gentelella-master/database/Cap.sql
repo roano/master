@@ -42,6 +42,59 @@ INSERT INTO `area` VALUES (1,'Purposes and Objectives'),(2,'Faculty'),(3,'Instru
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cycle`
+--
+
+DROP TABLE IF EXISTS `cycle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `cycle` (
+  `cycle_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `cycle_Name` varchar(45) NOT NULL,
+  `start_Date` date NOT NULL,
+  `end_Date` date NOT NULL,
+  PRIMARY KEY (`cycle_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cycle`
+--
+
+LOCK TABLES `cycle` WRITE;
+/*!40000 ALTER TABLE `cycle` DISABLE KEYS */;
+INSERT INTO `cycle` VALUES (1,'CYCLE 1','2019-07-02','2019-07-31'),(2,'CYCLE 2','2019-07-16','2020-03-05'),(3,'ADDING CYCLE TEST AT HOME','2019-07-02','2020-09-15'),(4,'Test Cycle','2019-07-02','2019-09-19');
+/*!40000 ALTER TABLE `cycle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documents`
+--
+
+DROP TABLE IF EXISTS `documents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `documents` (
+  `Document_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Document_Name` varchar(45) NOT NULL,
+  `Document_Route` varchar(100) NOT NULL,
+  `Document_Desc` varchar(300) DEFAULT 'No Description Given.',
+  `Document_Ext` varchar(45) NOT NULL,
+  PRIMARY KEY (`Document_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documents`
+--
+
+LOCK TABLES `documents` WRITE;
+/*!40000 ALTER TABLE `documents` DISABLE KEYS */;
+INSERT INTO `documents` VALUES (20,'IMAGE TEST','uploads/picture.jpg','TESTING TESTING ','.jpg'),(21,'DOCUMENT TEST','uploads/asean.docx','DOCUMENT TESTING TESTING','.docx'),(22,'Test File','uploads/GEFILIFINALPRESENTATION.pdf','Hi','.pdf'),(23,'Test','uploads/Jeld-RentalReceipt.docx','Test','.docx'),(24,'wsdfawqefq','uploads/05UsersandFilePermissionsv2.pptx','wefqwefqw','.pptx'),(25,'ewqfqfeqefqwefqwefq','uploads/LSDC-Folk-Attendance.pdf','qfwefqwefqwefqwefqewf','.pdf'),(26,'TEST PPTX','uploads/05UsersandFilePermissionsv2.pptx','TESTING','.pptx'),(27,'Network Test','uploads/__ai_chan_getsuyoubi_no_tawawa_drawn_by_himura_kiseki__351255e59b8f196938aa0f378be7a6f1.png','Tawawa','.png'),(28,'Network Test2','uploads/1543998205_yMm5Qfr0MVuOWQ7DR_360.mp4','Test','.mp4');
+/*!40000 ALTER TABLE `documents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `group`
 --
 
@@ -53,7 +106,7 @@ CREATE TABLE `group` (
   `Group_Name` varchar(45) DEFAULT NULL,
   `Area_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Group_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +115,7 @@ CREATE TABLE `group` (
 
 LOCK TABLES `group` WRITE;
 /*!40000 ALTER TABLE `group` DISABLE KEYS */;
-INSERT INTO `group` VALUES (1,'123',1),(2,'312',1),(3,'Hello',3),(4,'Hi',1),(5,'123',4),(6,'123',4),(7,'Students',9),(8,'Students',6),(9,'Test insert',8),(10,'123',1),(11,'123',1),(12,'123',1),(13,'234',1),(14,'123',1),(15,'Lisa',7);
+INSERT INTO `group` VALUES (1,'Analysis',1),(2,'Evaluation',1),(3,'Analysis',2),(4,'Evaluation',2),(5,'Analysis',3),(6,'Evaluation',3),(7,'Analysis',4),(8,'Evaluation',4),(9,'Analysis',5),(10,'Evaluation',5),(11,'Analysis',6),(12,'Evaluation',6),(13,'Analysis',7),(14,'Evaluation',7),(15,'Analysis',8),(16,'Evaluation',8),(17,'Analysis',9),(18,'Evaluation',9),(19,'Test Area',1);
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,6 +143,95 @@ LOCK TABLES `groupdetails` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `plans`
+--
+
+DROP TABLE IF EXISTS `plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `plans` (
+  `Plan_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `GenObjective` varchar(200) NOT NULL,
+  `Measurement` varchar(200) NOT NULL,
+  `BaseFormula` varchar(200) NOT NULL,
+  `QualityTarget` varchar(200) NOT NULL,
+  `Procedures` varchar(500) NOT NULL,
+  `GroupAssigned` int(11) DEFAULT NULL,
+  `CycleTime` int(11) DEFAULT NULL,
+  `PriorityLevel` varchar(45) DEFAULT NULL,
+  `BaseStandard` varchar(200) DEFAULT NULL,
+  `recommendation_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Plan_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `plans`
+--
+
+LOCK TABLES `plans` WRITE;
+/*!40000 ALTER TABLE `plans` DISABLE KEYS */;
+INSERT INTO `plans` VALUES (1,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(2,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(3,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(4,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(5,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(6,'1','2','3','4','5',NULL,NULL,NULL,NULL,NULL),(7,'TEST','TEST','TEST','TEST','TEST',NULL,NULL,NULL,NULL,NULL),(8,'1','1','2','4','6',1,1,'High','1234',1),(9,'dsafas','gsdgdsga','dafadgsad','dgasdffdsa','adfsgadfgdf',NULL,NULL,NULL,NULL,1),(10,'2','3','5','6','7',NULL,NULL,NULL,NULL,1);
+/*!40000 ALTER TABLE `plans` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `players`
+--
+
+DROP TABLE IF EXISTS `players`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `players` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `number` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `players`
+--
+
+LOCK TABLES `players` WRITE;
+/*!40000 ALTER TABLE `players` DISABLE KEYS */;
+/*!40000 ALTER TABLE `players` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `recommendation`
+--
+
+DROP TABLE IF EXISTS `recommendation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `recommendation` (
+  `recommendation_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `recommendation_Name` varchar(45) DEFAULT NULL,
+  `recommendation_Desc` varchar(200) DEFAULT NULL,
+  `recommendation_Grade` varchar(45) DEFAULT NULL,
+  `priority_Level` varchar(45) DEFAULT NULL,
+  `status` datetime DEFAULT NULL,
+  PRIMARY KEY (`recommendation_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `recommendation`
+--
+
+LOCK TABLES `recommendation` WRITE;
+/*!40000 ALTER TABLE `recommendation` DISABLE KEYS */;
+INSERT INTO `recommendation` VALUES (1,'TEST2','TEST2','B','Medium','2019-07-03 00:00:00'),(2,'1','2','A','High','2019-06-29 00:00:00'),(3,'1234214','123412e12xd','A','Low','2019-07-03 00:00:00');
+/*!40000 ALTER TABLE `recommendation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -109,8 +251,40 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Admin'),(2,'QAO'),(3,'Group Leader'),(4,'Group Member');
+INSERT INTO `roles` VALUES (1,'Admin'),(2,'QA Officer'),(3,'Group Leader'),(4,'Group Member');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tasks`
+--
+
+DROP TABLE IF EXISTS `tasks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tasks` (
+  `task_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Task_Name` varchar(45) NOT NULL,
+  `Task_Desc` varchar(45) NOT NULL,
+  `GenObj` varchar(45) NOT NULL,
+  `Measurement` varchar(45) NOT NULL,
+  `QT` varchar(45) NOT NULL,
+  `BaseStandard` varchar(45) NOT NULL,
+  `Group` varchar(45) DEFAULT 'Not Assigned',
+  `Personnel` varchar(45) DEFAULT 'Not Assigned',
+  `Level` int(11) DEFAULT NULL,
+  PRIMARY KEY (`task_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tasks`
+--
+
+LOCK TABLES `tasks` WRITE;
+/*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
+INSERT INTO `tasks` VALUES (1,'1','2','3','4','5','6','Not Assigned','Not Assigned',NULL);
+/*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -124,14 +298,15 @@ CREATE TABLE `users` (
   `User_ID` int(11) NOT NULL AUTO_INCREMENT,
   `User_First` varchar(45) DEFAULT NULL,
   `User_Last` varchar(45) DEFAULT NULL,
-  `e-mail_address` varchar(45) DEFAULT NULL,
+  `email_address` varchar(45) DEFAULT NULL,
   `Role` int(11) DEFAULT NULL,
   `Group` int(11) DEFAULT NULL,
-  `ContactNo` int(11) DEFAULT NULL,
+  `ContactNo` varchar(12) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
-  `passwd` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `passwd` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`User_ID`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-23 19:06:07
+-- Dump completed on 2019-07-03 23:00:45

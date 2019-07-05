@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	  
+
     <title>Edit User</title>
 
     <!-- Bootstrap -->
@@ -30,138 +31,139 @@
 
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body class="nav-md">
+<body class="nav-md">
     <div class="container body">
-      <div class="main_container">
-        <%- include ./nav.ejs %>
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
+        <div class="main_container">
+            <%- include ./nav.ejs %>
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
 
-                <h3>Edit User</h3>
+                            <h3>Edit User</h3>
 
-              </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="alteruser" method="POST">
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <!--First name Input field-->
-                            <input type="hidden" name="UID" value="<%= data[0].User_ID %>">
-                          <input type="text" id="first-name" name="firstname" class="form-control col-md-7 col-xs-12" value="<%= data[0].User_First %>">
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <!--Last name input field-->
-                          <input type="text" id="last-name" name="lastname" class="form-control col-md-7 col-xs-12" value="<%= data[0].User_Last %>">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email Addess</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <!--Email Input field-->
-                          <input id="email" class="form-control col-md-7 col-xs-12" type="email" name="email" value="<%= data[0].email_address %>">
-                        </div>
-                      </div>
-                      <!--options list of position-->
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Edit Role</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="role">
-                            <% for (var role of dataB){ %>
-                            <option value="<%= role.Role_ID %>"><%= role.Role_Name %></option>
-                              <% } %>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Contact Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <!--Last name input field-->
-                          <input type="text" id="contact" name="contact"  class="form-control col-md-7 col-xs-12" value="<%= data[0].ContactNo %>">
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
-						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
+                    </div>
                 </div>
-              </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <br />
+                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="alteruser" method="POST">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <!--First name Input field-->
+                                            <input type="hidden" name="UID" value="<%= data[0].User_ID %>">
+                                            <input type="text" id="first-name" name="firstname" class="form-control col-md-7 col-xs-12" value="<%= data[0].User_First %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <!--Last name input field-->
+                                            <input type="text" id="last-name" name="lastname" class="form-control col-md-7 col-xs-12" value="<%= data[0].User_Last %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email Addess</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <!--Email Input field-->
+                                            <input id="email" class="form-control col-md-7 col-xs-12" type="email" name="email" value="<%= data[0].email_address %>">
+                                        </div>
+                                    </div>
+                                    <!--options list of position-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Edit Role</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="role">
+                                                <% for (var role of dataB){ %>
+                                                <option value="<%= role.Role_ID %>"><%= role.Role_Name %></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Contact Number <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <!--Last name input field-->
+                                            <input type="text" id="contact" name="contact" class="form-control col-md-7 col-xs-12" value="<%= data[0].ContactNo %>">
+                                        </div>
+                                    </div>
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            <button class="btn btn-primary" type="button">Cancel</button>
+                                            <button class="btn btn-primary" type="reset">Reset</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
+        </div>
 
-            
-        <!-- /page content -->
+        <!-- jQuery -->
+        <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="assets/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="assets/vendors/nprogress/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <!-- iCheck -->
+        <script src="assets/vendors/iCheck/icheck.min.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="assets/vendors/moment/min/moment.min.js"></script>
+        <script src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap-wysiwyg -->
+        <script src="assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+        <script src="assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+        <script src="assets/vendors/google-code-prettify/src/prettify.js"></script>
+        <!-- jQuery Tags Input -->
+        <script src="assets/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+        <!-- Switchery -->
+        <script src="assets/vendors/switchery/dist/switchery.min.js"></script>
+        <!-- Select2 -->
+        <script src="assets/vendors/select2/dist/js/select2.full.min.js"></script>
+        <!-- Parsley -->
+        <script src="assets/vendors/parsleyjs/dist/parsley.min.js"></script>
+        <!-- Autosize -->
+        <script src="assets/vendors/autosize/dist/autosize.min.js"></script>
+        <!-- jQuery autocomplete -->
+        <script src="assets/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+        <!-- starrr -->
+        <script src="assets/vendors/starrr/dist/starrr.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="assets/build/js/custom.min.js"></script>
 
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
+</body>
 
-    <!-- jQuery -->
-    <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="assets/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="assets/vendors/nprogress/nprogress.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="assets/vendors/iCheck/icheck.min.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="assets/vendors/moment/min/moment.min.js"></script>
-    <script src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="assets/vendors/google-code-prettify/src/prettify.js"></script>
-    <!-- jQuery Tags Input -->
-    <script src="assets/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-    <!-- Switchery -->
-    <script src="assets/vendors/switchery/dist/switchery.min.js"></script>
-    <!-- Select2 -->
-    <script src="assets/vendors/select2/dist/js/select2.full.min.js"></script>
-    <!-- Parsley -->
-    <script src="assets/vendors/parsleyjs/dist/parsley.min.js"></script>
-    <!-- Autosize -->
-    <script src="assets/vendors/autosize/dist/autosize.min.js"></script>
-    <!-- jQuery autocomplete -->
-    <script src="assets/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-    <!-- starrr -->
-    <script src="assets/vendors/starrr/dist/starrr.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="assets/build/js/custom.min.js"></script>
-	
-  </body>
 </html>
