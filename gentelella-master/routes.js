@@ -33,7 +33,7 @@ router.route('/alterplan').post(planCtrl.alterplan);
 router.route('/AssignMemberToGroup').get(planCtrl.assignmembertogroup);
 
 //--JSONCtrl--
-router.route('/AssignTaskJSON').post(JSONCtrl.AssignTaskJSON);
+router.route('/AssignGroupJSON').post(JSONCtrl.AssignTaskJSON);
 router.route('/AssignUserJSON').post(JSONCtrl.AssignTaskJSON);
 router.route('/viewplantest').post(JSONCtrl.ViewPlanTest);
 //--DocCtrl--
