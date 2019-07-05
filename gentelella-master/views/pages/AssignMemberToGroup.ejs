@@ -123,6 +123,10 @@
                                         <button class="btn btn-primary" type="button">Cancel</button>
                                         <button class="btn btn-primary" type="reset">Reset</button>
                                         <button type="submit" class="btn btn-success" id="toJSON">Submit</button>
+                                        <form method="get" action="ViewGroups">
+                                            
+                                            <button type="submit"  class="btn btn-success" style="display: none;" id="back">Hi</button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -239,14 +243,26 @@
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState > 2) {
                         var respData = xhr.responseText;
+                        if(respData == "OK"){
+                            console.log("Hi");
+                            back();
+                        }
                     }
                 };
-
 
 
                 xhr.send("table=" + table + "&table2=" + table2);
 
             });
+            
+            function back() {
+                console.log("Hi")
+
+               var button = document.getElementById('back');
+                button.click();
+
+            };
+
 
 
         });
