@@ -35,7 +35,7 @@ server.set('view engine', 'ejs');
 
 server.get('/', function (req, resp) {
 
-    resp.render('./pages/defaultpage.html');
+    resp.render('./pages/defaultpage.ejs');
 
     console.log("Testing testing");
 });
