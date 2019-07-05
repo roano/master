@@ -20,7 +20,7 @@ server.use(session({
 var sess;
 module.exports = {
 
-    AssignTaskJSON: function (req, resp) {
+    AssignGroupJSON: function (req, resp) {
         var check = false;
         var UID = req.body.table;
         UID = JSON.parse(UID);
