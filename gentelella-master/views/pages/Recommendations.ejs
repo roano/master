@@ -71,9 +71,15 @@
                         <th>Description</th>
                         <th>Given Grade</th>
                         <th>Priority Level</th>
-                        <!--High, Medium, Low-->
+                        <!--High, Medium, Low-->|
+                        <th>Status Changed</th>
                         <th>Status</th>
-                        <!-- Status will be No Updates or Updated Last(Date Here)-->
+                          <!--New status will now change depending on phase of the cycle
+                              After Plans have been given it will be changed to Doing(Plain Text)
+                              After Doing a Checking Button will be active
+                              After Checking it will be changed to Acting(plain text)
+-->
+                        
                         <th></th>
                       </tr>
                     </thead>
@@ -86,17 +92,15 @@
                         </td>
                         <td>2</td>
                         <td>High</td>
-                        <td>Updated Last: June 6, 2019</td>
+                        <td>July 4, 2019</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".plan">
+                                Add Plan</button><br /><br /></td>
                         <td>
-                          <div class="form-group">
                             <div>
-                              <!--BUTTONS FOR EDIT AND PLAN-->
+                              <!--BUTTON for Edit-->
                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".edit">
                                 Edit Recommendation</button><br /><br />
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".plan">
-                                Plan</button><br /><br />
-                            </div>
-                          </div>
+                           </div>
                         </td>
                       </tr>
                     </tbody>
