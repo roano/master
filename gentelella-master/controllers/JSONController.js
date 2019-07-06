@@ -30,15 +30,9 @@ module.exports = {
         for (var i = 0; i < UID.length; i++) {
             var gid = UID[i]["Group ID"];
             var uid = UID[i]["User ID"]
-            var sql = "Update capstone.users set users.Group = ? where users.User_ID = ? ";
-            var sql2 = "INSERT INTO `capstone`.`groupdetails` (`Groupdetails_ID`, `Groupdetails_UserID`) VALUES (? , ? )"
-            var values = [gid, uid];
+            var sql = "Update capstone.users set users.Group = ? where users.User_ID = ?; INSERT INTO `capstone`.`groupdetails` (`Groupdetails_ID`, `Groupdetails_UserID`) VALUES (? , ? ); ";
+            var values = [gid, uid, gid, uid];
             connection.query(sql, values, function (err, result) {
-                if (err) check = false;
-                check = true;
-                console.log(result);
-            });
-            connection.query(sql2, values, function (err, result) {
                 if (err) check = false;
                 check = true;
                 console.log(result);
