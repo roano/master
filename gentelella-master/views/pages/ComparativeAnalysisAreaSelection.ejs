@@ -35,6 +35,324 @@
 
 <body class="nav-md">
     <div class="container body">
+<<<<<<< HEAD
+      <div class="main_container">
+        <%- include ./nav.ejs %>
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title" style="float: left">
+                    <h3> Previous Cycle Scores & Current Cycles Scores </h3>
+              </div>
+            </div>
+            
+                <!--Div fpr Table generation-->
+                <div class="box600"> 
+
+                    <table class="smalltable floatleft"><!-- First Table --> 
+                      <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Criteria</th>   <!-- changed to Critera instead of Task-->
+                            <th>General Objective</th>
+                            <!--Measurement-->
+                            <th>Quality Target</th>
+                            <!--removed base standard column-->
+                            <th>Group Assigned</th><!--Exclude to G.L-->
+                            <th>Personnel Assigned</th><!---Exclude to G.M-->
+                            <th>Priority Level</th>
+                            <th>Previous Score</th>  <!--Added score row to display recieved score from previous cycle-->
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>All classrooms contain fire extinguishers for cases of emergency</td>
+                            <td>Safety Practices and Academic Efficiency </td>
+                            
+                            <td> 8/10</td>
+                            <td> Student Services </td>
+                            <td></td>
+                            <td>9/10</td>
+                            <td> 5/10 </td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>All Scientific Laboratories contain proper safety materials and follow proper safety guidelines </td>
+                            <td>Safety Practices and Academic Efficiency </td>
+                            
+                            <td> 9/10 </td>
+                            <td> Student Services </td>
+                            <td></td>
+                            <td>9/10</td>
+                            <td> 6/10 </td>
+                            
+                          </tr>
+                          <tr>
+                              <th scope="row">3</th>
+                              <td>Each classrooms contain learning materials athat are in good condition to be used for academic learning </td>
+                              <td>Safety Practices and Academic Efficiency </td>
+                              
+                              <td> 9/10 </td>
+                              <td> Student Services </td>
+                              <td></td>
+                              <td>9/10</td>
+                              <td> 6/10 </td>
+                              
+                            </tr>
+                        </tbody>
+
+                    </table>
+                
+                    
+                    <table class="smalltable floatleft"> <!--Second Table-->
+
+                        <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Criteria</th>   <!-- changed to Critera instead of Task-->
+                              <th>General Objective</th>
+                              <!--measurement-->
+                              <th>Quality Target</th>
+                              <!--removed base standard column-->
+                              <th>Group Assigned</th><!--Exclude to G.L-->
+                              <th>Personnel Assigned</th><!---Exclude to G.M-->
+                              <th>Priority Level</th>
+                              <th>Current Score</th>  <!--Added score row to display recieved score from previous cycle-->
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>All classrooms contain fire extinguishers for cases of emergency</td>
+                                <td>Safety Practices and Academic Efficiency </td>
+                                
+                                <td> 8/10</td>
+                                <td> Student Services </td>
+                                <td></td>
+                                <td>9/10</td>
+                                <td> 7/10 </td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>All Scientific Laboratories contain proper safety materials and follow proper safety guidelines </td>
+                                <td>Safety Practices and Academic Efficiency </td>
+                                
+                                <td> 9/10 </td>
+                                <td> Student Services </td>
+                                <td></td>
+                                <td>9/10</td>
+                                <td> 5/10 </td>
+                                
+                              </tr>
+                              <tr>
+                                  <th scope="row">3</th>
+                                  <td>Each classrooms contain learning materials athat are in good condition to be used for academic learning </td>
+                                  <td>Safety Practices and Academic Efficiency </td>
+                                  
+                                  <td> 9/10 </td>
+                                  <td> Student Services </td>
+                                  <td></td>
+                                  <td>9/10</td>
+                                  <td> 6/10 </td>
+                                  
+                                </tr>
+                            </tbody>
+
+                    </table>
+                    <table class="smalltable floatleft"> <!--Third Table-->
+
+                        <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Criteria</th>   <!-- changed to Critera instead of Task-->
+                              <th>General Objective</th>
+                              <!--measurement-->
+                              <th>Quality Target</th>
+                              <!--removed base standard column-->
+                              <th>Group Assigned</th><!--Exclude to G.L-->
+                              <th>Personnel Assigned</th><!---Exclude to G.M-->
+                              <th>Priority Level</th>
+                              <th>Current Score</th>  <!--Added score row to display recieved score from previous cycle-->
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>The library has enough learnin resources that can help the student with their specific courses </td>
+                                <td>Library </td>
+                                
+                                <td> 8/10</td>
+                                <td> Student Services </td>
+                                <td></td>
+                                <td>9/10</td>
+                                <td> 7/10 </td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>All Computers in the computer laboratories are well maintained and suffices the technological specifications for the student's needs </td>
+                                <td>Safety Practices and Academic Efficiency </td>
+                                
+                                <td> 9/10 </td>
+                                <td> Student Services </td>
+                                <td></td>
+                                <td>9/10</td>
+                                <td> 7/10 </td>
+                                
+                              </tr>
+                              <tr>
+                                  <th scope="row">3</th>
+                                  <td>The Laboratories are well maintained and upgraded to increase guranteed safety and learning efficiency of the students </td>
+                                  <td>Safety Practices and Academic Efficiency </td>
+                                  
+                                  <td> 9/10 </td>
+                                  <td> Student Services </td>
+                                  <td></td>
+                                  <td>9/10</td>
+                                  <td> 6/10 </td>
+                                  
+                                </tr>
+                            </tbody>
+
+                    </table> 
+
+                    <table class="smalltable floatleft"> <!--Fourth Table-->  
+
+                        <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Criteria</th>   <!-- changed to Critera instead of Task-->
+                              <th>General Objective</th>
+                              <!--measurement-->
+                              <th>Quality Target</th>
+                              <!--removed base standard column-->
+                              <th>Group Assigned</th><!--Exclude to G.L-->
+                              <th>Personnel Assigned</th><!---Exclude to G.M-->
+                              <th>Priority Level</th>
+                              <th>Current Score</th>  <!--Added score row to display recieved score from previous cycle-->
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th scope="row">1</th>
+                                  <td>The library has enough learnin resources that can help the student with their specific courses </td>
+                                  <td>Library </td>
+                                  
+                                  <td> 8/10</td>
+                                  <td> Student Services </td>
+                                  <td></td>
+                                  <td>9/10</td>
+                                  <td> 8/10 </td>
+                                  
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>All Computers in the computer laboratories are well maintained and suffices the technological specifications for the student's needs </td>
+                                  <td>Safety Practices and Academic Efficiency </td>
+                                  
+                                  <td> 9/10 </td>
+                                  <td> Student Services </td>
+                                  <td></td>
+                                  <td>9/10</td>
+                                  <td> 7/10 </td>
+                                  
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>The Laboratories are well maintained and upgraded to increase guranteed safety and learning efficiency of the students </td>
+                                    <td>Safety Practices and Academic Efficiency </td>
+                                    
+                                    <td> 9/10 </td>
+                                    <td> Student Services </td>
+                                    <td></td>
+                                    <td>9/10</td>
+                                    <td> 7/10 </td>
+                                    
+                                  </tr>
+                            </tbody>
+
+                    </table> 
+
+
+                    </div><!-- End Div for table creation -->
+
+                    <!--Table CSS-->
+                    <style> 
+                      table.smalltable {
+                          border:3px solid #000;
+                          width:350px; /*280px */
+                          margin:25px;
+                          border-collapse: collapse;
+                          font-size: 1.0em;
+                          min-width: 400px; 
+                          border-radius: 5px 5px 0 0;
+                          overflow: hidden;
+                          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+                          float:left; 
+                          } 
+
+                          table.smalltable th{
+                          border: 1px solid #000; 
+                          background-color: darkseagreen;
+                          color: white;
+                          padding: 5px 7px;
+                          }
+
+                          table.smalltable td {
+                          font-size:100%;
+                          padding: 5px;
+                          text-align:center;
+                          vertical-align:top;
+                          padding: 12px 15px;
+                           }
+
+                          table.smalltable tr{
+                            border-bottom: 1px solid #dddddd;
+                          } 
+
+                          table.smalltable tbody tr:nth-of-type(even){
+                            background-color: #f3f3f3;
+                          }
+
+                          table.smalltable tbody tr:last-of-type{
+                            border-bottom: 2px solid #009879;
+                          }
+
+                          table.smalltable thead tr{
+                            padding: 5px 7px;
+                            text-align:left;
+                            font-weight: bold;
+                            border-bottom: 1px solid #ddd;
+                          }
+
+
+                          
+                          table.smalltable td:nth-child(odd) {font-weight:bold; width:50%; }
+                          table.smalltable td:nth-child(even) {font-weight:normal; width:50%;}
+
+                          @media only screen and (min-width : 768px) and (max-width : 959px) and (orientation:portrait) { .smalltable {float:none; width:100%; display:block; margin:0 auto; } }
+                      </style>
+                            
+        </div>  
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+=======
         <div class="main_container">
             <%- include ./nav.ejs %>
             <!-- page content -->
@@ -150,6 +468,7 @@
             </footer>
             <!-- /footer content -->
         </div>
+>>>>>>> f40bab42964dbecc428aa990bf9019754e4ddd1e
     </div>
 
     <!-- jQuery -->
