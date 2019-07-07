@@ -55,6 +55,11 @@ server.get('/debug2', function (req, resp) {
     console.log("Testing testing");
 });
 
+server.get('/RegisterAdminPage', function (req, resp) {
+    resp.render('./pages/RegisterAdminPage.ejs');
+    console.log("Testing testing");
+});
+
 server.get('/home', function (req, resp) {
     sess = req.session;
     if(!req.session.user){

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Assign Task </title>
+    <title>Assign Member to Group </title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,9 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>(Insert Task Name Here)</h3>
+                            <h3>Area: <%= dataB[0].Area_Name %></h3>
+                            <h3>Group: <%= dataB[0].Group_Name %></h3>
+                            <input type="hidden" id="GID" value="<%= dataB[0].Group_ID %>">
                         </div>
                     </div>
                 </div>
@@ -66,6 +68,7 @@
                                                     <th>User ID</th>
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
+                                                    <th style="visibility:collapse;">Group ID</th>
                                                 </tr>
                                             </thead>
 
@@ -80,6 +83,7 @@
                                                         <%= user.User_First %></td>
                                                     <td id='last<%= user.User_ID %>' value="<%= user.User_Last %>">
                                                         <%= user.User_Last %></td>
+                                                    <td id='hidden<%= user.User_ID %>' value="<%= dataB[0].Group_ID %>" style="visibility:collapse;">test</td>
                                                 </tr>
                                                 <% } %>
                                             </tbody>
@@ -100,6 +104,7 @@
                                                     <th>User ID</th>
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
+                                                    <th style="visibility:collapse;">Group ID</th>
                                                 </tr>
                                             </thead>
 
@@ -112,12 +117,16 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                         <button class="btn btn-primary" type="button">Cancel</button>
                                         <button class="btn btn-primary" type="reset">Reset</button>
                                         <button type="submit" class="btn btn-success" id="toJSON">Submit</button>
+                                        <form method="get" action="ViewGroups">
+                                            
+                                            <button type="submit"  class="btn btn-success" style="display: none;" id="back">Hi</button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -170,9 +179,9 @@
     <!--TEST SCRIPT FOR ADDING-->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".add-row").click(function () {
-                $("#table1 tbody").find('input[name="record"]').each(function () {
+        $(document).ready(function() {
+            $(".add-row").click(function() {
+                $("#table1 tbody").find('input[name="record"]').each(function() {
                     //console.log('test');
                     if ($(this).is(":checked")) {
                         var index = $(this).attr("id");
@@ -181,7 +190,8 @@
                         // console.log(first);
                         var last = $("#last" + index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td></tr>";
+                        var hidden = $('#hidden' + index).attr("value");
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td><td id= hidden" + index + " value=" + hidden + " style='visibility:collapse'>" + hidden + "</td></tr>";
                         $("#table2 tbody").append(markup);
                         $(this).parents("tr").remove();
                     }
@@ -195,8 +205,8 @@
             });
 
             // Find and remove selected table rows
-            $(".delete-row").click(function () {
-                $("#table2 tbody tr").find('input[name="record"]').each(function () {
+            $(".delete-row").click(function() {
+                $("#table2 tbody tr").find('input[name="record"]').each(function() {
                     if ($(this).is(":checked")) {
                         var index = $(this).attr("id");
                         var UID = $('#UID' + index).attr("value");
@@ -204,7 +214,8 @@
                         // console.log(first);
                         var last = $("#last" + index).attr("value");
                         //console.log(last);
-                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td></tr>";
+                        var hidden = $('#hidden' + index).attr("value");
+                        var markup = "<tr><td><input type='checkbox' name='record' id=" + index + "></td><td id= UID" + index + " value=" + UID + ">" + UID + "</td><td id= first" + index + " value=" + first + ">" + first + "</td><td id= last" + index + " value=" + last + ">" + last + "</td><td id= hidden" + index + " value=" + hidden + ">" + hidden + "</td></tr>";
                         $("#table1 tbody").append(markup);
                         $(this).parents("tr").remove();
 
@@ -213,20 +224,45 @@
                 });
             });
 
-            $("#toJSON").click(function () {
-                console.log("Hello");
-                $('#result').append(JSON.stringify(makeJsonFromTable('table2')))
-                $('#result').show()
+            $("#toJSON").click(function() {
+
+                var table = JSON.stringify($('#table2').tableToJSON({
+                    ignoreColumns: [0, 2, 3]
+                }));
+                var table2 = JSON.stringify($('#table2').tableToJSON({
+                    ignoreColumns: [0, 2, 3, 4]
+                })); // 
 
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', '/AssignTaskJSON', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onload = function () {
+                xhr.open('POST', '/AssignGroupJSON', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
                     console.log(xhr.responseText);
                 };
-                xhr.send(JSON.stringify(makeJsonFromTable('table2')));
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState > 2) {
+                        var respData = xhr.responseText;
+                        if(respData == "OK"){
+                            console.log("Hi");
+                            back();
+                        }
+                    }
+                };
+
+
+                xhr.send("table=" + table + "&table2=" + table2);
 
             });
+            
+            function back() {
+                console.log("Hi")
+
+               var button = document.getElementById('back');
+                button.click();
+
+            };
+
 
 
         });
@@ -304,7 +340,7 @@
     <script src="assets/vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
-    <script src="assets/js/JSONjs/TableToJson.min.js"></script>
+    <script src="assets/js/JSONjs/jquery.tabletojson.js"></script>
 
 </body>
 
