@@ -20,15 +20,37 @@ server.use(session({
 var sess;
 module.exports = {
 
-    AssignTaskJSON: function (req, resp) {
+    AssignGroupJSON: function (req, resp) {
+        var check = false;
+        var UID = req.body.table;
+        UID = JSON.parse(UID);
+        //   console.log(UID[0]["User ID"]);
 
-        console.log(req.body);
-       
-        console.log('AssignTaskJSON')
+
+        for (var i = 0; i < UID.length; i++) {
+            var gid = UID[i]["Group ID"];
+            var uid = UID[i]["User ID"]
+            var sql = "Update capstone.users set users.Group = ? where users.User_ID = ?; INSERT INTO `capstone`.`groupdetails` (`Groupdetails_ID`, `Groupdetails_UserID`) VALUES (? , ? ); ";
+            var values = [gid, uid, gid, uid];
+            connection.query(sql, values, function (err, result) {
+                if (err) check = false;
+                check = true;
+                console.log(result);
+            });
+        };
+        setTimeout(function () {
+            if (check == false) {
+                resp.send("Not OK")
+            } else {
+                resp.send("OK");
+            }
+        }, 1000);
+
     },
-    
-    ViewPlanTest: function (req, resp){
-        const submit = require ('../public/JSONs/viewplantest.json');
+
+
+    ViewPlanTest: function (req, resp) {
+        const submit = require('../public/JSONs/viewplantest.json');
         console.log(submit);
         resp.json(submit);
     },
